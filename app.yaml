@@ -1,0 +1,30 @@
+application: u-arch
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+
+- url: /he/
+  static_files: he/index.html
+  upload: he/index.html
+
+- url: /en/
+  static_files: en/index.html
+  upload: en/index.html
+
+- url: /bootstrap
+  static_dir: libs/bootstrap-2.3.2
+  
+- url: /rbootstrap
+  static_dir: libs/bootstrap-2.3.2-rtl
+  
+- url: /jquery
+  static_dir: libs/jquery
+  
+- url: /.*
+  script: helloworld.application
