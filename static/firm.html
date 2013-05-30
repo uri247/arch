@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+<body>
+    <h1>Firm data</h1>
+    <form action="firm_set" method="post">
+        <div>
+            <label for="key_name">Key Name: </label>
+            <input id="key_name" type="text" name="key_name" value="{{ key_name }}">
+        </div>
+        <div>
+	        <label for="name_e">English Name: </label>
+	        <input id="name_e" type="text" name="name_e" value="{{ name_e }}">
+        </div>
+        <div>
+	        <label for="name_h">Hebrew Name:</label>
+	        <input id="name_h" type="text" name="name_h" value="{{ name_h }}">
+	    </div>
+	    <div>
+	         <input type="submit">
+	    </div>
+    </form>
+
+</body>
+</html>
