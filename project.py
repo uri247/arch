@@ -18,12 +18,13 @@ class ProjectPage(web.RequestHandler):
             new_proj = True
             proj = model.Project()
             
-                    
+
         tmpl = main.jinja_env.get_template( 'project.html' )
+        p = proj.to_dict()
         html = tmpl.render({ 
             'projid': projid,
             'new_proj': new_proj,
-            'title_e': proj.title_e,
+            'p': p,
             })        
         self.html_content()
         self.w( html )

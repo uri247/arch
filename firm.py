@@ -34,9 +34,9 @@ class FirmForm(web.RequestHandler):
             firm.name_e = self.request.get('name_e')
             firm.name_h = self.request.get('name_h')
             firm.put()
-            self.redirect('/firm_status')
+            self.redirect('firm_status')
         else:
-            self.redirect('/firm')
+            self.redirect('firm')
 
 
 class StatusFirmPage(web.RequestHandler):

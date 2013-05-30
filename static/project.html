@@ -14,50 +14,50 @@
         <legend>English:</legend>
         <div>
 	        <label for="title_e">Title: </label>
-	        <input id="title_e" name="title_e" type="text" value="{{ title_e }}">
+	        <input id="title_e" name="title_e" type="text" value="{{ p.title_e }}">
 	    </div>
 	    <div>
 	        <label for="address_e">Address: </label>
-	        <input id="address_e" name="address_e" type="text" value="{{ address_e }}">
+	        <input id="address_e" name="address_e" type="text" value="{{ p.address_e }}">
 	    </div>
         <div>
             <label for="year">Year: </label>
-            <input id="year" name="year" type="text" value="{{ year }}">
+            <input id="year" name="year" type="text" value="{{ p.year }}">
         </div>
         <div>
             <label for="descriptoin_e">Description: </label>
-            <input id="description_e" name="description_e" type="text" value="{{ description_e }}">
+            <input id="description_e" name="description_e" type="text" value="{{ p.description_e }}">
         </div>
         <div>
             <label for="status">Status: </label>
-            <input id="status" name="status" type="text" value="{{ status }}">
+            <input id="status" name="status" type="text" value="{{ p.status }}">
         </div>
         <div>
             <label for="plot_area">Plot Area: </label>
-            <input id="plot_area" name="plot_area" type="text" value="{{ plot_area }}">
+            <input id="plot_area" name="plot_area" type="text" value="{{ p.plot_area }}">
         </div>
         <div>
             <label for="built_area">Built Area: </label>
-            <input id="built_area" name="built_area" type="text" value="{{ built_area }}">
+            <input id="built_area" name="built_area" type="text" value="{{ p.built_area }}">
         </div>
         <div>
             <label for="classification">Classification: </label>
-            <input id="classification" name="classification" type="text" value="{{ classification }}">
+            <input id="classification" name="classification" type="text" value="{{ p.classification }}">
         </div>
     </fieldset>
     <fieldset>
         <legend>Hebrew:</legend>
         <div>
             <label for="title_h">כותרת: </label>
-            <input id="title_h" name="title_h" type="text" value="{{ title_h }}">
+            <input id="title_h" name="title_h" type="text" value="{{ p.title_h }}">
         </div>
         <div>
             <label for="address_h">כתובת: </label>
-            <input id="address_h" name="address_h" type="text" value="{{ address_h }}">
+            <input id="address_h" name="address_h" type="text" value="{{ p.address_h }}">
         </div>
         <div>
             <label for="descriptoin_h">תאור: </label>
-            <input id="description_h" name="description_h" type="text" value="{{ description_h }}">
+            <input id="description_h" name="description_h" type="text" value="{{ p.description_h }}">
         </div>
     </fieldset>
     <input type="submit" method="post" value="OK">
