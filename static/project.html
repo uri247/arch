@@ -2,41 +2,63 @@
 <html>
 <head>
 <!--  <meta charset="ISO-8859-1"> -->
-<title>Insert title here</title>
+<title>Project Settings</title>
 </head>
 <body>
 
-<form action="project_set" method="post">
+<form action="../project_form" method="post">
     <input type="hidden" name="new_proj" value="{{ new_proj }}">
-    <label>for="projid">Project ID:</label>
+    <label for="projid">Project ID:</label>
     <input id="projid" name="projid" type="text" value="{{ projid }}">
     <fieldset>
         <legend>English:</legend>
-        <label for="title_e">Title: </label>
-        <input id="title_e" name="title_e" type="text" value="{{ title_e }}">
-        <label for="address_e">Address: </label>
-        <input id="address_e" name="address_e" type="text" value="{{ address_e }}">
-        <label for="year">Year: </label>
-        <input id="year" name="year" type="text" value="{{ year }}">
-        <label for="descriptoin_e">Description: </label>
-        <input id="description_e" name="description_e" type="text" value="{{ description_e }}">
-        <label for="status">Status: </label>
-        <input id="status" name="status" type="text" value="{{ status }}">
-        <label for="plot_area">Plot Area: </label>
-        <input id="plot_area" name="plot_area" type="text" value="{{ plot_area }}">
-        <label for="built_area">Built Area: </label>
-        <input id="built_area" name="built_area" type="text" value="{{ built_area }}">
-        <label for="classification">Classification: </label>
-        <input id="classification" name="classification" type="text" value="{{ classification }}">
+        <div>
+	        <label for="title_e">Title: </label>
+	        <input id="title_e" name="title_e" type="text" value="{{ title_e }}">
+	    </div>
+	    <div>
+	        <label for="address_e">Address: </label>
+	        <input id="address_e" name="address_e" type="text" value="{{ address_e }}">
+	    </div>
+        <div>
+            <label for="year">Year: </label>
+            <input id="year" name="year" type="text" value="{{ year }}">
+        </div>
+        <div>
+            <label for="descriptoin_e">Description: </label>
+            <input id="description_e" name="description_e" type="text" value="{{ description_e }}">
+        </div>
+        <div>
+            <label for="status">Status: </label>
+            <input id="status" name="status" type="text" value="{{ status }}">
+        </div>
+        <div>
+            <label for="plot_area">Plot Area: </label>
+            <input id="plot_area" name="plot_area" type="text" value="{{ plot_area }}">
+        </div>
+        <div>
+            <label for="built_area">Built Area: </label>
+            <input id="built_area" name="built_area" type="text" value="{{ built_area }}">
+        </div>
+        <div>
+            <label for="classification">Classification: </label>
+            <input id="classification" name="classification" type="text" value="{{ classification }}">
+        </div>
     </fieldset>
     <fieldset>
         <legend>Hebrew:</legend>
-        <label for="title_h">כותרת: </label>
-        <input id="title_h" name="title_h" type="text" value="{{ title_h }}">
-        <label for="address_h">כתובת: </label>
-        <input id="address_h" name="address_h" type="text" value="{{ address_h }}">
-        <label for="descriptoin_h">תאור: </label>
-        <input id="description_h" name="description_h" type="text" value="{{ description_h }}">
+        <div>
+            <label for="title_h">כותרת: </label>
+            <input id="title_h" name="title_h" type="text" value="{{ title_h }}">
+        </div>
+        <div>
+            <label for="address_h">כתובת: </label>
+            <input id="address_h" name="address_h" type="text" value="{{ address_h }}">
+        </div>
+        <div>
+            <label for="descriptoin_h">תאור: </label>
+            <input id="description_h" name="description_h" type="text" value="{{ description_h }}">
+        </div>
     </fieldset>
     <input type="submit" method="post" value="OK">
 </form>

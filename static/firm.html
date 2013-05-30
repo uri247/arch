@@ -25,6 +25,28 @@
 	         <input type="submit">
 	    </div>
     </form>
+    
+    <hr>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Proj ID</th>
+                <th>title</th>
+                <th>year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in projects %}
+                <tr>
+                    <td><a href="project/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
+                    <td>{{ p.title_e }}</td>
+                    <td>{{ p.year }}</td>
+                </tr>
+            {% endfor %}        
+        </tbody>    
+    </table>
 
+    <a href="project/">add</a>    
 </body>
 </html>

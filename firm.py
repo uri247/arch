@@ -1,4 +1,3 @@
-from google.appengine.ext import ndb
 import model
 import main
 import web
@@ -6,17 +5,19 @@ import web
 
 class FirmPage(web.RequestHandler):
     def get(self):        
-        key = ndb.Key( "Firm", self.get_firmid() )
+        key = model.firm_key( self.get_firmid() )
         firm = key.get()
         if( not firm ):
             firm = model.Firm(key=key,name_e='',name_h='')
             firm.put()
+        projects = model.Project.query_firm(key).fetch()
                     
         tmpl = main.jinja_env.get_template( 'firm.html' )
         html = tmpl.render( { 
             'key_name': self.get_firmid(),
             'name_e': firm.name_e,
-            'name_h': firm.name_h,                 
+            'name_h': firm.name_h,
+            'projects': projects                 
             } )
         
         self.html_content()
@@ -24,10 +25,10 @@ class FirmPage(web.RequestHandler):
         pass
 
 
-class SetFirmPage(web.RequestHandler):
+class FirmForm(web.RequestHandler):
     def post(self):
         key_name = self.request.get('key_name')
-        firm = ndb.Key( "Firm", key_name ).get()
+        firm = model.firm_key( key_name ).get()
         if( firm ):
             #update the firm     
             firm.name_e = self.request.get('name_e')

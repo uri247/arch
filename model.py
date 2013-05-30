@@ -21,3 +21,11 @@ class Project(ndb.Model):
     plot_area = ndb.IntegerProperty()
     built_area = ndb.IntegerProperty()
     classification = ndb.StringProperty()
+    
+    @classmethod
+    def query_firm(cls, firm_key):
+        return cls.query( ancestor=firm_key ).order(-cls.year)
+            
+
+def firm_key(firmid):
+    return ndb.Key( "Firm", firmid )

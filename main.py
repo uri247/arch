@@ -17,9 +17,10 @@ class MainPage(webapp.RequestHandler):
 application = webapp.WSGIApplication([
         ('/', MainPage),
         ('/admin/firm', firm.FirmPage),
-        ('/admin/firm_set', firm.SetFirmPage),
+        ('/admin/firm_set', firm.FirmForm),
         ('/admin/firm_status', firm.StatusFirmPage),
         ('/admin/project/(.*)', project.ProjectPage),
+        ('/admin/project_form', project.ProjectForm),
     ],
     debug=True
     )
