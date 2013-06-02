@@ -21,6 +21,9 @@ application = webapp.WSGIApplication([
         ('/admin/firm_status', firm.StatusFirmPage),
         ('/admin/project/(.*)', project.ProjectPage),
         ('/admin/project_form', project.ProjectForm),
+        
+        ('/api/firm/(.*)', firm.FirmApi),
+        ('/api/project/(.*)/(.*)', project.ProjectApi)
     ],
     debug=True
     )

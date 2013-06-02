@@ -1,3 +1,4 @@
+import json
 from google.appengine.ext import ndb
 import model
 import main
@@ -60,4 +61,50 @@ class ProjectForm(web.RequestHandler):
         self.redirect('firm')
         
 
-        
+class ProjectApi(web.RequestHandler):
+    def get(self, firmid, projid):
+        """return a list of projects for a firm, or project detail
+        """ 
+        self.json_content()
+        if( not projid ):
+            #user wants all projects
+            firm_key = ndb.Key( "Firm", firmid )
+            projects = model.Project.query_firm(firm_key)
+            projids = [p.key.id() for p in projects]
+            self.w( json.dumps(projids))
+        else:
+            #we return a specific project
+            proj_key = ndb.Key( "Firm", firmid, "Project", projid )
+            proj = proj_key.get()
+            d = proj.to_dict()
+            self.w(json.dumps(d))
+
+    def post(self, firmid, projid):
+        """create a new project with a given projid
+        """
+        proj_key = ndb.Key( "Firm", firmid, "Project", projid )
+        proj = proj_key.get()
+        if(proj):
+            self.error(409)
+        else:
+            d = json.loads( self.request.body )
+            proj = model.Project( key = proj_key, **d )
+            proj.put()
+            
+    def put(self, firmid, projid):
+        proj_key = ndb.Key( "Firm", firmid, "Project", projid )
+        proj = proj_key.get()
+        if(not proj):
+            self.error(404)
+        else:
+            d = json.loads( self.request.body )
+            proj.populate( **d )
+            proj.put()
+
+    def delete(self, firmid, projid):
+        proj_key = ndb.Key( "Firm", firmid, "Project", projid )
+        proj = proj_key.get()
+        if( not proj ):
+            self.error(404)
+        else:
+            proj_key.delete()

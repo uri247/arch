@@ -1,6 +1,7 @@
 import model
 import main
 import web
+import json
 
 
 class FirmPage(web.RequestHandler):
@@ -47,5 +48,44 @@ class StatusFirmPage(web.RequestHandler):
         self.html_content()
         self.w( html )
 
+
+class FirmApi(web.RequestHandler):
+    def get(self, firmid):
+        """returns a firm with firmid"""
+        key = model.firm_key( firmid )
+        firm = key.get()
+        if( not firm ):
+            self.error(404)
+        else:
+            js = json.dumps( firm.to_dict() )        
+            self.json_content()
+            self.w( js )
+
+    def post(self, firmid):
+        """create a new firm"""
+        firm = model.Firm.get_by_id(firmid)
+        if( firm ):
+            #firm already exists. returns conflict
+            self.error(409)
+        else:
+            d = json.loads( self.request.body )
+            firm = model.Firm( key = model.firm_key(firmid), **d )
+            firm.put()
+            
+    def put(self, firmid):
+        firm = model.Firm.get_by_id(firmid)
+        if( not firm ):
+            self.error(404)
+        else:
+            d = json.loads( self.request.body )
+            firm.populate( **d )
+            firm.put()
+
+    def delete(self, firmid):
+        firm = model.Firm.get_by_id(firmid)
+        if( not firm ):
+            self.error(404)
+        else:
+            firm.key.delete()
 
 
