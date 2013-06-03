@@ -27,10 +27,15 @@ class Project(ndb.Model):
         return cls.query( ancestor=firm_key ).order(-cls.year)
             
 
-class Image(ndb):
+class Image(ndb.Model):
     """Image
     an image. may be related to a project or to a person
     """
+    short_name = ndb.StringProperty()
+    orig_name = ndb.StringProperty()
+    mime_type = ndb.StringProperty()
+    data = ndb.BlobProperty()
+    
     
 
 def firm_key(firmid):

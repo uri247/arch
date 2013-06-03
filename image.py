@@ -1,29 +1,49 @@
-from google.appengine.ext import blobstore
+#from google.appengine.ext import blobstore
+import json
+from google.appengine.ext import ndb
+import model
+import main
+import web
 
 
 class ImagePage(web.RequestHandler):
-    def get(self, firm, projid):
+    def get(self, firmid, projid):
         #projid = self.request.get('projid')
-        new_proj = None
-        proj = None
+        #upload_url = blobstore.create_upload_url('')
+        self.html_content()
+        self.w( main.jinja_env.get_template( 'image.html' ).render({
+            'firmid': firmid,
+            'projid': projid,                                          
+            }))
+
+
+class ImageForm(web.RequestHandler):
+    def post(self):
+        firmid = self.request.get('firmid')
+        projid = self.request.get('projid')
         
-        if( projid ):
-            new_proj = False
-            key = ndb.Key( "Firm", self.get_firmid(), "Project", projid )
-            proj = key.get()
-        else:
-            new_proj = True
-            proj = model.Project()
-            
-
-
-
-    def get(self):
-        up_url = blobstore.create_upload_url('/fallrec/upload')
-        template = jinja_environment.get_template('fallrec.html')
-        context = {
-            'up_url': up_url,
-            'title': 'Fall Rectangle',
-        }
-        self.w( template.render(context))
-
+        short_name = self.request.get('name')
+        f = self.request.POST['file']
+        
+        image_key = ndb.Key( "Firm", firmid, "Proj", projid, "Image", short_name )
+        image = model.Image( key = image_key )
+        image.short_name = short_name
+        image.orig_name = f.filename
+        image.mime_type = f.type
+        image.data = self.request.get('file')
+        image.put()
+               
+        self.html_content()
+        self.w( 'A new image for firm %s, project %s success<br>' % (firmid, projid) )
+        self.w( 'short name: %s' % (short_name,) )
+        self.w( 'OK' )
+        
+        
+class ImageResource(web.RequestHandler):
+    def get(self, firmid, projid, imgid):
+        img_key = ndb.Key( "Firm", firmid, "Proj", projid, "Image", imgid )
+        img = img_key.get()
+        self.response.headers['Content-Type'] = str(img.mime_type)
+        self.w( img.data )
+        
+        

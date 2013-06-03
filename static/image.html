@@ -2,10 +2,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Upload Image</title>
 </head>
 <body>
 
+<h2>Uplaod a new Image for {{ firmid }}/{{ projid }}</h2>
+
+<form action='../../image_form' method='post' enctype="multipart/form-data">
+    <input type="hidden" name="firmid" value="{{ firmid }}">
+    <input type="hidden" name="projid" value="{{ projid }}">
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text">
+    <label for="file">Data File:</label>
+    <input id="file" name="file" type="file">
+    <input type="submit" value="OK">
+</form>
 
 
 </body>
