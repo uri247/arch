@@ -3,7 +3,8 @@ import json
 import test_literals as data
 
 
-base_url = 'http://localhost:8080/api'
+#base_url = 'http://localhost:8080/api'
+base_url = 'http://arch.london.org.il/api'
 def firm_url(firmid):
     return '%s/firm/%s' % (base_url, firmid)
 def project_url(firmid,projid):
