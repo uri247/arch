@@ -1,5 +1,4 @@
 #from google.appengine.ext import blobstore
-import json
 from google.appengine.ext import ndb
 import model
 import main
@@ -45,5 +44,4 @@ class ImageResource(web.RequestHandler):
         img = img_key.get()
         self.response.headers['Content-Type'] = str(img.mime_type)
         self.w( img.data )
-        
         
