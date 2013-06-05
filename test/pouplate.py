@@ -39,13 +39,13 @@ def populate_projects():
     
 def populate_images(proj):
     for img_name in proj['images']:
+        imgid = img_name[:img_name.find(os.path.extsep)]
         r = requests.post( 
-            image_url(data.firmid, proj['id'], img_name),
-            
+            image_url(data.firmid, proj['id'], imgid),
             data = {
                 'firmid': data.firmid,
                 'projid': proj['id'],
-                'name': img_name,
+                'name': imgid,
             },
             files = {
                 'file': open( os.path.join(image_dir,img_name), 'rb' )

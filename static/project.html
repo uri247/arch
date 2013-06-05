@@ -8,6 +8,31 @@
 .projimg {
     width: 120px;
 }
+fieldset {
+    display: inline;
+    width: 48%;
+    vertical-align: top;
+    position: relative:
+}
+fieldset.left {
+}
+fieldset.right {
+}
+
+fieldset div {
+    margin: 0.5em;
+}
+
+fieldset input {
+    position: absolute;
+    width: 320px;
+}
+fieldset.left input {
+    left: 120px;
+}
+fieldset.right input {
+    right: 120px;
+}
 </style>
 </head>
 <body>
@@ -17,56 +42,58 @@
     <input type="hidden" name="new_proj" value="{{ new_proj }}">
     <label for="projid">Project ID:</label>
     <input id="projid" name="projid" type="text" value="{{ projid }}">
-    <fieldset>
-        <legend>English:</legend>
-        <div>
-	        <label for="title_e">Title: </label>
-	        <input id="title_e" name="title_e" type="text" value="{{ p.title_e }}">
-	    </div>
-	    <div>
-	        <label for="address_e">Address: </label>
-	        <input id="address_e" name="address_e" type="text" value="{{ p.address_e }}">
-	    </div>
-        <div>
-            <label for="year">Year: </label>
-            <input id="year" name="year" type="text" value="{{ p.year }}">
-        </div>
-        <div>
-            <label for="descriptoin_e">Description: </label>
-            <input id="description_e" name="description_e" type="text" value="{{ p.description_e }}">
-        </div>
-        <div>
-            <label for="status">Status: </label>
-            <input id="status" name="status" type="text" value="{{ p.status }}">
-        </div>
-        <div>
-            <label for="plot_area">Plot Area: </label>
-            <input id="plot_area" name="plot_area" type="text" value="{{ p.plot_area }}">
-        </div>
-        <div>
-            <label for="built_area">Built Area: </label>
-            <input id="built_area" name="built_area" type="text" value="{{ p.built_area }}">
-        </div>
-        <div>
-            <label for="classification">Classification: </label>
-            <input id="classification" name="classification" type="text" value="{{ p.classification }}">
-        </div>
-    </fieldset>
-    <fieldset dir="rtl">
-        <legend>Hebrew:</legend>
-        <div>
-            <label for="title_h">כותרת: </label>
-            <input id="title_h" name="title_h" type="text" value="{{ p.title_h }}">
-        </div>
-        <div>
-            <label for="address_h">כתובת: </label>
-            <input id="address_h" name="address_h" type="text" value="{{ p.address_h }}">
-        </div>
-        <div>
-            <label for="descriptoin_h">תאור: </label>
-            <input id="description_h" name="description_h" type="text" value="{{ p.description_h }}">
-        </div>
-    </fieldset>
+    <div style="border: solid 1px red; position: relative">
+        <fieldset class="left">
+            <legend>English:</legend>
+            <div>
+    	        <label for="title_e">Title: </label>
+    	        <input id="title_e" name="title_e" type="text" value="{{ p.title_e }}">
+    	    </div>
+    	    <div>
+    	        <label for="address_e">Address: </label>
+    	        <input id="address_e" name="address_e" type="text" value="{{ p.address_e }}">
+    	    </div>
+            <div>
+                <label for="year">Year: </label>
+                <input id="year" name="year" type="text" value="{{ p.year }}">
+            </div>
+            <div>
+                <label for="descriptoin_e">Description: </label>
+                <input id="description_e" name="description_e" type="text" value="{{ p.description_e }}">
+            </div>
+            <div>
+                <label for="status">Status: </label>
+                <input id="status" name="status" type="text" value="{{ p.status }}">
+            </div>
+            <div>
+                <label for="plot_area">Plot Area: </label>
+                <input id="plot_area" name="plot_area" type="text" value="{{ p.plot_area }}">
+            </div>
+            <div>
+                <label for="built_area">Built Area: </label>
+                <input id="built_area" name="built_area" type="text" value="{{ p.built_area }}">
+            </div>
+            <div>
+                <label for="classification">Classification: </label>
+                <input id="classification" name="classification" type="text" value="{{ p.classification }}">
+            </div>
+        </fieldset>
+        <fieldset dir="rtl" class="right">
+            <legend>עברית:</legend>
+            <div>
+                <label for="title_h">כותרת: </label>
+                <input id="title_h" name="title_h" type="text" value="{{ p.title_h }}">
+            </div>
+            <div>
+                <label for="address_h">כתובת: </label>
+                <input id="address_h" name="address_h" type="text" value="{{ p.address_h }}">
+            </div>
+            <div>
+                <label for="descriptoin_h">תאור: </label>
+                <input id="description_h" name="description_h" type="text" value="{{ p.description_h }}">
+            </div>
+        </fieldset>
+    </div>
     <input type="submit" method="post" value="OK">
 </form>
 
