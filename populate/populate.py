@@ -1,8 +1,9 @@
-import requests
 import json
-import test_literals as data
 import sys
 import os
+import requests
+
+import data
 
 #base_url is either local or remote:
 if len(sys.argv) == 1 or sys.argv[1] == 'local':

@@ -5,18 +5,22 @@ import firm
 import project
 import image
 
-static_dir =  os.path.join( os.path.dirname(__file__), 'static' )
+static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
 jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        self.redirect( '/admin/firm' )
+        self.redirect( '/he' )
         
+class AdminPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect( '/admin/firm' )
 
 
 application = webapp.WSGIApplication([
         ('/', MainPage),
+        ('/admin', AdminPage),
         ('/admin/firm', firm.FirmPage),
         ('/admin/firm_set', firm.FirmForm),
         ('/admin/firm_status', firm.StatusFirmPage),

@@ -10,7 +10,7 @@
 }
 fieldset {
     display: inline;
-    width: 48%;
+    width: 46%;
     vertical-align: top;
     position: relative:
 }
@@ -42,7 +42,7 @@ fieldset.right input {
     <input type="hidden" name="new_proj" value="{{ new_proj }}">
     <label for="projid">Project ID:</label>
     <input id="projid" name="projid" type="text" value="{{ projid }}">
-    <div style="border: solid 1px red; position: relative">
+    <div style="position: relative">
         <fieldset class="left">
             <legend>English:</legend>
             <div>
@@ -113,7 +113,7 @@ fieldset.right input {
                 <tr>
             {% endif %}
                     <td>
-                        <div style="height: 96px; border: 1px solid red">
+                        <div style="height: 96px;">
                             <a href="/admin/image/{{firmid}}/{{projid}}/{{img.short_name}}">
                                 <img src="/img/{{firmid}}/{{projid}}/{{img.short_name}}" class="projimg">
                             </a>
