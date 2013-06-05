@@ -6,14 +6,27 @@ import web
 
 
 class ImagePage(web.RequestHandler):
-    def get(self, firmid, projid):
-        #projid = self.request.get('projid')
-        #upload_url = blobstore.create_upload_url('')
+    def get(self, firmid, projid, imgid):
+        img = {}
+        tmpl_name = None;
+
+        if imgid:
+            img_key = ndb.Key( "Firm", firmid, "Project", projid, "Image", imgid )
+            image = img_key.get()
+            img = image.to_dict()
+            tmpl_name = 'image_data.html'
+        else:
+            tmpl_name = 'image.html'
+         
+            
         self.html_content()
-        self.w( main.jinja_env.get_template( 'image.html' ).render({
+        self.w( main.jinja_env.get_template( tmpl_name ).render({
             'firmid': firmid,
-            'projid': projid,                                          
-            }))
+            'projid': projid,
+            'imgid': imgid,
+            'img': img,
+        }))
+
 
 
 class ImageForm(web.RequestHandler):
@@ -24,7 +37,7 @@ class ImageForm(web.RequestHandler):
         short_name = self.request.get('name')
         f = self.request.POST['file']
         
-        image_key = ndb.Key( "Firm", firmid, "Proj", projid, "Image", short_name )
+        image_key = ndb.Key( "Firm", firmid, "Project", projid, "Image", short_name )
         image = model.Image( key = image_key )
         image.short_name = short_name
         image.orig_name = f.filename
@@ -33,14 +46,15 @@ class ImageForm(web.RequestHandler):
         image.put()
                
         self.html_content()
-        self.w( 'A new image for firm %s, project %s success<br>' % (firmid, projid) )
-        self.w( 'short name: %s' % (short_name,) )
-        self.w( 'OK' )
-        
+        self.w( main.jinja_env.get_template( 'image_status.html' ).render({
+            'firmid': firmid,
+            'projid': projid,
+            'imgid': short_name,
+        }))        
         
 class ImageResource(web.RequestHandler):
     def get(self, firmid, projid, imgid):
-        img_key = ndb.Key( "Firm", firmid, "Proj", projid, "Image", imgid )
+        img_key = ndb.Key( "Firm", firmid, "Project", projid, "Image", imgid )
         img = img_key.get()
         self.response.headers['Content-Type'] = str(img.mime_type)
         self.w( img.data )

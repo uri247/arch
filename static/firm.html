@@ -39,7 +39,7 @@
         <tbody>
             {% for p in projects %}
                 <tr>
-                    <td><a href="project/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
+                    <td><a href="project/{{ key_name }}/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
                     <td>{{ p.title_e }}</td>
                     <td>{{ p.year }}</td>
                 </tr>

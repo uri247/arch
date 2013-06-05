@@ -3,10 +3,17 @@
 <head>
 <!--  <meta charset="ISO-8859-1"> -->
 <title>Project Settings</title>
+
+<style type="text/css">
+.projimg {
+    width: 120px;
+}
+</style>
 </head>
 <body>
 
 <form action="../project_form" method="post">
+    <input type="hidden" name="firmid" value="{{ firm_id }}">
     <input type="hidden" name="new_proj" value="{{ new_proj }}">
     <label for="projid">Project ID:</label>
     <input id="projid" name="projid" type="text" value="{{ projid }}">
@@ -64,7 +71,41 @@
 </form>
 
 <h3>Images:</h3>
-<h href="image">add</h>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for img in images %}
+            {% if loop.index0 % 5 == 0 %}
+                <tr>
+            {% endif %}
+                    <td>
+                        <div style="height: 96px; border: 1px solid red">
+                            <a href="/admin/image/{{firmid}}/{{projid}}/{{img.short_name}}">
+                                <img src="/img/{{firmid}}/{{projid}}/{{img.short_name}}" class="projimg">
+                            </a>
+                        </div>
+                        <div>
+                            <input type="checkbox">
+                            <span>{{img.short_name}}</span>
+                        </div>
+                    </td>
+            {% if (loop.index0 % 5 == 4) or (loop.last)%}
+                </tr>
+            {% endif %}
+        {% endfor %}                        
+    </tbody>    
+</table>
+
+
+<a href="../../image/{{firmid}}/{{projid}}/">add</a>
+
 
 </body>
 </html>

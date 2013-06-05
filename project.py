@@ -6,26 +6,30 @@ import web
 
 
 class ProjectPage(web.RequestHandler):
-    def get(self, projid):        
-        #projid = self.request.get('projid')
+    def get(self, firmid, projid):        
         new_proj = None
-        proj = None
+        p = None
+        images = None
+        
         
         if( projid ):
             new_proj = False
-            key = ndb.Key( "Firm", self.get_firmid(), "Project", projid )
-            proj = key.get()
+            key = ndb.Key( "Firm", firmid, "Project", projid )
+            p = key.get().to_dict()
+            images = model.Image.query(ancestor=key).fetch()
         else:
             new_proj = True
-            proj = model.Project()
-            
+            p = {}
+            images = []
 
-        tmpl = main.jinja_env.get_template( 'project.html' )
-        p = proj.to_dict()
-        html = tmpl.render({ 
+        
+        tmpl = main.jinja_env.get_template( 'project.html' )        
+        html = tmpl.render({
+            'firmid': self.get_firmid(), 
             'projid': projid,
             'new_proj': new_proj,
             'p': p,
+            'images': images,
             })        
         self.html_content()
         self.w( html )

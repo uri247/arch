@@ -20,9 +20,9 @@ application = webapp.WSGIApplication([
         ('/admin/firm', firm.FirmPage),
         ('/admin/firm_set', firm.FirmForm),
         ('/admin/firm_status', firm.StatusFirmPage),
-        ('/admin/project/(.*)', project.ProjectPage),
+        ('/admin/project/(.*)/(.*)', project.ProjectPage),
         ('/admin/project_form', project.ProjectForm),
-        ('/admin/image/(.*)/(.*)', image.ImagePage),
+        ('/admin/image/(.*)/(.*)/(.*)', image.ImagePage),
         ('/admin/image_form', image.ImageForm),
         
         ('/img/(.*)/(.*)/(.*)', image.ImageResource),
