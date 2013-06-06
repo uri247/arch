@@ -60,11 +60,20 @@
             <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#comm-list">
               מסחרי <span class="caret"></span>
             </li>
+            <li>
+              <ul id="comm-list" class="nav nav-list collapse">
+                <li><a class="anch-proj" href="#ramon">קזינו רמון</a></li>
+                <li><a class="anch-proj" href="#eilat">מלון אילת</a></li>
+                <li><a class="anch-proj" href="#hadera">מרכז מסחרי חדרה</a></li>
+              </ul>
+            </li>
             <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#res-list">
               מסחרי <span class="caret"></span>
+            </li>
+            <li>
               <ul id="res-list" class="nav nav-list collapse in">
-                <li class="active"><a href="#">אשדוד</a></li>
-                <li class="active"><a href="#">אשדר</a></li>
+                <li class="active"><a class="anch-proj" href="#ashdod">אשדוד</a></li>
+                <li><a class="anch-proj" href="#ashdar">אשדר</a></li>
               </ul>
             </li>
           </ul>
@@ -97,7 +106,13 @@
   <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
   <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
 
+  <script type="text/javascript">
 
+    $('.anch-proj').click(function onPorj(e) {
+      $('.anch-proj').parent().removeClass('active');
+      $(this).parent().addClass('active');
+    });
+  </script>
 
 </body>
 
