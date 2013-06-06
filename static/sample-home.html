@@ -9,13 +9,41 @@
     body {
       background-color: #ccc;
     }
-    #nav {
+    #nav-pane {
       background-color: azure;
       height: 800px;
     }
-    #main {
-      background-color: coral;
+    #content-pane {
+      background-color: white;
       height: 800px;
+    }
+    .top-line {
+      background-color: #FFCC00;
+      height: 6px;
+    }
+    .top-space {
+      height: 82px;
+    }
+    #logo-img {
+      position: relative;
+      z-index:10;
+    }
+    #main-img {
+      position: static;
+      background-image: url('../populate/images/ashdar01.jpg');
+      height: 600px;
+    }
+    .text-top-space {
+      height: 90px;
+    }
+    .transbox {
+      background-color: #ffffff;
+      opacity: 0.7;
+      height: 100%;
+    }
+    .transbox p {
+      font-weight: bold;
+      margin: 0px 30px 0px 30px;
     }
   </style>
 </head>
@@ -24,14 +52,52 @@
 <body dir="rtl">
   <div class="container">
     <div class="row">
-      <div id="nav" class="span3">
+      <!-- navigation pagne -->
+      <div id="nav-pane" class="span2">
+        <div class="top-space"></div>
+        <div class="accordion" id="aside">
+          <ul class="nav nav-list">
+            <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#comm-list">
+              מסחרי <span class="caret"></span>
+            </li>
+            <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#res-list">
+              מסחרי <span class="caret"></span>
+              <ul id="res-list" class="nav nav-list collapse in">
+                <li class="active"><a href="#">אשדוד</a></li>
+                <li class="active"><a href="#">אשדר</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
-      <div id="main" class="span9">
+      <!-- content pane -->
+      <div id="content-pane" class="span10">
+        <div class="top-space">
+          <img id="logo-img" src="logo.png" />
+        </div>
+        <div class="top-line"></div>
+        <div id="main-img">
+          <div class="span3 transbox">
+            <div class="text-top-space"></div>
+            <p>
+              כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
+              כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
+              כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
+              כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
+              </p>
+          </div>
+
+        </div>
       </div>
     </div>
-
   </div>
+  
+  <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
+  <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+
+
 
 </body>
 
