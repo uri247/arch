@@ -7,7 +7,7 @@
   <title>Finky Raveh London Architecture</title>
   <style type="text/css">
     body {
-      background-color: #ccc;
+      background-color: #fff;
     }
     #nav-pane {
       background-color: #ffffff;
@@ -28,18 +28,13 @@
       position: relative;
       z-index: 5;
     }
-
-    #main-img {
-      background-image: url('../populate/images/ashdar01.jpg');
-      height: 600px;
-    }
-    .text-top-space {
-      height: 90px;
-    }
     .transbox {
       background-color: #ffffff;
       opacity: 0.7;
       height: 100%;
+    }
+    .text-top-space {
+      height: 90px;
     }
     .transbox p {
       font-weight: bold;
@@ -114,22 +109,20 @@
         </div>
         <div class="top-line"></div>
 
-        <div id="karusela" class="carousel slide">
-
-          <div class="carousel-inner">
-            <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
-            <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
-            <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
+        <div>
+          <div id="karusela" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
+              <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
+              <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
+            </div>
           </div>
-
+          <div id="karusela-nav">
+            <a href="#karusela1" data-to="3">3</a>
+            <a href="#karusela1" data-to="2">2</a>
+            <a href="#karusela1" data-to="1" class="active">1</a>
+          </div>
         </div>
-
-        <div id="karusela-nav">
-          <a href="#karusela1" data-to="3">3</a>
-          <a href="#karusela1" data-to="2">2</a>
-          <a href="#karusela1" data-to="1" class="active">1</a>
-        </div>
-
 
       </div><!-- end of content pane -->
 
