@@ -18,7 +18,7 @@
       height: 800px;
     }
     .top-line {
-      background-color: #ffffff;
+      background-color: #FFCC01;
       height: 6px;
     }
     .top-space {
@@ -26,7 +26,7 @@
     }
     #logo-img {
       position: relative;
-      z-index:-5;
+      z-index: 5;
     }
 
     #main-img {
@@ -45,6 +45,32 @@
       font-weight: bold;
       margin: 0px 30px 0px 30px;
     }
+    .carousel, .carousel-inner, .item {
+      height: 600px;
+    }
+    .carousel {
+      margin-bottom: 0px;
+    }
+    .item {
+      background-repeat: no-repeat;
+    }
+    #karusela-nav {
+      text-align: left;
+    }
+    #karusela-nav a {
+      margin: 0px 5px;
+      background: #57585C;
+      color: #000;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+    }
+    #karusela-nav a.active {
+      background: #FFCC01;
+      color: #fff;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -88,34 +114,21 @@
         </div>
         <div class="top-line"></div>
 
-        <div id="karusela" class="carousel slide" style="border: solid 1px red">
+        <div id="karusela" class="carousel slide">
 
           <div class="carousel-inner">
-
-            <div class="active item">
-              <div style="background-image: url('../populate/images/ashdar01.jpg'); height:600px"></div>
-            </div>
-
-            <div class="item">
-              <div style="background-image: url('../populate/images/ashdar02.jpg'); height:600px"></div>
-            </div>
-
+            <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
+            <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
+            <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
           </div>
+
         </div>
 
         <div id="karusela-nav">
-          <a href="#karusela1" data-to="1" class="active">1</a>
+          <a href="#karusela1" data-to="3">3</a>
           <a href="#karusela1" data-to="2">2</a>
+          <a href="#karusela1" data-to="1" class="active">1</a>
         </div>
-
-        <!--
-        <ol class="carousel-indicators">
-          <li data-target="#karusela" data-slide-to="0" class="active"></li>
-          <li data-target="#karusela" data-slide-to="1"></li>
-        </ol>
-        -->
-
-
 
 
       </div><!-- end of content pane -->
@@ -129,29 +142,37 @@
 
   <script type="text/javascript">
     
-    var currentPage = 0;
-    var pages = $("karusela-nav a");
-    var pagesCount = pages.length;
-
     $('.anch-proj').click(function onPorj(e) {
       $('.anch-proj').parent().removeClass('active');
       $(this).parent().addClass('active');
     });
 
+    $('#karusela').carousel({ interval: 7000 });
+
     $('#karusela-nav a').click(function (q) {
       q.preventDefault();
       clicked = $(this).attr('data-to') - 1;
-      currentPage = clicked - 1;
       $('#karusela').carousel(clicked);
     });
 
-
-    $('#karusela').on('slide', function(evt) {
-      $(pages).removeClass('active');
-      currentPage++;
-      currentPage %= pagesCount;
-      $(pages[currentPage]).addClass('active');
+    $('.carousel').bind('slide', function (evt) {
+      var indicators = $('#karusela-nav a');
+      indicators.removeClass('active');
     });
+
+    $('.carousel').bind('slid', function (evt) {
+      var indicators = $('#karusela-nav a');
+      var elems = $(evt.currentTarget).find('.item');
+      var active = $(evt.currentTarget).find('.active')[0];
+      var index;
+      for (index = 0; index < elems.length; ++index) {
+        if (active == elems[index])
+          break;
+      }
+
+      $( indicators[indicators.length - index - 1] ).addClass('active');
+    });
+
 
   </script>
 
