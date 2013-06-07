@@ -7,7 +7,7 @@
   <title>Finky Raveh London Architecture</title>
   <style type="text/css">
     body {
-      background-color: #ccc;
+      background-color: #fff;
     }
     #nav-pane {
       background-color: #ffffff;
@@ -18,7 +18,7 @@
       height: 800px;
     }
     .top-line {
-      background-color: #ffffff;
+      background-color: #FFCC01;
       height: 6px;
     }
     .top-space {
@@ -26,24 +26,48 @@
     }
     #logo-img {
       position: relative;
-      z-index:-5;
+      z-index: 5;
     }
-    #main-img {
-      background-image: url('../populate/images/ashdar01.jpg');
-      height: 600px;
+    .transbox {
+      background-color: #ffffff;
+      font-weight: bold;
+      opacity: 0.7;
+      height: 100%;
+      position: fixed;
+      z-index: 2;
     }
     .text-top-space {
       height: 90px;
     }
-    .transbox {
-      background-color: #ffffff;
-      opacity: 0.7;
-      height: 100%;
-    }
     .transbox p {
-      font-weight: bold;
       margin: 0px 30px 0px 30px;
     }
+    .carousel, .carousel-inner, .item {
+      height: 600px;
+    }
+    .carousel {
+      margin-bottom: 0px;
+    }
+    .item {
+      background-repeat: no-repeat;
+    }
+    #karusela-nav {
+      text-align: left;
+    }
+    #karusela-nav a {
+      margin: 0px 5px;
+      background: #57585C;
+      color: #000;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+    }
+    #karusela-nav a.active {
+      background: #FFCC01;
+      color: #fff;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
@@ -87,32 +111,29 @@
         </div>
         <div class="top-line"></div>
 
-        <div id="karusela" class="carousel slide">
-          <ol class="carousel-indicators">
-            <li data-target="#karusela" data-slide-to="0" class="active"></li>
-            <li data-target="#karusela" data-slide-to="1"></li>
-          </ol>
+        <div style="position: relative">
+          <div class="span3 transbox">
+            <div class="text-top-space"></div>
+            <p>
+              רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
+              רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
+              רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
+              רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
+            </p>
+          </div>
 
-          <div class="carousel-inner">
-
-            <div class="active item">
-              <div id="main-img">
-                <div class="span3 transbox">
-                  <div class="text-top-space"></div>
-                  <p>
-                    כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
-                    כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
-                    כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
-                    כמה מילים על מי אנחנו. מי עובד במשרד , ההסטוריה של המשרד והתחומים שמעניינים אותנו.
-                    </p>
-                </div>
+          <div id="karusela" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');">
               </div>
+              <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
+              <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
             </div>
-
-            <div class="item">
-              <h3>Hello Karusela</h3>
-            </div>
-
+          </div>
+          <div id="karusela-nav">
+            <a href="#karusela1" data-to="3">3</a>
+            <a href="#karusela1" data-to="2">2</a>
+            <a href="#karusela1" data-to="1" class="active">1</a>
           </div>
         </div>
 
@@ -126,11 +147,38 @@
   <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
 
   <script type="text/javascript">
-
+    
     $('.anch-proj').click(function onPorj(e) {
       $('.anch-proj').parent().removeClass('active');
       $(this).parent().addClass('active');
     });
+
+    $('#karusela').carousel({ interval: 7000 });
+
+    $('#karusela-nav a').click(function (q) {
+      q.preventDefault();
+      clicked = $(this).attr('data-to') - 1;
+      $('#karusela').carousel(clicked);
+    });
+
+    $('.carousel').bind('slide', function (evt) {
+      var indicators = $('#karusela-nav a');
+      indicators.removeClass('active');
+    });
+
+    $('.carousel').bind('slid', function (evt) {
+      var indicators = $('#karusela-nav a');
+      var elems = $(evt.currentTarget).find('.item');
+      var active = $(evt.currentTarget).find('.active')[0];
+      var index;
+      for (index = 0; index < elems.length; ++index) {
+        if (active == elems[index])
+          break;
+      }
+
+      $( indicators[indicators.length - index - 1] ).addClass('active');
+    });
+
 
   </script>
 
