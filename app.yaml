@@ -13,6 +13,10 @@ handlers:
   static_dir: libs/bootstrap-2.3.2-rtl
 - url: /jquery
   static_dir: libs/jquery
+- url: /libs
+  static_dir: libs
+- url: /populate
+  static_dir: populate
 
 - url: /he
   static_files: static/he/index.html
