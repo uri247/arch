@@ -41,7 +41,7 @@ projects_data = {
             'built_area': 800,
             'classification': 'residential'                   
         },
-        'images': ['ashdod01.jpg', 'ashdod02.jpg' ],
+        'images': ['ashdod01.jpg', 'ashdod02.jpg', 'xx.jpg' ],
     },
     'casinoramon' : {
         'id': 'casinoramon',

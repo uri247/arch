@@ -4,6 +4,7 @@ from google.appengine.ext import webapp
 import firm
 import project
 import image
+import home
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
 jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
@@ -20,6 +21,8 @@ class AdminPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication([
         ('/', MainPage),
+        ('/home', home.HomePage),
+        
         ('/admin', AdminPage),
         ('/admin/firm', firm.FirmPage),
         ('/admin/firm_set', firm.FirmForm),

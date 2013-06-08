@@ -23,7 +23,7 @@
             </li>
             <li>
               <ul id="about-list" class="nav nav-list collapse in">
-                <li class="active"><a class="anch-proj" href="#about">אודות</a></li>
+                <li class="active"><a href="#about">אודות</a></li>
               </ul>
             </li>
             <li><img class="nav-hdr-img" src="nav-hdr.png" /></li>
@@ -32,9 +32,9 @@
             </li>
             <li>
               <ul id="team-list" class="nav nav-list collapse">
-                <li><a class="anch-proj" href="#finzy">שיקה פינצי</a></li>
-                <li><a class="anch-proj" href="#raveh">שמואל רווה</a></li>
-                <li><a class="anch-proj" href="#london">מיכל לונדון</a></li>
+                <li><a href="#finzy">שיקה פינצי</a></li>
+                <li><a href="#raveh">שמואל רווה</a></li>
+                <li><a href="#london">מיכל לונדון</a></li>
               </ul>
             </li>
           </ul>
@@ -71,8 +71,8 @@
 
   <script type="text/javascript">
 
-    $('.anch-proj').click(function onPorj(e) {
-      $('.anch-proj').parent().removeClass('active');
+    $('ul.nav li a').click(function onPorj(e) {
+      $('ul.nav li a').parent().removeClass('active');
       $(this).parent().addClass('active');
     });
 
