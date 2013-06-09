@@ -1,7 +1,7 @@
 import jinja2
 import os
 from google.appengine.ext import webapp
-from admin import firm, project, image
+import admin
 import home
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
@@ -22,18 +22,18 @@ application = webapp.WSGIApplication([
         ('/home', home.HomePage),
         
         ('/admin', AdminPage),
-        ('/admin/firm', firm.FirmPage),
-        ('/admin/firm_set', firm.FirmForm),
-        ('/admin/firm_status', firm.StatusFirmPage),
-        ('/admin/project/(.*)/(.*)', project.ProjectPage),
-        ('/admin/project_form', project.ProjectForm),
-        ('/admin/image/(.*)/(.*)/(.*)', image.ImagePage),
-        ('/admin/image_form', image.ImageForm),
+        ('/admin/firm', admin.FirmPage),
+        ('/admin/firm_set', admin.FirmForm),
+        ('/admin/firm_status', admin.StatusFirmPage),
+        ('/admin/project/(.*)/(.*)', admin.ProjectPage),
+        ('/admin/project_form', admin.ProjectForm),
+        ('/admin/image/(.*)/(.*)/(.*)', admin.ImagePage),
+        ('/admin/image_form', admin.ImageForm),
         
-        ('/img/(.*)/(.*)/(.*)', image.ImageResource),
+        ('/img/(.*)/(.*)/(.*)', admin.ImageResource),
         
-        ('/api/firm/(.*)', firm.FirmApi),
-        ('/api/project/(.*)/(.*)', project.ProjectApi)
+        ('/api/firm/(.*)', admin.FirmApi),
+        ('/api/project/(.*)/(.*)', admin.ProjectApi)
     ],
     debug=True
     )
