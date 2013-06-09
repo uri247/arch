@@ -29,12 +29,14 @@ class FirmPage(web.RequestHandler):
 
 class FirmForm(web.RequestHandler):
     def post(self):
-        key_name = self.request.get('key_name')
-        firm = model.firm_key( key_name ).get()
+        firmid = self.request.get('firmid')
+        firm = model.firm_key( firmid ).get()
         if( firm ):
             #update the firm     
             firm.name_e = self.request.get('name_e')
             firm.name_h = self.request.get('name_h')
+            firm.about_e = self.request.get('about_e')
+            firm.about_h = self.request.get('about_h')
             firm.put()
             self.redirect('firm_status')
         else:

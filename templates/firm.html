@@ -10,7 +10,7 @@
 <body>
     <div class="container">
       <h2>Firm Data:</h2>
-      <form action="firm_set" method="post">
+      <form class="form" action="firm_set" method="post">
         <div class="row">
           <div class="span5">
             <fieldset>
@@ -19,6 +19,8 @@
               <input id="firmid" type="text" name="firmid" value="{{ firmid }}">
               <label for="name_e">English Name: </label>
     	      <input id="name_e" type="text" name="name_e" value="{{ firm.name_e }}">
+              <label for="about_e">About:</label>
+              <textarea id="about_e" name="about_e" rows="5">{{ firm.about_e }}</textarea>
     	    </fieldset>
     	  </div>
     	  <div class="span2"></div>
@@ -27,6 +29,8 @@
     	      <legend>עברית:</legend>
               <label for="name_h">שם המשרד בעברית:</label>
               <input id="name_h" type="text" name="name_h" dir="rtl" value="{{ firm.name_h }}">
+              <label for="about_h">אודות:</label>
+              <textarea id="about_h" name="about_h" rows="5">{{ firm.about_h }}</textarea>
     	    </fieldset>
     	  </div>
         </div>

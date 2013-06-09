@@ -11,15 +11,16 @@ class HomePage(web.RequestHandler):
         firm = key.get()
         lang = 'h'
         menu = literals.localize( literals.about_menu, lang );
+        lfirm = literals.localize( firm.to_dict(), lang );
 
         if( not firm ):
             self.error(500)
         else:
             tmpl = main.jinja_env.get_template( 'base.html' )
             html = tmpl.render({
-                'firm': { 'name': firm.name_h },
-                #'ctx_menu': literals.localize( literals.about_menu, lang )
+                'firm': lfirm,
                 'ctx_menu': menu, 
+                'trans_text': lfirm['about'],
             })
             self.html_content()
             self.w( html )
