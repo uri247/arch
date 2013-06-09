@@ -1,9 +1,7 @@
 import jinja2
 import os
 from google.appengine.ext import webapp
-import firm
-import project
-import image
+from admin import firm, project, image
 import home
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
