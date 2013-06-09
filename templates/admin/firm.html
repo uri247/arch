@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="ISO-8859-1">
+  <meta charset="UTF-8">
   <title>{{ firmid }} - Firm Data</title>
   <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
 </head>
@@ -15,11 +15,11 @@
           <div class="span5">
             <fieldset>
               <legend>English:</legend>
-              <label for="firmid">Key Name: </label>
+              <label for="firmid">Key Name</label>
               <input id="firmid" type="text" name="firmid" value="{{ firmid }}">
-              <label for="name_e">English Name: </label>
+              <label for="name_e">English Name</label>
     	      <input id="name_e" type="text" name="name_e" value="{{ firm.name_e }}">
-              <label for="about_e">About:</label>
+              <label for="about_e">About</label>
               <textarea id="about_e" name="about_e" rows="5">{{ firm.about_e }}</textarea>
     	    </fieldset>
     	  </div>
@@ -27,7 +27,7 @@
     	  <div class="span5">
     	    <fieldset dir="rtl">
     	      <legend>עברית:</legend>
-              <label for="name_h">שם המשרד בעברית:</label>
+              <label for="name_h">שם המשרד:</label>
               <input id="name_h" type="text" name="name_h" dir="rtl" value="{{ firm.name_h }}">
               <label for="about_h">אודות:</label>
               <textarea id="about_h" name="about_h" rows="5">{{ firm.about_h }}</textarea>
@@ -62,7 +62,7 @@
           </tbody>    
       </table>
   
-      <a href="project/">add</a>
+      <a href="project/{{ firmid }}/">add</a>
   </div>
 </body>
 </html>

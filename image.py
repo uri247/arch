@@ -14,9 +14,9 @@ class ImagePage(web.RequestHandler):
             img_key = ndb.Key( "Firm", firmid, "Project", projid, "Image", imgid )
             image = img_key.get()
             img = image.to_dict()
-            tmpl_name = 'image_data.html'
+            tmpl_name = 'admin/image_data.html'
         else:
-            tmpl_name = 'image.html'
+            tmpl_name = 'admin/image.html'
          
             
         self.html_content()
@@ -46,7 +46,7 @@ class ImageForm(web.RequestHandler):
         image.put()
                
         self.html_content()
-        self.w( main.jinja_env.get_template( 'image_status.html' ).render({
+        self.w( main.jinja_env.get_template( 'admin/image_status.html' ).render({
             'firmid': firmid,
             'projid': projid,
             'imgid': short_name,

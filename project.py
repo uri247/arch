@@ -23,7 +23,7 @@ class ProjectPage(web.RequestHandler):
             images = []
 
         
-        tmpl = main.jinja_env.get_template( 'project.html' )        
+        tmpl = main.jinja_env.get_template( 'admin/project.html' )        
         html = tmpl.render({
             'firmid': self.get_firmid(), 
             'projid': projid,

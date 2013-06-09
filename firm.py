@@ -15,7 +15,7 @@ class FirmPage(web.RequestHandler):
         
         
                     
-        tmpl = main.jinja_env.get_template( 'firm.html' )
+        tmpl = main.jinja_env.get_template( 'admin/firm.html' )
         html = tmpl.render( { 
             'firmid': self.get_firmid(),
             'firm': firm.to_dict(),
@@ -45,7 +45,7 @@ class FirmForm(web.RequestHandler):
 
 class StatusFirmPage(web.RequestHandler):
     def get(self):
-        tmpl = main.jinja_env.get_template( 'firm_status.html' )
+        tmpl = main.jinja_env.get_template( 'admin/firm_status.html' )
         html = tmpl.render({ 'name_e': self.get_firmid() })
 
         self.html_content()

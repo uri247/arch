@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ firmid }}Project Settings</title>
+  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
+
+  <style type="text/css">
+  .projimg {
+    width: 120px;
+  }
+  label {
+    line-height: 12px;
+    font-size: 10px;
+    font-weight: lighter;
+    margin-bottom: 0px;
+  }
+</style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <h1>
+        {% if new_proj %}
+          New Project Settings
+        {% else %}
+          Project Settings: {{ projid }}
+        {% endif %}
+      </h1>
+    </div>
+  
+    <form class="form" action="../project_form" method="post">
+      <input type="hidden" name="firmid" value="{{ firm_id }}">
+      <input type="hidden" name="new_proj" value="{{ new_proj }}">
+      <div class="row">
+        <div class="span6">
+          <fieldset>
+            <legend>English</legend>
+            <label for="projid">Project ID</label>
+            <input id="projid" name="projid" type="text" value="{{ projid }}" {% if not new_proj %}readonly="readonly"{% endif %}>
+            <label for="title_e">Title</label>
+            <input id="title_e" name="title_e" type="text" value="{{ p.title_e }}">
+            <label for="address_e">Address</label>
+            <input id="address_e" name="address_e" type="text" value="{{ p.address_e }}">
+            <label for="year">Year</label>
+            <input id="year" name="year" type="text" value="{{ p.year }}">
+            <label for="descriptoin_e">Description</label>
+            <input id="description_e" name="description_e" type="text" value="{{ p.description_e }}">
+            <label for="status">Status</label>
+            <input id="status" name="status" type="text" value="{{ p.status }}">
+            <label for="plot_area">Plot Area</label>
+            <input id="plot_area" name="plot_area" type="text" value="{{ p.plot_area }}">
+            <label for="built_area">Built Area</label>
+            <input id="built_area" name="built_area" type="text" value="{{ p.built_area }}">
+            <label for="classification">Classification</label>
+            <input id="classification" name="classification" type="text" value="{{ p.classification }}">
+          </fieldset>
+        </div>
+        <div class="span6">
+          <fieldset dir="rtl">
+            <legend>עברית</legend>
+            <label for="title_h">כותרת</label>
+            <input id="title_h" name="title_h" type="text" value="{{ p.title_h }}">
+            <label for="address_h">כתובת</label>
+            <input id="address_h" name="address_h" type="text" value="{{ p.address_h }}">
+            <label for="descriptoin_h">תאור</label>
+            <input id="description_h" name="description_h" type="text" value="{{ p.description_h }}">
+          </fieldset>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" method="post" value="OK">
+      </div>
+    </form>
+
+
+    <h2>Images:</h2>
+    
+    <div class="row">
+    
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for img in images %}
+            {% if loop.index0 % 5 == 0 %}<tr>{% endif %}
+              <td>
+                <div style="height: 96px;">
+                  <a href="/admin/image/{{firmid}}/{{projid}}/{{img.short_name}}">
+                    <img src="/img/{{firmid}}/{{projid}}/{{img.short_name}}" class="projimg">
+                  </a>
+                </div>
+                <div>
+                  <input type="checkbox">
+                  <span>{{img.short_name}}</span>
+                </div>
+              </td>
+            {% if (loop.index0 % 5 == 4) or (loop.last)%}</tr>{% endif %}
+          {% endfor %}                        
+        </tbody>    
+      </table>
+
+
+      <a href="../../image/{{firmid}}/{{projid}}/">add</a>
+      
+    </div>
+  </div>
+</body>
+
+</html>
