@@ -9,15 +9,16 @@ class FirmPage(web.RequestHandler):
         key = model.firm_key( self.get_firmid() )
         firm = key.get()
         if( not firm ):
-            firm = model.Firm(key=key,name_e='',name_h='')
+            firm = model.Firm(key=key)
             firm.put()
         projects = model.Project.query_firm(key).fetch()
+        
+        
                     
         tmpl = main.jinja_env.get_template( 'firm.html' )
         html = tmpl.render( { 
-            'key_name': self.get_firmid(),
-            'name_e': firm.name_e,
-            'name_h': firm.name_h,
+            'firmid': self.get_firmid(),
+            'firm': firm.to_dict(),
             'projects': projects                 
             } )
         

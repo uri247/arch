@@ -4,6 +4,8 @@ from google.appengine.ext import ndb
 class Firm(ndb.Model):
     name_e = ndb.StringProperty()
     name_h = ndb.StringProperty()
+    about_e = ndb.StringProperty()
+    about_h = ndb.StringProperty()
 
 
 class Project(ndb.Model):

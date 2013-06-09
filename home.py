@@ -15,7 +15,7 @@ class HomePage(web.RequestHandler):
         if( not firm ):
             self.error(500)
         else:
-            tmpl = main.jinja_env.get_template( 'home.html' )
+            tmpl = main.jinja_env.get_template( 'base.html' )
             html = tmpl.render({
                 'firm': { 'name': firm.name_h },
                 #'ctx_menu': literals.localize( literals.about_menu, lang )

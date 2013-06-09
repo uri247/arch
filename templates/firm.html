@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+  <meta charset="ISO-8859-1">
+  <title>{{ firmid }} - Firm Data</title>
+  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
 </head>
 
 
 <body>
-    <h1>Firm data</h1>
-    <form action="firm_set" method="post">
-        <div>
-            <label for="key_name">Key Name: </label>
-            <input id="key_name" type="text" name="key_name" value="{{ key_name }}">
+    <div class="container">
+      <h2>Firm Data:</h2>
+      <form action="firm_set" method="post">
+        <div class="row">
+          <div class="span5">
+            <fieldset>
+              <legend>English:</legend>
+              <label for="firmid">Key Name: </label>
+              <input id="firmid" type="text" name="firmid" value="{{ firmid }}">
+              <label for="name_e">English Name: </label>
+    	      <input id="name_e" type="text" name="name_e" value="{{ firm.name_e }}">
+    	    </fieldset>
+    	  </div>
+    	  <div class="span2"></div>
+    	  <div class="span5">
+    	    <fieldset dir="rtl">
+    	      <legend>עברית:</legend>
+              <label for="name_h">שם המשרד בעברית:</label>
+              <input id="name_h" type="text" name="name_h" dir="rtl" value="{{ firm.name_h }}">
+    	    </fieldset>
+    	  </div>
         </div>
-        <div>
-	        <label for="name_e">English Name: </label>
-	        <input id="name_e" type="text" name="name_e" value="{{ name_e }}">
+        <div class="row">
+          <input type="submit" value="Submit Firm">
         </div>
-        <div>
-	        <label for="name_h">Hebrew Name:</label>
-	        <input id="name_h" type="text" name="name_h" dir="rtl" value="{{ name_h }}">
-	    </div>
-	    <div>
-	         <input type="submit">
-	    </div>
-    </form>
-    
-    <hr>
-    
-    <table>
-        <thead>
+      </form>
+      
+      <hr>
+      
+      <h2>Projects:</h2>
+      <div class="row">
+        <table class="table table-condensed">
+          <thead>
             <tr>
-                <th>Proj ID</th>
-                <th>title</th>
-                <th>year</th>
+              <th>Proj ID</th>
+              <th>title</th>
+              <th>year</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             {% for p in projects %}
-                <tr>
-                    <td><a href="project/{{ key_name }}/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
-                    <td>{{ p.title_e }}</td>
-                    <td>{{ p.year }}</td>
-                </tr>
+              <tr>
+                <td><a href="project/{{ firmid }}/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
+                <td>{{ p.title_e }}</td>
+                <td>{{ p.year }}</td>
+              </tr>
             {% endfor %}        
-        </tbody>    
-    </table>
-
-    <a href="project/">add</a>    
+          </tbody>    
+      </table>
+  
+      <a href="project/">add</a>
+  </div>
 </body>
 </html>
