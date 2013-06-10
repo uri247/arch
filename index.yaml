@@ -13,5 +13,10 @@ indexes:
 - kind: Project
   ancestor: yes
   properties:
+  - name: classification
+
+- kind: Project
+  ancestor: yes
+  properties:
   - name: year
     direction: desc

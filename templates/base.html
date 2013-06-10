@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>{{ firm.name }}</title>
   <link href="/libs/bootstrap-2.3.2-rtl/css/bootstrap.css" rel="stylesheet" media="screen" />
   <link href="/static/arch.css" rel="stylesheet" media="screen" />
@@ -19,7 +19,7 @@
         <div class="accordion" id="aside">
           <ul class="nav nav-list">
             {% for top_item in ctx_menu['items'] %}
-              <li><img class="nav-hdr-img" src="static/nav-hdr.png" /></li>            
+              <li><img class="nav-hdr-img" src="/static/nav-hdr.png" /></li>            
               <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem{{ loop.index }}">
                 {{ top_item.title }}<span class="caret"></span>
               </li>
@@ -43,6 +43,7 @@
         </div>
         <div class="top-line"></div>
 
+        {% block content_area %}
         <div class="span3 transbox">
           <div class="text-top-space"></div>
           <p>
@@ -50,7 +51,8 @@
           </p>
         </div>
 
-        <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
+        <div class="active item" style="background-image: url('/populate/images/ashdar01.jpg');"></div>
+        {% endblock %}
 
       </div>
 

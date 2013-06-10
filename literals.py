@@ -21,7 +21,20 @@ about_menu = {
          },
     ]
 }
-    
+
+def get_prop(dict,lang,prop):
+    """returns a single property, localized
+    """
+    if prop in dict:
+        return dict[prop]
+    else:
+        return dict.get(prop + '_' + lang)
+
+def get_attr(inst,lang,attr):
+    """return a single attribute, localized
+    """
+    return getattr(inst, attr + '_' + lang)
+
 
 def localize(ob,lang):
     """localize - deep localization of an object

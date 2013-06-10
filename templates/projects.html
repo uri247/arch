@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content_area %}
+
+        <div style="position: relative">
+          <div class="span3 transbox">
+            <div class="text-top-space"></div>
+            <p id="trans-text">
+            </p>
+          </div>
+
+          <div id="karusela" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="active item" style="background-image: url('/populate/images/ashdar01.jpg');"></div>
+              <div class="item" style="background-image: url('/populate/images/ashdar02.jpg');"></div>
+              <div class="item" style="background-image: url('/populate/images/xx.jpg');"></div>
+            </div>
+          </div>
+          <div id="karusela-nav">
+            <a href="#karusela1" data-to="3">3</a>
+            <a href="#karusela1" data-to="2">2</a>
+            <a href="#karusela1" data-to="1" class="active">1</a>
+          </div>
+        </div>
+
+{% endblock %}
+
+
+
+{% block script %}
+  <script type="text/javascript">
+
+    var projects = {{ prjs }};
+    var prj_index = 0;
+
+    $('#karusela').carousel({ interval: 7000 });
+
+    $('#karusela-nav a').click(function (q) {
+      q.preventDefault();
+      clicked = $(this).attr('data-to') - 1;
+      $('#karusela').carousel(clicked);
+    });
+
+    $('.carousel').on('slide', function onSlide(evt) {
+      var indicators = $('#karusela-nav a');
+      indicators.removeClass('active');
+    });
+
+    $('.carousel').on('slid', function onSlid(evt) {
+      var $k = $(evt.currentTarget);
+      var $active = $k.find('.active');
+      var $items = $active.parent().children();
+      var index = $items.index($active);
+
+      var $indicators = $('#karusela-nav a');
+      var ind_index = $indicators.length - index - 1;
+      $($indicators[ind_index]).addClass('active');
+    });
+    
+    function update_project( index )
+    {
+        prj_index = index;
+        prj = projects[prj_index];
+        $('#trans-text').text( prj.description );
+    }
+    
+    $( function onReady() {
+    	update_project( 0 );
+    });
+    
+  </script>
+{% endblock %}
