@@ -4,6 +4,14 @@ body {
     background-color: #ffffff;
 }
 
+.container {
+}
+.span2 {
+	width: 148px;
+}
+.span10 {
+	margin-right: auto;
+}
 #nav-pane {
     background-color: #ffffff;
     /*height: 800px;*/
@@ -85,11 +93,15 @@ body {
 .nav-header {
     background-color:#58585A;
     color: white;
-    line-height: inherit;
+    line-height: 15px;
     text-shadow: none;
     font-weight: inherit;
     padding-top: inherit;
     padding-bottom: inherit;
+	height: 16px;
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
 }
 
 .nav li + .nav-header {
