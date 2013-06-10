@@ -25,11 +25,8 @@
               </li>
               <li>
                 <ul id="topitem1" class="nav nav-list collapse in">
-                  
                     <li ><a href="#">אשדר 2000</a></li>
-                  
-                    <li ><a href="#">קזינו רמון</a></li>
-                  
+                    <li ><a href="#">קזינו רמון</a></li>                  
                 </ul>
               </li>
             
@@ -39,11 +36,8 @@
               </li>
               <li>
                 <ul id="topitem2" class="nav nav-list collapse in">
-                  
                     <li ><a href="#">אבו אשדוד</a></li>
-                  
                     <li ><a href="#">סוקולוב</a></li>
-                  
                 </ul>
               </li>
             
@@ -68,17 +62,22 @@
             </p>
           </div>
 
-          <div id="karusela" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
-              <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
-              <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
+          <div id="karusela-well">
+            <!--
+            <div id="karusela" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="active item" style="background-image: url('../populate/images/ashdar01.jpg');"></div>
+                <div class="item" style="background-image: url('../populate/images/ashdar02.jpg');"></div>
+                <div class="item" style="background-image: url('../populate/images/xx.jpg');"></div>
+              </div>
+            </div>
+            <div id="karusela-nav">
+              <a href="#karusela1" data-to="3">3</a>
+              <a href="#karusela1" data-to="2">2</a>
+              <a href="#karusela1" data-to="1" class="active">1</a>
             </div>
           </div>
-          <div id="karusela-nav">
-            <a href="#karusela1" data-to="3">3</a>
-            <a href="#karusela1" data-to="2">2</a>
-            <a href="#karusela1" data-to="1" class="active">1</a>
+          -->
           </div>
         </div>
 
@@ -105,45 +104,70 @@
   <script type="text/javascript">
 
     var projects = [
-      { "status": "underway", "description": "\u05e8\u05e6\u05d9\u05e0\u05d5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05de\u05d1\u05e0\u05d4 \u05d2\u05d3\u05d5\u05dc \u05e2\u05dd \u05d6\u05db\u05d5\u05db\u05d9\u05d5\u05ea \u05d9\u05e8\u05d5\u05e7\u05d5\u05ea", "classification": "commercial", "title": "\u05d0\u05e9\u05d3\u05e8 2000", "year": 2005, "built_area": 6000, "address": "\u05d1\u05e2\u05dc\u05d9 \u05d4\u05de\u05dc\u05d0\u05db\u05d4 55, \u05d0\u05e9\u05d3\u05d5\u05d3", "images": [{ "orig_name": "ashdar01.jpg", "short_name": "ashdar01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar02.jpg", "short_name": "ashdar02", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar03.jpg", "short_name": "ashdar03", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar04.jpg", "short_name": "ashdar04", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar05.jpg", "short_name": "ashdar05", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar06.jpg", "short_name": "ashdar06", "mime_type": "image/pjpeg" }], "plot_area": 500 },
+      {
+        "status": "underway", "description": "\u05e8\u05e6\u05d9\u05e0\u05d5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05de\u05d1\u05e0\u05d4 \u05d2\u05d3\u05d5\u05dc \u05e2\u05dd \u05d6\u05db\u05d5\u05db\u05d9\u05d5\u05ea \u05d9\u05e8\u05d5\u05e7\u05d5\u05ea", "classification": "commercial", "title": "\u05d0\u05e9\u05d3\u05e8 2000", "year": 2005, "built_area": 6000, "address": "\u05d1\u05e2\u05dc\u05d9 \u05d4\u05de\u05dc\u05d0\u05db\u05d4 55, \u05d0\u05e9\u05d3\u05d5\u05d3",
+        "images": [{ "orig_name": "ashdar01.jpg", "short_name": "ashdar01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar02.jpg", "short_name": "ashdar02", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar03.jpg", "short_name": "ashdar03", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar04.jpg", "short_name": "ashdar04", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar05.jpg", "short_name": "ashdar05", "mime_type": "image/pjpeg" }, { "orig_name": "ashdar06.jpg", "short_name": "ashdar06", "mime_type": "image/pjpeg" }], "plot_area": 500
+      },
       { "status": "underway", "description": "\u05d4\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e9\u05dc \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df \u05de\u05e9\u05dc\u05d1 \u05d9\u05d5\u05e4\u05d9 \u05d5\u05d7\u05d9\u05d1\u05d5\u05e8\u05d9\u05d5\u05ea \u05dc\u05de\u05d3\u05d1\u05e8, \u05dc\u05d1\u05d3\u05d5\u05d0\u05d9\u05dd \u05d5\u05dc\u05d2\u05de\u05dc\u05d9\u05dd", "classification": "commercial", "title": "\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e8\u05de\u05d5\u05df", "year": 2009, "built_area": 5040, "address": "\u05e8\u05d7\u05d5\u05d1 \u05d5\u05d9\u05e7\u05d9 \u05db\u05e0\u05e4\u05d5 1, \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df", "images": [{ "orig_name": "ramon01.jpg", "short_name": "ramon01", "mime_type": "image/pjpeg" }, { "orig_name": "ramon02.jpg", "short_name": "ramon02", "mime_type": "image/pjpeg" }], "plot_area": 4050 },
       { "status": "complete", "description": "\u05d4\u05d0\u05de\u05d0 \u05e9\u05dc \u05db\u05dc \u05de\u05d4 \u05e9\u05dc\u05d0 \u05e8\u05e6\u05d9\u05e0\u05d5 \u05d1\u05d0\u05e9\u05d3\u05d5\u05d3", "classification": "residential", "title": "\u05d0\u05d1\u05d5 \u05d0\u05e9\u05d3\u05d5\u05d3", "year": 1967, "built_area": 800, "address": "\u05d1\u05e8\u05d7\u05d5\u05d1 \u05d0\u05e9\u05d3\u05d5\u05d3 44, \u05d0\u05e9\u05d3\u05d5\u05d3", "images": [{ "orig_name": "ashdod01.jpg", "short_name": "ashdod01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdod02.jpg", "short_name": "ashdod02", "mime_type": "image/pjpeg" }, { "orig_name": "xx.jpg", "short_name": "xx", "mime_type": "image/pjpeg" }], "plot_area": 400 },
       { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
     ];
     var prj_index = 0;
 
-    $('#karusela').carousel({ interval: 7000 });
+    function create_karusela(prj) {
+      var $kw = $('#karusela-well');
+      var innerHTML;
+      var len = prj.images.length;
 
-    $('#karusela-nav a').click(function (q) {
-      q.preventDefault();
-      clicked = $(this).attr('data-to') - 1;
-      $('#karusela').carousel(clicked);
-    });
+      $kw.empty()
+      innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+      for (var i = 0; i < prj.images.length; ++i) {
+        innerHTML += '<div class="active item" style="background-image: url(\'../populate/images/' + prj.images[i].short_name + '.jpg\');"></div>';
+      }
+      innerHTML += '</div></div>';
+      innerHTML += '<div id="karusela-nav">';
+      for (var i = len - 1; i >= 0; --i) {
+        innerHTML += '<a href="#karusela1" data-to="' + i.toString() + '">' + (i+1).toString() + '</a>';
+      }
+      innerHTML += '</div>';
+      $kw.html(innerHTML);
 
-    $('.carousel').on('slide', function onSlide(evt) {
-      var indicators = $('#karusela-nav a');
-      indicators.removeClass('active');
-    });
+      $('#karusela').carousel({ interval: 7000 });
 
-    $('.carousel').on('slid', function onSlid(evt) {
-      var $k = $(evt.currentTarget);
-      var $active = $k.find('.active');
-      var $items = $active.parent().children();
-      var index = $items.index($active);
+      $('#karusela-nav a').click(function (q) {
+        q.preventDefault();
+        clicked = $(this).data('to');
+        $('#karusela').carousel(clicked);
+      });
 
-      var $indicators = $('#karusela-nav a');
-      var ind_index = $indicators.length - index - 1;
-      $($indicators[ind_index]).addClass('active');
-    });
+      $('.carousel').on('slide', function onSlide(evt) {
+        var indicators = $('#karusela-nav a');
+        indicators.removeClass('active');
+      });
+
+      $('.carousel').on('slid', function onSlid(evt) {
+        var $k = $(evt.currentTarget);
+        var $active = $k.find('.active');
+        var $items = $active.parent().children();
+        var index = $items.index($active);
+
+        var $indicators = $('#karusela-nav a');
+        var ind_index = $indicators.length - index - 1;
+        $($indicators[ind_index]).addClass('active');
+      });
+
+
+    }
 
     function update_project(index) {
-      prj_index = index;
-      prj = projects[prj_index];
+      var prj_index = index;
+      var prj = projects[prj_index];
+      create_karusela(prj);
       $('#trans-text').text(prj.description);
     }
 
     $(function onReady() {
-      update_project(0);
+      update_project(1);
     });
 
   </script>
