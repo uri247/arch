@@ -58,23 +58,9 @@
         <div class="top-line"></div>
 
         <div class="rb">
-
-          <div style="position: relative">
-            <div class="span3 transbox">
-              <div class="text-top-space"></div>
-              <p>
-                רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
-                רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
-                רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
-                רקע על העיר אשדוד, הארכיטקטורה של הנמל, הועד של הנמל והקניון הספציפי הזה.
-              </p>
-            </div>
+          <div id="car-well">
           </div>
-
-          <div id="car-well"></div>
         </div>
-
-      </div>
       </div>
 
     </div>
@@ -110,11 +96,6 @@
       { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
     ];
 
-    $('.anch-proj').click(function onPorj(e) {
-      $('.anch-proj').parent().removeClass('active');
-      $(this).parent().addClass('active');
-    });
-
     function build_carousel(prj) {
       var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
       for (var i = 0; i < prj.images.length; ++i) {
@@ -132,33 +113,9 @@
 
       $('#car-well').html(innerHTML);
       $('#karusela .item:first').addClass('active');
-      $('#karusela-nav a').filter(':last').addClass('active');
-
-      $('#karusela-nav a').click(function (q) {
-        q.preventDefault();
-        clicked = $(this).data('to') ;
-        $('#karusela').carousel(clicked);
-      });
-
-      $('.carousel').on('slide', function onSlide(evt) {
-        $('#karusela-nav a').removeClass('active');
-      });
-
-      $('.carousel').on('slid', function onSlid(evt) {
-        var $k = $(evt.currentTarget);
-        var $active = $k.find('.active');
-        var $items = $active.parent().children();
-        var index = $items.index($active);
-
-        var $indicators = $('#karusela-nav a');
-        var ind_index = $indicators.length - index - 1;
-        $($indicators[ind_index]).addClass('active');
-      });
-
-
 
       // Finnaly, make it a carousel
-      $('#karusela').carousel({ interval: 7000 });
+      $('#karusela').carousel({ interval: 1200 });
     }
 
     $(function () {

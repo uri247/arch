@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>פינצי רווה לונדון</title>
+  <link href="../libs/bootstrap-2.3.2-rtl/css/bootstrap.css" rel="stylesheet" media="screen" />
+  <link href="arch.css" rel="stylesheet" media="screen" />
+
+  <style type="text/css">
+    .rb {
+      border: solid 1px red;
+    }
+    .gb {
+      border: solid 1px green;
+    }
+  </style>
+</head>
+
+
+<body dir="rtl">
+  <div class="container">
+    <div class="row">
+      <div class="span2">
+        <div class="rb">navigation</div>
+      </div>
+
+      <div class="span10">
+        <div class="gb">content</div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
+  <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+
+  <script type="text/javascript">
+
+    function build_carousel() {
+      var imgs = [
+        'http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg',
+        'http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg',
+        'http://twitter.github.io/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg'];
+
+      var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+      for (var i = 0; i < imgs.length; ++i) {
+        innerHTML += '<div class="item"><img src="' + imgs[i] + '" /></div>';
+      }
+      innerHTML += '</div>';
+      innerHTML += '</div>';
+
+      $('#car-well').html(innerHTML);
+      $('#karusela .item:first').addClass('active');
+    }
+
+    /*
+    $('#create-btn').click(function () {
+      build_carousel();
+      $('#myCarousel').carousel({ interval: 7000 });
+      $('#myCarousel').carousel(0);
+    });
+    */
+
+    $(function () {
+      //build_carousel();
+      //$('#karusela').carousel({ interval: 2000 });
+    });
+
+  </script>
+</body>
+</html>
