@@ -35,7 +35,7 @@ class ProjectsPage(web.RequestHandler):
         for project in projects:
             images = model.Image.query(ancestor=project.key).fetch()
             prj = localize( project.to_dict(), lang)
-            prj['images'] = [ localize(image.to_dict(),lang) for image in images]
+            prj['images'] = [ localize(image.to_dict(exclude=['data']),lang) for image in images]
             prjs.append( prj );
         
         tmpl = main.jinja_env.get_template( 'projects.html' )
