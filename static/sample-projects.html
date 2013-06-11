@@ -26,10 +26,10 @@
             <li>
               <img class="nav-hdr-img" src="nav-hdr.png" /></li>
             <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem1">
-              commercial<span class="caret"></span>
+              מסחרי<span class="caret"></span>
             </li>
             <li>
-              <ul id="topitem1" class="nav nav-list collapse in">
+              <ul id="topitem1" class="nav nav-list sub-nav collapse in">
                 <li><a href="#">אשדר 2000</a></li>
                 <li><a href="#">קזינו רמון</a></li>
               </ul>
@@ -37,10 +37,10 @@
             <li>
               <img class="nav-hdr-img" src="nav-hdr.png" /></li>
             <li class="nav-header accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem2">
-              residential<span class="caret"></span>
+              מגורים<span class="caret"></span>
             </li>
             <li>
-              <ul id="topitem2" class="nav nav-list collapse in">
+              <ul id="topitem2" class="nav nav-list sub-nav collapse in">
                 <li><a href="#">אבו אשדוד</a></li>
                 <li><a href="#">סוקולוב</a></li>
               </ul>
@@ -74,9 +74,8 @@
         </div>
 
       </div>
-      </div>
 
-    </div>
+    </div>    
   </div>
 
 
@@ -109,8 +108,8 @@
       { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
     ];
 
-    $('.anch-proj').click(function onPorj(e) {
-      $('.anch-proj').parent().removeClass('active');
+    $('ul.nav li a').click(function onPorj(e) {
+      $('ul.nav li a').parent().removeClass('active');
       $(this).parent().addClass('active');
     });
 

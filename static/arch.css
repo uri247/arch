@@ -94,7 +94,6 @@ body {
     background-color:#58585A;
     color: white;
     line-height: 15px;
-    text-shadow: none;
     font-weight: inherit;
     padding-top: inherit;
     padding-bottom: inherit;
@@ -106,8 +105,30 @@ body {
 
 .nav li + .nav-header {
     margin-top: 0px;
+    text-shadow: none;
 }
 
 .nav-hdr-img {
     margin-top: 9px;
+}
+
+.sub-nav li {
+    line-height: 14px;
+    height: 16px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sub-nav li a {
+    font-family: Arial;
+    font-size: 11px;
+    color: #58585A
+}
+
+.sub-nav li.active, .sub-nav li.active:hover, .sub-nav li.active:focus {
+    background-color: #c0c0c0;
+}
+
+.sub-nav li.active a, .sub-nav li.active a:hover, .sub-nav li.active a:focus {
+    background-color: #c0c0c0;
 }
