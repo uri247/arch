@@ -63,18 +63,21 @@
 
           <div style="position: relative">
             <div class="span3 transbox">
-              <div class="text-top-space"></div>
-              <p>
-              </p>
+              <div id="transbox-title" class="transbox-head"></div>
+              <p id="transbox-description" class="transbox-text"></p>
             </div>
           </div>
+
 
           <div id="car-well"></div>
         </div>
 
       </div>
 
-    </div>    
+    </div>
+    <div>
+      <img id="bottom-frame" src="bottom-frame.png" />
+    </div>
   </div>
 
 
@@ -131,7 +134,8 @@
       $('#car-well').html(innerHTML);
       $('#karusela .item:first').addClass('active');
       $('#karusela-nav a').filter(':last').addClass('active');
-      $('.transbox p').html(prj.description);
+      $('#transbox-title').html(prj.title);
+      $('#transbox-description').html(prj.description);
 
       $('#karusela-nav a').click(function (q) {
         q.preventDefault();
