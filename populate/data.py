@@ -24,7 +24,7 @@ projects_data = {
             'built_area': 6000,
             'classification': 'commercial'
         },
-        'images': ['ashdar01.jpg', 'ashdar02.jpg', 'ashdar03.jpg', 'ashdar04.jpg', 'ashdar05.jpg', 'ashdar06.jpg' ],
+        'images': ['Buidings-020_LowRes.jpg', 'Buidings-022_LowRes.jpg', 'Buidings-025_LowRes.jpg', 'Buidings-032_LowRes.jpg' ]
     },
     'abuashdod' : {
         'id': 'abuashdod',

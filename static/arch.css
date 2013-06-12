@@ -14,6 +14,7 @@ body {
 }
 #nav-pane {
     background-color: #ffffff;
+    height: 694px;
     /*height: 800px;*/
 }
 
@@ -25,6 +26,8 @@ body {
 .top-line {
     background-color: #FECC00;
     height: 6px;
+    z-index: 8;
+    position: relative;
 }
 
 .top-space {
@@ -54,8 +57,8 @@ body {
     margin: 0px 30px 0px 30px;
 }
 
-.carousel, .carousel-inner, .item {
-    height: 600px;
+.carousel, .carousel-inner {
+    height: auto;
 }
 
 .carousel {
@@ -64,6 +67,11 @@ body {
 
 .item {
     background-repeat: no-repeat;
+    height: 480px;
+}
+
+.item img {
+    height: 480px;
 }
 
 #karusela-nav {
@@ -99,7 +107,7 @@ body {
     padding-bottom: inherit;
 	height: 16px;
 	font-family: Arial;
-	font-size: 11px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -121,7 +129,7 @@ body {
 
 .sub-nav li a {
     font-family: Arial;
-    font-size: 11px;
+    font-size: 13px;
     color: #58585A
 }
 
@@ -132,3 +140,15 @@ body {
 .sub-nav li.active a, .sub-nav li.active a:hover, .sub-nav li.active a:focus {
     background-color: #c0c0c0;
 }
+
+a.main-menu-item {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 13px;
+    color: #58585a;
+}
+
+a.lang-link {
+    color: #e7ad00;
+}
+
