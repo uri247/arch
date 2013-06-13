@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Upload Image</title>
+  <meta charset="UTF-8">
+  <title>Upload new image</title>
+  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
 </head>
+
 <body>
 
-<h2>Upload a new Image for {{ firmid }}/{{ projid }}</h2>
+  <div class="container">
+    <h1>Upload a new Image for {{ firmid }}/{{ projid }}</h1>
 
-<form action='../../../image_form' method='post' enctype="multipart/form-data">
-    <input type="hidden" name="firmid" value="{{ firmid }}">
-    <input type="hidden" name="projid" value="{{ projid }}">
-    <div>
-        <label for="name">Name:</label>
-        <input id="name" name="name" type="text">
+    <div class="row">
+      <div class="space2 span10">
+        <form class="form" action='../../../image_form' method='post' enctype="multipart/form-data">
+          <input type="hidden" name="firmid" value="{{ firmid }}">
+          <input type="hidden" name="projid" value="{{ projid }}">
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text">
+          <label for="file">Data File:</label>
+          <input id="file" name="file" type="file">
+          <input type="submit" value="OK">
+        </form>
+      </div>
     </div>
-    <div>
-        <label for="file">Data File:</label>
-        <input id="file" name="file" type="file">
-    </div>
-    <input type="submit" value="OK">
-</form>
-
+  </div>
 
 </body>
 </html>

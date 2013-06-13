@@ -80,11 +80,17 @@ body {
     text-align: left;
 }
 
+#karusela-nav div {
+   width: 16px;
+   height: 16px;
+   vertical-align: middle;
+   display: inline-block;
+   line-height: normal;
+ }
+
 #karusela-nav a {
     display: inline-block;
     margin-right: 4px;
-    width: 16px;
-    height: 16px;
     background: #58585A;
     color: white;
 	font-family: Arial;
@@ -163,6 +169,5 @@ a.lang-link {
 #bottom-frame {
     position: relative;
     margin-top: -74px;
-    border: solid 1px red;
     z-index: 8;
 }
