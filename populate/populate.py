@@ -9,7 +9,7 @@ import data
 if len(sys.argv) == 1 or sys.argv[1] == 'local':
     base_url = 'http://localhost:8080'
 elif sys.argv[1] == 'remote':
-    base_url = 'http://arch.london.org.il'
+    base_url = 'http://www.frl-arch.com'
 else:
     print 'sys.argv[0] [local|remote]'
     exit()
