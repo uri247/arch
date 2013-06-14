@@ -24,7 +24,7 @@
             <li class="nav-hdr accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem1">מסחרי</li>
             <li>
               <ul id="topitem1" class="nav nav-list sub-nav collapse in">
-                <li><a href="#">אשדר 2000</a></li>
+                <li class="active"><a href="#">אשדר 2000</a></li>
                 <li><a href="#">קזינו רמון</a></li>
               </ul>
             </li>
@@ -33,7 +33,6 @@
             <li class="nav-hdr accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem2">מגורים</li>
             <li>
               <ul id="topitem2" class="nav nav-list sub-nav collapse">
-              <ul id="topitem2" class="nav nav-list sub-nav collapse in">
                 <li><a href="#">אבו אשדוד</a></li>
                 <li><a href="#">סוקולוב</a></li>
               </ul>
@@ -56,19 +55,16 @@
         </div>
         <div class="top-line"></div>
 
-        <div>
+        <div style="position: relative">
 
-          <!---
-          <div style="position: relative">
-            <div class="span3 transbox">
-              <div id="transbox-title" class="transbox-head"></div>
-              <p id="transbox-description" class="transbox-text"></p>
-            </div>
+          <div class="transbox">
+            <div id="transbox-title" class="transbox-head"></div>
+            <p id="transbox-description" class="transbox-text"></p>
           </div>
-          -->
 
           <div id="kar-well"></div>
         </div>
+
       </div>
     </div>
 
@@ -113,7 +109,7 @@
       $('ul.nav li a').click(function onPorj(e) {
         $('ul.nav li a').parent().removeClass('active');
         $(this).parent().addClass('active');
-        prj = projects[$('#aside .sub-nav a').index(e.currentTarget)];
+        prj = projects[$('.aside .sub-nav a').index(e.currentTarget)];
         build_carousel(prj);
       });
 

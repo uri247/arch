@@ -54,13 +54,13 @@ a {
 
 .sub-nav {
     margin-bottom: 12px;
-    padding-right: 10px;
 }
 
 .sub-nav li {
     color: #58585a;
     margin-top: 4px;
     margin-bottom: 4px;
+    padding-right: 10px;
 }
 
 
@@ -104,6 +104,29 @@ a {
     z-index: 10;
     position: relative;
 }
+
+
+.transbox {
+    position: absolute;
+    height: 400px;
+    padding-top: 60px;
+    width: 210px;
+    padding-right: 25px;
+    padding-left: 15px;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    opacity: 0.78;
+    z-index: 2;
+}
+
+.transbox-head {
+    font-weight: bold;
+}
+
+.transbox-text {
+}
+
 
 
 /* ---------------------------------------- Bottom ---------------------------------------- */

@@ -36,6 +36,15 @@ def get_attr(inst,lang,attr):
     return getattr(inst, attr + '_' + lang)
 
 
+def lookup_classification(classification,lang):
+    lookup = {
+        'commercial': { 'e': 'commercial', 'h': 'מסחרי' },
+        'residential': { 'e': 'residential', 'h': 'מגורים' },
+        'cityplan': { 'e': 'city plan', 'h': 'תב"ע' },
+    }
+    return lookup[classification][lang]
+
+
 def localize(ob,lang):
     """localize - deep localization of an object
     Multilingual objects are dictionaries (or objects containing dictionaries) that may have
@@ -49,7 +58,10 @@ def localize(ob,lang):
         r = {}
         for p in ob:
             if p[-2] != '_':
-                r[ p ] = localize(ob[p],lang)
+                if p == 'classification':
+                    r[p] = lookup_classification(ob[p], lang)
+                else:
+                    r[p] = localize(ob[p],lang)
             elif p[-1] == lang:
                 r[ p[:-2] ] = ob[p]
         return r

@@ -29,17 +29,21 @@ class ProjectsPage(web.RequestHandler):
                 'items': [ {'title': get_attr(prj, lang, 'title')} for prj in prjs]
             } for clsf, prjs in by_clsf ]
         }
+        menu['items'][0]['items'][0]['active'] = True;
         
         #Prepare the prjs structure list
         prjs = [];
         for project in projects:
             images = model.Image.query(ancestor=project.key).fetch()
             prj = localize( project.to_dict(), lang)
+            prj['id'] = project.key.id();
             prj['images'] = [ localize(image.to_dict(exclude=['data']),lang) for image in images]
             prjs.append( prj );
         
-        tmpl = main.jinja_env.get_template( 'projects.html' )
+        #tmpl = main.jinja_env.get_template( 'projects.html' )
+        tmpl = main.jinja_env.get_template( 'b.html' )
         html = tmpl.render({
+            'firmid': firmid,
             'firm': localize(firm.to_dict(),lang),
             'ctx_menu': menu, 
             'trans_text': 'blah blah blah',
