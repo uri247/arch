@@ -61,7 +61,12 @@ a {
     color: #58585a;
     margin-top: 4px;
     margin-bottom: 4px;
+}
 
+
+.sub-nav li.active {
+    background-color: #e2e2e2;
+    font-weight: bold;
 }
 
 .main-menu-well {
