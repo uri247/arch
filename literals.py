@@ -38,9 +38,9 @@ def get_attr(inst,lang,attr):
 
 def lookup_classification(classification,lang):
     lookup = {
-        'commercial': { 'e': 'commercial', 'h': 'מסחרי' },
-        'residential': { 'e': 'residential', 'h': 'מגורים' },
-        'cityplan': { 'e': 'city plan', 'h': 'תב"ע' },
+        'commercial': { 'e': 'commercial', 'h': u'מסחרי' },
+        'residential': { 'e': 'residential', 'h': u'מגורים' },
+        'cityplan': { 'e': 'city plan', 'h': u'תב"ע' },
     }
     return lookup[classification][lang]
 

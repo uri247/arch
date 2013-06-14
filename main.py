@@ -2,7 +2,7 @@ import jinja2
 import os
 from google.appengine.ext import webapp
 import admin
-import home
+import about
 import projects
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
@@ -11,7 +11,7 @@ jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        self.redirect( '/static/sample-projects.html' )
+        self.redirect( '/frl/h/about' )
         
 class AdminPage(webapp.RequestHandler):
     def get(self):
@@ -20,8 +20,8 @@ class AdminPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication([
         ('/', MainPage),
-        ('/home', home.HomePage),
         ('/(.*)/(.*)/projects', projects.ProjectsPage ),
+        ('/(.*)/(.*)/about', about.AboutPage),
         
         ('/admin', AdminPage),
         ('/admin/firm', admin.FirmPage),

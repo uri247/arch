@@ -1,12 +1,10 @@
 import itertools
 import json
-
 from google.appengine.ext import ndb
-
 import model
 import main
 import web
-from literals import get_attr, localize
+from literals import get_attr, localize, lookup_classification
 
 class ProjectsPage(web.RequestHandler):
     def get(self,firmid,lang):
@@ -25,7 +23,7 @@ class ProjectsPage(web.RequestHandler):
         by_clsf = [(clsf,list(prjs)) for clsf, prjs in itertools.groupby(projects, lambda prj: prj.classification)]
         menu = {
             'items': [{
-                'title': clsf,
+                'title': lookup_classification(clsf, lang),
                 'items': [ {'title': get_attr(prj, lang, 'title')} for prj in prjs]
             } for clsf, prjs in by_clsf ]
         }
@@ -40,8 +38,7 @@ class ProjectsPage(web.RequestHandler):
             prj['images'] = [ localize(image.to_dict(exclude=['data']),lang) for image in images]
             prjs.append( prj );
         
-        #tmpl = main.jinja_env.get_template( 'projects.html' )
-        tmpl = main.jinja_env.get_template( 'b.html' )
+        tmpl = main.jinja_env.get_template( 'projects.html' )
         html = tmpl.render({
             'firmid': firmid,
             'firm': localize(firm.to_dict(),lang),
