@@ -133,7 +133,7 @@
 
       $('#car-well').html(innerHTML);
       $('#karusela .item:first').addClass('active');
-      $('#karusela-nav a').filter(':last').addClass('active');
+      $('#karusela-nav div').filter(':last').addClass('active');
       $('#transbox-title').html(prj.title);
       $('#transbox-description').html(prj.description);
 
@@ -143,10 +143,10 @@
         $('#karusela').carousel(clicked);
       });
 
-      $('#karusela').carousel({ interval: 7000 });
+      $('#karusela').carousel({ interval: 70000 });
 
       $('.carousel').on('slide', function onSlide(evt) {
-        $('#karusela-nav a').removeClass('active');
+        $('#karusela-nav div').removeClass('active');
       });
 
       $('.carousel').on('slid', function onSlid(evt) {
@@ -155,7 +155,7 @@
         var $items = $active.parent().children();
         var index = $items.index($active);
 
-        var $indicators = $('#karusela-nav a');
+        var $indicators = $('#karusela-nav div');
         var ind_index = $indicators.length - index - 1;
         $($indicators[ind_index]).addClass('active');
       });
