@@ -1,0 +1,104 @@
+@CHARSET "ISO-8859-1";
+
+/* ---------------------------------------- General Layout ---------------------------------------- */
+body {
+    font-family: Arial;
+    font-size: 13px;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.container {
+    width: 958px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+}
+
+.row > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+/* ---------------------------------------- A Side ---------------------------------------- */
+.aside {
+    position: relative;
+    width: 158px;
+    height: 473px;
+    margin-left: 16px;
+    padding-top: 77px;
+}
+
+.nav {
+    list-style-type: none;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.nav-hdr-img {
+    height: 13px;
+}
+
+.nav-hdr {
+    background-color: #58585a;
+    color: white;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.sub-nav {
+    margin-bottom: 12px;
+    padding-right: 10px;
+}
+
+.sub-nav li {
+    color: #58585a;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+
+.main-menu-well {
+    position: absolute;
+    bottom: 0px;
+    font-weight: bold;
+}
+
+.main-menu-item {
+    margin-top: 4px;
+    padding-right: 10px;
+}
+
+.lang-link {
+    color: #e7ad00;
+}
+
+
+/* ---------------------------------------- B Side ---------------------------------------- */
+.bside {
+    width: 780px;
+    position: relative;
+}
+
+.logo-well {
+    position: relative;
+    height: 83px;
+    padding-top: 7px;
+    z-index: 5;
+}
+
+.top-line {
+    background-color: #fecc00;
+    height: 6px;
+    z-index: 10;
+    position: relative;
+}
+

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>פינצי רווה לונדון</title>
+  <link href="a2.css" rel="stylesheet" media="screen" />
+  <link href="c2.css" rel="stylesheet" media="screen" />
+
+</head>
+
+
+<body dir="rtl">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- navigation pane -->
+      <div class="aside">
+        <div class="accordion">
+          <ul class="nav nav-list">
+            <li class="nav-hdr-img">
+              <img src="nav-hdr.png" /></li>
+            <li class="nav-hdr accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem1">מסחרי</li>
+            <li>
+              <ul id="topitem1" class="nav nav-list sub-nav collapse in">
+                <li><a href="#">אשדר 2000</a></li>
+                <li><a href="#">קזינו רמון</a></li>
+              </ul>
+            </li>
+            <li class="nav-hdr-img">
+              <img src="nav-hdr.png" /></li>
+            <li class="nav-hdr accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem2">מגורים</li>
+            <li>
+              <ul id="topitem2" class="nav nav-list sub-nav collapse in">
+                <li><a href="#">אבו אשדוד</a></li>
+                <li><a href="#">סוקולוב</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="main-menu-well">
+          <div class="main-menu-item"><a href="#">עלינו</a></div>
+          <div class="main-menu-item"><a href="#">פרויקטים</a></div>
+          <div class="main-menu-item"><a href="#">פרסומים</a></div>
+          <div class="main-menu-item"><a href="#">צור קשר</a></div>
+          <div class="main-menu-item lang-link"><a href="#">English</a></div>
+        </div>
+      </div>
+
+      <!-- content pane -->
+      <div class="bside">
+        <div class="logo-well">
+          <img src="logo.png" />
+        </div>
+        <div class="top-line"></div>
+
+        <div>
+
+          <!---
+          <div style="position: relative">
+            <div class="span3 transbox">
+              <div id="transbox-title" class="transbox-head"></div>
+              <p id="transbox-description" class="transbox-text"></p>
+            </div>
+          </div>
+          -->
+
+          <div id="car-well"></div>
+        </div>
+      </div>
+      <div>
+        <img id="bottom-frame" src="bottom-frame.png" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="code">
+    <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+
+    var projects = [
+      {
+        "status": "underway",
+        "description": "\u05e8\u05e6\u05d9\u05e0\u05d5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05de\u05d1\u05e0\u05d4 \u05d2\u05d3\u05d5\u05dc \u05e2\u05dd \u05d6\u05db\u05d5\u05db\u05d9\u05d5\u05ea \u05d9\u05e8\u05d5\u05e7\u05d5\u05ea",
+        "classification": "commercial",
+        "title": "\u05d0\u05e9\u05d3\u05e8 2000",
+        "year": 2005,
+        "built_area": 6000,
+        "address": "\u05d1\u05e2\u05dc\u05d9 \u05d4\u05de\u05dc\u05d0\u05db\u05d4 55,\u05d0\u05e9\u05d3\u05d5\u05d3",
+        "images": [
+          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-020_LowRes", "mime_type": "image/pjpeg" },
+          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-022_LowRes", "mime_type": "image/pjpeg" },
+          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-025_LowRes", "mime_type": "image/pjpeg" },
+          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-032_LowRes", "mime_type": "image/pjpeg" },
+        ],
+        "plot_area": 500
+      },
+      { "status": "underway", "description": "\u05d4\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e9\u05dc \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df \u05de\u05e9\u05dc\u05d1 \u05d9\u05d5\u05e4\u05d9 \u05d5\u05d7\u05d9\u05d1\u05d5\u05e8\u05d9\u05d5\u05ea \u05dc\u05de\u05d3\u05d1\u05e8, \u05dc\u05d1\u05d3\u05d5\u05d0\u05d9\u05dd \u05d5\u05dc\u05d2\u05de\u05dc\u05d9\u05dd", "classification": "commercial", "title": "\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e8\u05de\u05d5\u05df", "year": 2009, "built_area": 5040, "address": "\u05e8\u05d7\u05d5\u05d1 \u05d5\u05d9\u05e7\u05d9 \u05db\u05e0\u05e4\u05d5 1, \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df", "images": [{ "orig_name": "ramon01.jpg", "short_name": "ramon01", "mime_type": "image/pjpeg" }, { "orig_name": "ramon02.jpg", "short_name": "ramon02", "mime_type": "image/pjpeg" }], "plot_area": 4050 },
+      { "status": "complete", "description": "\u05d4\u05d0\u05de\u05d0 \u05e9\u05dc \u05db\u05dc \u05de\u05d4 \u05e9\u05dc\u05d0 \u05e8\u05e6\u05d9\u05e0\u05d5 \u05d1\u05d0\u05e9\u05d3\u05d5\u05d3", "classification": "residential", "title": "\u05d0\u05d1\u05d5 \u05d0\u05e9\u05d3\u05d5\u05d3", "year": 1967, "built_area": 800, "address": "\u05d1\u05e8\u05d7\u05d5\u05d1 \u05d0\u05e9\u05d3\u05d5\u05d3 44, \u05d0\u05e9\u05d3\u05d5\u05d3", "images": [{ "orig_name": "ashdod01.jpg", "short_name": "ashdod01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdod02.jpg", "short_name": "ashdod02", "mime_type": "image/pjpeg" }, { "orig_name": "xx.jpg", "short_name": "xx", "mime_type": "image/pjpeg" }], "plot_area": 400 },
+      { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
+    ];
+
+    $('ul.nav li a').click(function onPorj(e) {
+      $('ul.nav li a').parent().removeClass('active');
+      $(this).parent().addClass('active');
+      prj = projects[$('#aside .sub-nav a').index(e.currentTarget)];
+      build_carousel(prj);
+    });
+
+    function build_carousel(prj) {
+      $('.carousel').carousel('pause');
+
+      var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+      for (var i = 0; i < prj.images.length; ++i) {
+        innerHTML += '<div class="item"><img src="../populate/images/' + prj.images[i].short_name + '.jpg" /></div>';
+      }
+      innerHTML += '</div>';
+      innerHTML += '</div>';
+
+      innerHTML += '<div class="indicators-well">';
+      for (var i = prj.images.length - 1; i >= 0; --i) {
+        innerHTML += '<div><a href="#karusela1" data-to="' + i.toString() + '">' + (i + 1).toString() + '</a></div>';
+      }
+      innerHTML += '</div>';
+
+      $('#car-well').html(innerHTML);
+      $('#karusela .item:first').addClass('active');
+      $('#karusela-nav div').filter(':last').addClass('active');
+      $('#transbox-title').html(prj.title);
+      $('#transbox-description').html(prj.description);
+
+      $('#karusela-nav a').click(function (q) {
+        q.preventDefault();
+        clicked = $(this).data('to') ;
+        $('#karusela').carousel(clicked);
+      });
+
+      $('#karusela').carousel({ interval: 7000 });
+
+      $('.carousel').on('slide', function onSlide(evt) {
+        $('#karusela-nav div').removeClass('active');
+      });
+
+      $('.carousel').on('slid', function onSlid(evt) {
+        var $k = $(evt.currentTarget);
+        var $active = $k.find('.active');
+        var $items = $active.parent().children();
+        var index = $items.index($active);
+
+        var $indicators = $('#karusela-nav div');
+        var ind_index = $indicators.length - index - 1;
+        $($indicators[ind_index]).addClass('active');
+      });
+
+    }
+
+    $(function () {
+      prj = projects[0];
+      build_carousel(prj);
+    });
+
+  </script>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+.accordion-toggle {
+  cursor: pointer;
+}
+
+.collapse {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+
+.collapse.in {
+  height: auto;
+}
+
+
+.carousel {
+    position: relative;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner > .item {
+    position: relative;
+    display: none;
+    transition: 0.6s ease-in-out left;
+}
+
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+    display: block;
+}
+
+.carousel-inner > .active {
+    left: 0;
+}
+
+.carousel-inner > .next,
+.carousel-inner > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.carousel-inner > .next {
+    left: 100%;
+}
+
+.carousel-inner > .prev {
+    left: -100%;
+}
+
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+    left: 0;
+}
+
+.carousel-inner > .active.left {
+    left: -100%;
+}
+
+.carousel-inner > .active.right {
+    left: 100%;
+}
+
