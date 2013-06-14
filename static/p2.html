@@ -66,12 +66,15 @@
           </div>
           -->
 
-          <div id="car-well"></div>
+          <div id="kar-well"></div>
         </div>
       </div>
-      <div>
-        <img id="bottom-frame" src="bottom-frame.png" />
-      </div>
+    </div>
+
+    <div class="bottom-shadow">
+      <img id="bottom-frame" src="bottom-frame.png" />
+    </div>
+    <div id="indicators" class="indicators-well">
     </div>
   </div>
 
@@ -82,89 +85,92 @@
 
     <script type="text/javascript">
 
-    var projects = [
-      {
-        "status": "underway",
-        "description": "\u05e8\u05e6\u05d9\u05e0\u05d5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05de\u05d1\u05e0\u05d4 \u05d2\u05d3\u05d5\u05dc \u05e2\u05dd \u05d6\u05db\u05d5\u05db\u05d9\u05d5\u05ea \u05d9\u05e8\u05d5\u05e7\u05d5\u05ea",
-        "classification": "commercial",
-        "title": "\u05d0\u05e9\u05d3\u05e8 2000",
-        "year": 2005,
-        "built_area": 6000,
-        "address": "\u05d1\u05e2\u05dc\u05d9 \u05d4\u05de\u05dc\u05d0\u05db\u05d4 55,\u05d0\u05e9\u05d3\u05d5\u05d3",
-        "images": [
-          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-020_LowRes", "mime_type": "image/pjpeg" },
-          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-022_LowRes", "mime_type": "image/pjpeg" },
-          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-025_LowRes", "mime_type": "image/pjpeg" },
-          { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-032_LowRes", "mime_type": "image/pjpeg" },
-        ],
-        "plot_area": 500
-      },
-      { "status": "underway", "description": "\u05d4\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e9\u05dc \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df \u05de\u05e9\u05dc\u05d1 \u05d9\u05d5\u05e4\u05d9 \u05d5\u05d7\u05d9\u05d1\u05d5\u05e8\u05d9\u05d5\u05ea \u05dc\u05de\u05d3\u05d1\u05e8, \u05dc\u05d1\u05d3\u05d5\u05d0\u05d9\u05dd \u05d5\u05dc\u05d2\u05de\u05dc\u05d9\u05dd", "classification": "commercial", "title": "\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e8\u05de\u05d5\u05df", "year": 2009, "built_area": 5040, "address": "\u05e8\u05d7\u05d5\u05d1 \u05d5\u05d9\u05e7\u05d9 \u05db\u05e0\u05e4\u05d5 1, \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df", "images": [{ "orig_name": "ramon01.jpg", "short_name": "ramon01", "mime_type": "image/pjpeg" }, { "orig_name": "ramon02.jpg", "short_name": "ramon02", "mime_type": "image/pjpeg" }], "plot_area": 4050 },
-      { "status": "complete", "description": "\u05d4\u05d0\u05de\u05d0 \u05e9\u05dc \u05db\u05dc \u05de\u05d4 \u05e9\u05dc\u05d0 \u05e8\u05e6\u05d9\u05e0\u05d5 \u05d1\u05d0\u05e9\u05d3\u05d5\u05d3", "classification": "residential", "title": "\u05d0\u05d1\u05d5 \u05d0\u05e9\u05d3\u05d5\u05d3", "year": 1967, "built_area": 800, "address": "\u05d1\u05e8\u05d7\u05d5\u05d1 \u05d0\u05e9\u05d3\u05d5\u05d3 44, \u05d0\u05e9\u05d3\u05d5\u05d3", "images": [{ "orig_name": "ashdod01.jpg", "short_name": "ashdod01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdod02.jpg", "short_name": "ashdod02", "mime_type": "image/pjpeg" }, { "orig_name": "xx.jpg", "short_name": "xx", "mime_type": "image/pjpeg" }], "plot_area": 400 },
-      { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
-    ];
+      var projects = [
+        {
+          "status": "underway",
+          "description": "\u05e8\u05e6\u05d9\u05e0\u05d5 \u05dc\u05e2\u05e9\u05d5\u05ea \u05de\u05d1\u05e0\u05d4 \u05d2\u05d3\u05d5\u05dc \u05e2\u05dd \u05d6\u05db\u05d5\u05db\u05d9\u05d5\u05ea \u05d9\u05e8\u05d5\u05e7\u05d5\u05ea",
+          "classification": "commercial",
+          "title": "\u05d0\u05e9\u05d3\u05e8 2000",
+          "year": 2005,
+          "built_area": 6000,
+          "address": "\u05d1\u05e2\u05dc\u05d9 \u05d4\u05de\u05dc\u05d0\u05db\u05d4 55,\u05d0\u05e9\u05d3\u05d5\u05d3",
+          "images": [
+            { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-020_LowRes", "mime_type": "image/pjpeg" },
+            { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-022_LowRes", "mime_type": "image/pjpeg" },
+            { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-025_LowRes", "mime_type": "image/pjpeg" },
+            { "orig_name": "Buidings-020_LowRes.jpg", "short_name": "Buidings-032_LowRes", "mime_type": "image/pjpeg" },
+          ],
+          "plot_area": 500
+        },
+        { "status": "underway", "description": "\u05d4\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e9\u05dc \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df \u05de\u05e9\u05dc\u05d1 \u05d9\u05d5\u05e4\u05d9 \u05d5\u05d7\u05d9\u05d1\u05d5\u05e8\u05d9\u05d5\u05ea \u05dc\u05de\u05d3\u05d1\u05e8, \u05dc\u05d1\u05d3\u05d5\u05d0\u05d9\u05dd \u05d5\u05dc\u05d2\u05de\u05dc\u05d9\u05dd", "classification": "commercial", "title": "\u05e7\u05d6\u05d9\u05e0\u05d5 \u05e8\u05de\u05d5\u05df", "year": 2009, "built_area": 5040, "address": "\u05e8\u05d7\u05d5\u05d1 \u05d5\u05d9\u05e7\u05d9 \u05db\u05e0\u05e4\u05d5 1, \u05de\u05e6\u05e4\u05d4 \u05e8\u05de\u05d5\u05df", "images": [{ "orig_name": "ramon01.jpg", "short_name": "ramon01", "mime_type": "image/pjpeg" }, { "orig_name": "ramon02.jpg", "short_name": "ramon02", "mime_type": "image/pjpeg" }], "plot_area": 4050 },
+        { "status": "complete", "description": "\u05d4\u05d0\u05de\u05d0 \u05e9\u05dc \u05db\u05dc \u05de\u05d4 \u05e9\u05dc\u05d0 \u05e8\u05e6\u05d9\u05e0\u05d5 \u05d1\u05d0\u05e9\u05d3\u05d5\u05d3", "classification": "residential", "title": "\u05d0\u05d1\u05d5 \u05d0\u05e9\u05d3\u05d5\u05d3", "year": 1967, "built_area": 800, "address": "\u05d1\u05e8\u05d7\u05d5\u05d1 \u05d0\u05e9\u05d3\u05d5\u05d3 44, \u05d0\u05e9\u05d3\u05d5\u05d3", "images": [{ "orig_name": "ashdod01.jpg", "short_name": "ashdod01", "mime_type": "image/pjpeg" }, { "orig_name": "ashdod02.jpg", "short_name": "ashdod02", "mime_type": "image/pjpeg" }, { "orig_name": "xx.jpg", "short_name": "xx", "mime_type": "image/pjpeg" }], "plot_area": 400 },
+        { "status": "complete", "description": "\u05d6\u05d4 \u05e4\u05e8\u05d5\u05d9\u05d9\u05e7\u05d8 \u05de\u05e4\u05e2\u05dd. \u05de\u05de\u05d6\u05de\u05df \u05de\u05de\u05e9", "classification": "residential", "title": "\u05e1\u05d5\u05e7\u05d5\u05dc\u05d5\u05d1", "year": 1955, "built_area": 5125, "address": "\u05d0\u05e0\u05e9\u05d9 \u05e2\u05de\u05dc 12, \u05d4\u05e8\u05e6\u05dc\u05d9\u05d4", "images": [], "plot_area": 1255 }
+      ];
+    </script>
 
-    $('ul.nav li a').click(function onPorj(e) {
-      $('ul.nav li a').parent().removeClass('active');
-      $(this).parent().addClass('active');
-      prj = projects[$('#aside .sub-nav a').index(e.currentTarget)];
-      build_carousel(prj);
-    });
+    <script type="text/javascript">
+      $('ul.nav li a').click(function onPorj(e) {
+        $('ul.nav li a').parent().removeClass('active');
+        $(this).parent().addClass('active');
+        prj = projects[$('#aside .sub-nav a').index(e.currentTarget)];
+        build_carousel(prj);
+      });
 
-    function build_carousel(prj) {
-      $('.carousel').carousel('pause');
+      function build_carousel(prj) {
+        $('.carousel').carousel('pause');
 
-      var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
-      for (var i = 0; i < prj.images.length; ++i) {
-        innerHTML += '<div class="item"><img src="../populate/images/' + prj.images[i].short_name + '.jpg" /></div>';
+        // prepare the carousel well
+        var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+        for (var i = 0; i < prj.images.length; ++i) {
+          innerHTML += '<div class="item"><img src="../populate/images/' + prj.images[i].short_name + '.jpg" /></div>';
+        }
+        innerHTML += '</div>';
+        innerHTML += '</div>';
+        $('#kar-well').html(innerHTML);
+
+        // prepare the indicators well
+        innerHTML = '';
+        for (var i = 0; i < prj.images.length; ++i) {
+          innerHTML += '<div data-to="' + i.toString() + '"><span>' + (i + 1).toString() + '</a></div>';
+        }
+        $('#indicators').html(innerHTML);
+
+        $('#karusela .item:first').addClass('active');
+        $('#indicators div:first').addClass('active');
+        $('#transbox-title').html(prj.title);
+        $('#transbox-description').html(prj.description);
+
+        $('#indicators div').click(function (q) {
+          q.preventDefault();
+          clicked = $(this).data('to');
+          $('#karusela').carousel(clicked);
+        });
+
+        $('#karusela').carousel({ interval: 7000 });
+
+        $('.carousel').on('slide', function onSlide(evt) {
+          $('#indicators div').removeClass('active');
+        });
+
+        $('.carousel').on('slid', function onSlid(evt) {
+          var $k = $(evt.currentTarget);
+          var $active = $k.find('.active');
+          var $items = $active.parent().children();
+          var index = $items.index($active);
+
+          var $indicators = $('#indicators div');
+          var ind_index = index;
+          $($indicators[ind_index]).addClass('active');
+        });
+
       }
-      innerHTML += '</div>';
-      innerHTML += '</div>';
 
-      innerHTML += '<div class="indicators-well">';
-      for (var i = prj.images.length - 1; i >= 0; --i) {
-        innerHTML += '<div><a href="#karusela1" data-to="' + i.toString() + '">' + (i + 1).toString() + '</a></div>';
-      }
-      innerHTML += '</div>';
-
-      $('#car-well').html(innerHTML);
-      $('#karusela .item:first').addClass('active');
-      $('#karusela-nav div').filter(':last').addClass('active');
-      $('#transbox-title').html(prj.title);
-      $('#transbox-description').html(prj.description);
-
-      $('#karusela-nav a').click(function (q) {
-        q.preventDefault();
-        clicked = $(this).data('to') ;
-        $('#karusela').carousel(clicked);
+      $(function () {
+        prj = projects[0];
+        build_carousel(prj);
       });
-
-      $('#karusela').carousel({ interval: 7000 });
-
-      $('.carousel').on('slide', function onSlide(evt) {
-        $('#karusela-nav div').removeClass('active');
-      });
-
-      $('.carousel').on('slid', function onSlid(evt) {
-        var $k = $(evt.currentTarget);
-        var $active = $k.find('.active');
-        var $items = $active.parent().children();
-        var index = $items.index($active);
-
-        var $indicators = $('#karusela-nav div');
-        var ind_index = $indicators.length - index - 1;
-        $($indicators[ind_index]).addClass('active');
-      });
-
-    }
-
-    $(function () {
-      prj = projects[0];
-      build_carousel(prj);
-    });
 
   </script>
   </div>
-
 </body>
 </html>
