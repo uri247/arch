@@ -7,6 +7,9 @@ import web
 
 class ImagePage(web.RequestHandler):
     def get(self, firmid, projid, imgid):
+        key = model.firm_key( firmid )
+        firm = key.get()
+
         img = {}
         tmpl_name = None;
 
@@ -21,6 +24,7 @@ class ImagePage(web.RequestHandler):
             
         self.html_content()
         self.w( main.jinja_env.get_template( tmpl_name ).render({
+            'firm': firm.to_dict(),
             'firmid': firmid,
             'projid': projid,
             'imgid': imgid,

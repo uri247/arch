@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - {{ firm.name }}</title>
+  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
+  <style type="text/css">
+    .projimg {
+      width: 120px;
+    }
+    label {
+      line-height: 12px;
+      font-size: 10px;
+      font-weight: lighter;
+      margin-bottom: 0px;
+    }
+  </style>
+  {%block style%}
+  {%endblock%}
+</head>
+
+<body>
+  <a href="/">site</a>, <a href="/admin">admin</a>
+  <div class="container">
+    <h1>{%block title%}{{firmid}}{%endblock%}</h1>
+    {%block content%}
+    {%endblock%}
+  </div>
+  <script type="text/javascript" src="/libs/jquery/jquery-1.10.0.js"></script>
+  <script type="text/javascript" src="/libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+  {%block script%}
+  {%endblock%}
+</body>
+</html>

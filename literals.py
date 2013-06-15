@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
+import logging
 
 about_menu = {
     'items': [
@@ -22,13 +23,13 @@ about_menu = {
     ]
 }
 
-def get_prop(dict,lang,prop):
+def get_prop(dic,lang,prop):
     """returns a single property, localized
     """
-    if prop in dict:
-        return dict[prop]
+    if prop in dic:
+        return dic[prop]
     else:
-        return dict.get(prop + '_' + lang)
+        return dic.get(prop + '_' + lang)
 
 def get_attr(inst,lang,attr):
     """return a single attribute, localized
@@ -42,7 +43,11 @@ def lookup_classification(classification,lang):
         'residential': { 'e': 'residential', 'h': u'מגורים' },
         'cityplan': { 'e': 'city plan', 'h': u'תב"ע' },
     }
-    return lookup[classification][lang]
+    try:
+        return lookup[classification][lang]
+    except KeyError:
+        logging.warn('Classification %s not found. Using as new class' % classification)
+        return classification
 
 
 def localize(ob,lang):

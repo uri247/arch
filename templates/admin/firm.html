@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>{{ firmid }} - Firm Data</title>
-  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
-</head>
+{% extends 'admin/admin_base.html' %}
 
-
-<body>
-    <div class="container">
-      <h1>Firm Data:</h1>
-      <form class="form" action="firm_set" method="post">
+{%block content%}
+    <div class="row">
+      <form class="form" action="/form/firm" method="post">
         <div class="row">
           <div class="span5">
             <fieldset>
@@ -54,7 +46,7 @@
           <tbody>
             {% for p in projects %}
               <tr>
-                <td><a href="project/{{ firmid }}/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
+                <td><a href="project/{{ p.key.id() }}">{{ p.key.id() }}</a></td>
                 <td>{{ p.title_e }}</td>
                 <td>{{ p.year }}</td>
               </tr>
@@ -62,7 +54,7 @@
           </tbody>    
       </table>
   
-      <a href="project/{{ firmid }}/">add</a>
+      <a href="project/">add</a>
+    </div>
   </div>
-</body>
-</html>
+{%endblock%}

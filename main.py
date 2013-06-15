@@ -12,25 +12,26 @@ jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 class MainPage(webapp.RequestHandler):
     def get(self):
         self.redirect( '/frl/h/about' )
-        
-class AdminPage(webapp.RequestHandler):
-    def get(self):
-        self.redirect( '/admin/firm' )
 
+class MainAdminPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect( '/frl/admin/firm' )
+                
 
 application = webapp.WSGIApplication([
         ('/', MainPage),
+        ('/admin', MainAdminPage),
+        
         ('/(.*)/(.*)/projects', projects.ProjectsPage ),
         ('/(.*)/(.*)/about', about.AboutPage),
         
-        ('/admin', AdminPage),
-        ('/admin/firm', admin.FirmPage),
-        ('/admin/firm_set', admin.FirmForm),
-        ('/admin/firm_status', admin.StatusFirmPage),
-        ('/admin/project/(.*)/(.*)', admin.ProjectPage),
-        ('/admin/project_form', admin.ProjectForm),
-        ('/admin/image/(.*)/(.*)/(.*)', admin.ImagePage),
-        ('/admin/image_form', admin.ImageForm),
+        ('/(.*)/admin/firm', admin.FirmPage),
+        ('/(.*)/admin/firm_status', admin.StatusFirmPage),
+        ('/(.*)/admin/project/(.*)', admin.ProjectPage),
+        ('/(.*)/admin/image/(.*)/(.*)', admin.ImagePage),
+        ('/form/firm', admin.FirmForm),
+        ('/form/project', admin.ProjectForm),
+        ('/form/image', admin.ImageForm),
         
         ('/img/(.*)/(.*)/(.*)', admin.ImageResource),
         

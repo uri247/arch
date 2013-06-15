@@ -10,8 +10,9 @@ class ProjectPage(web.RequestHandler):
         new_proj = None
         p = None
         images = None
-        
-        
+        firm_key = model.firm_key( firmid )
+        firm = firm_key.get()
+
         if( projid ):
             new_proj = False
             key = ndb.Key( "Firm", firmid, "Project", projid )
@@ -25,8 +26,9 @@ class ProjectPage(web.RequestHandler):
         
         tmpl = main.jinja_env.get_template( 'admin/project.html' )        
         html = tmpl.render({
-            'firmid': self.get_firmid(), 
+            'firmid': firmid, 
             'projid': projid,
+            'firm': firm.to_dict(),
             'new_proj': new_proj,
             'p': p,
             'images': images,
@@ -38,10 +40,11 @@ class ProjectPage(web.RequestHandler):
 
 class ProjectForm(web.RequestHandler):
     def post(self):
+        firmid = self.request.get('firmid')
         projid = self.request.get('projid')
         new_proj = self.request.get('new_proj')
         proj = None
-        key = ndb.Key( 'Firm', self.get_firmid(), 'Project', projid )
+        key = ndb.Key( 'Firm', firmid, 'Project', projid )
         
         if new_proj:
             proj = model.Project( key = key )
@@ -62,7 +65,7 @@ class ProjectForm(web.RequestHandler):
             classification = self.request.get('classification')
             )        
         proj.put()
-        self.redirect('firm')
+        self.redirect('/%s/admin/firm' % firmid)
         
 
 class ProjectApi(web.RequestHandler):

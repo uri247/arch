@@ -5,19 +5,17 @@ import json
 
 
 class FirmPage(web.RequestHandler):
-    def get(self):        
-        key = model.firm_key( self.get_firmid() )
+    def get(self, firmid):
+        key = model.firm_key( firmid )
         firm = key.get()
         if( not firm ):
             firm = model.Firm(key=key)
             firm.put()
         projects = model.Project.query_firm(key).fetch()
         
-        
-                    
         tmpl = main.jinja_env.get_template( 'admin/firm.html' )
         html = tmpl.render( { 
-            'firmid': self.get_firmid(),
+            'firmid': firmid,
             'firm': firm.to_dict(),
             'projects': projects                 
             } )
@@ -38,15 +36,15 @@ class FirmForm(web.RequestHandler):
             firm.about_e = self.request.get('about_e')
             firm.about_h = self.request.get('about_h')
             firm.put()
-            self.redirect('firm_status')
+            self.redirect('/%s/admin/firm_status' % firmid)
         else:
-            self.redirect('firm')
+            self.redirect('/%s/admin/firm' % firmid)
 
 
 class StatusFirmPage(web.RequestHandler):
-    def get(self):
+    def get(self, firmid):
         tmpl = main.jinja_env.get_template( 'admin/firm_status.html' )
-        html = tmpl.render({ 'name_e': self.get_firmid() })
+        html = tmpl.render({ 'name_e': firmid })
 
         self.html_content()
         self.w( html )

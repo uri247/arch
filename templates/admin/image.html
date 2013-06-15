@@ -1,30 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Upload new image</title>
-  <link href="/libs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" media="screen" />
-</head>
+{% extends 'admin/admin_base.html' %}
 
-<body>
+{%block title%}Upload a new Image for {{ firmid }}/{{ projid }}{%endblock%}
 
-  <div class="container">
-    <h1>Upload a new Image for {{ firmid }}/{{ projid }}</h1>
+{%block style%}
+  <style type="text/css">
+    #name, #file {
+        width: 100%;
+    }
+    
+    .ok {
+        margin-top: 20px;
+    }
+  </style>
+{%endblock%}
 
+{%block content%}
     <div class="row">
-      <div class="space2 span10">
-        <form class="form" action='../../../image_form' method='post' enctype="multipart/form-data">
+      <div class="span6">
+        <form class="form" action='/form/image' method='post' enctype="multipart/form-data">
           <input type="hidden" name="firmid" value="{{ firmid }}">
           <input type="hidden" name="projid" value="{{ projid }}">
           <label for="name">Name:</label>
           <input id="name" name="name" type="text">
           <label for="file">Data File:</label>
           <input id="file" name="file" type="file">
-          <input type="submit" value="OK">
+          <input class="ok" type="submit" value="OK">
         </form>
       </div>
     </div>
-  </div>
+{%endblock%}
 
-</body>
-</html>
+{%block script%}
+<script type="text/javascript">
+    $('#file').on('change', function () {
+    	var v = $(this).val();
+    	name = v.split(/\\|\//).pop().split('.')[0];
+    	$('#name').val(name);    	
+    });
+</script>
+{%endblock%}
