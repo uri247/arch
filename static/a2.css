@@ -43,6 +43,7 @@ a {
 
 .nav-hdr-img {
     height: 13px;
+    padding-right: 5px;
 }
 
 .nav-hdr {
@@ -96,6 +97,7 @@ a {
     height: 83px;
     padding-top: 7px;
     z-index: 5;
+    padding-right: 5px;
 }
 
 .top-line {
@@ -110,8 +112,8 @@ a {
     position: absolute;
     height: 400px;
     padding-top: 60px;
-    width: 210px;
-    padding-right: 25px;
+    width: 215px;
+    padding-right: 20px;
     padding-left: 15px;
     background-color: white;
     color: black;
@@ -137,7 +139,8 @@ a {
 
 .bottom-shadow img {
     position: absolute;
-    top: -19px;
+    top: -10px;
+    z-index: 10;
 }
 
 .indicators-well {
