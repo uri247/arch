@@ -22,7 +22,7 @@ def firm_url(firmid):
 def project_url(firmid,projid):
     return '%s/api/project/%s/%s' % (base_url, firmid, projid) 
 def image_url(firmid,projid,imageid):
-    return '%s/admin/image_form' % (base_url,)
+    return '%s/form/image' % (base_url,)
 
 def delete_firm():
     requests.delete( firm_url(data.firmid) )
