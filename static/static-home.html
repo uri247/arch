@@ -8,9 +8,12 @@
   <link href="c2.css" rel="stylesheet" media="screen" />
 </head>
 
-<body dir="rtl" class="home-bg">
+<body dir="rtl">
+  <div class="bgimg-outer">
+    <div class="bgimg-active bgimg-img1"></div>
+  </div>
   <div class="container">
-    <div class="head">
+    <div class="head hidden">
       <div class="row head-inner">
         <img class="span logo" src="logo.png" />
         <div class="span top-menu">
@@ -35,7 +38,14 @@
 
   <div class="code">
     <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
-    <script type="text/javascript" src="../libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap-2.3.2/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        $('.head').delay(500).fadeIn('slow');
+      });
+
+    </script>
   </div>
 
 </body>
