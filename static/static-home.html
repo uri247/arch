@@ -10,7 +10,7 @@
 
 <body dir="rtl">
   <div class="bgimg-outer">
-    <div class="bgimg-active bgimg-img1"></div>
+    <div class="bgimg-inner bgimg-current bgimg-img1"></div>
   </div>
   <div class="container">
     <div class="head hidden">
@@ -42,8 +42,27 @@
 
     <script type="text/javascript">
       $(function () {
+        // fade in the header after some delay
         $('.head').delay(500).fadeIn('slow');
+
+        // rotate background
+        window.setTimeout(rotateBackground, 5000);
       });
+
+      var bgRotationList = ['bgimg-img1', 'bgimg-img2', 'bgimg-img3', 'bgimg-img4'];
+      var bgRotationCurrentClass = 0;
+
+      function rotateBackground() {
+        var elCurrent = $('.bgimg-current');
+        var nextBgClass = bgRotationList[++bgRotationCurrentClass % bgRotationList.length];
+        var elNext = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(nextBgClass);
+        $('.bgimg-outer').append(elNext);
+        elCurrent.fadeOut(600, function () {
+          elCurrent.remove();
+          elNext.removeClass('bgimg-next').addClass('bgimg-current');
+          window.setTimeout(rotateBackground, 5000);
+        });
+      }
 
     </script>
   </div>
