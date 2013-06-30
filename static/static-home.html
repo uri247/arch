@@ -11,6 +11,7 @@
 <body dir="rtl">
   <div class="bgimg-outer">
     <div class="bgimg-inner bgimg-current bgimg-img1"></div>
+    <div class="bgimg-inner bgimg-next bgimg-img2"></div>
   </div>
   <div class="container">
     <div class="head hidden">
@@ -53,6 +54,18 @@
       var bgRotationCurrentClass = 0;
 
       function rotateBackground() {
+        $('.bgimg-next').fadeIn(1200, function() {
+          $('.bgimg-current').remove();
+          $('.bgimg-next').removeClass('bgimg-next').addClass('bgimg-current');
+
+          ++bgRotationCurrentClass;
+          var next_class = bgRotationList[bgRotationCurrentClass % bgRotationList.length];
+          $next = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(next_class);
+          $('.bgimg-outer').append($next);
+          window.setTimeout(rotateBackground, 5000);
+        });
+
+        /*
         var elCurrent = $('.bgimg-current');
         var nextBgClass = bgRotationList[++bgRotationCurrentClass % bgRotationList.length];
         var elNext = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(nextBgClass);
@@ -62,6 +75,7 @@
           elNext.removeClass('bgimg-next').addClass('bgimg-current');
           window.setTimeout(rotateBackground, 5000);
         });
+        */
       }
 
     </script>
