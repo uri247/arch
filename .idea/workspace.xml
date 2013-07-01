@@ -2,29 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/arch.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/other.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/testrunner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/uri.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/__init__.py" afterPath="$PROJECT_DIR$/admin/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admin/image.html" afterPath="$PROJECT_DIR$/templates/admin/image.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/image.py" afterPath="$PROJECT_DIR$/admin/image.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model.py" afterPath="$PROJECT_DIR$/model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/populate/populate.py" afterPath="$PROJECT_DIR$/populate/populate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admin/project.html" afterPath="$PROJECT_DIR$/templates/admin/project.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/project.py" afterPath="$PROJECT_DIR$/admin/project.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web.py" afterPath="$PROJECT_DIR$/web.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat02.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat03.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat04.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat05.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat06.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat07.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat08.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat09.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat10.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/populate/images/cat11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/arch.css" afterPath="$PROJECT_DIR$/static/arch.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/static-cat.html" afterPath="$PROJECT_DIR$/static/static-cat.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="arch.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372586517187" ignored="false" />
+    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372707268420" ignored="false" />
     <file path="/model.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372604386607" ignored="false" />
     <file path="/image.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372606263173" ignored="false" />
     <file path="/main.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372605345440" ignored="false" />
@@ -36,6 +32,10 @@
     <file path="/project.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372603139351" ignored="false" />
     <file path="/project.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372603687618" ignored="false" />
     <file path="/populate.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372605811121" ignored="false" />
+    <file path="/static-cat.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372705733916" ignored="false" />
+    <file path="/a.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372700509317" ignored="false" />
+    <file path="/a.js" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372700511128" ignored="false" />
+    <file path="/arch.css" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372706856951" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +59,6 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="41" column="64" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="image.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/admin/image.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="10" selection-start="261" selection-end="261" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -78,10 +67,35 @@
       <file leaf-file-name="image.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="41" selection-start="2336" selection-end="2336" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state line="59" column="52" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="static-home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/static-home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.30769232">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="static-cat.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/static-cat.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="0" selection-start="3109" selection-end="3109" vertical-scroll-proportion="-31.153847">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arch.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/arch.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="20" selection-start="2390" selection-end="2390" vertical-scroll-proportion="4.450909">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,68 +104,6 @@
         <entry file="file://$PROJECT_DIR$/admin/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="59" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webapp2.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/lib/google_appengine/lib/webapp2-2.3/webapp2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="555" column="11" selection-start="19114" selection-end="19114" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="7" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="populate.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/populate/populate.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="-0.9364162">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/populate/data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="16" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="513" selection-end="513" vertical-scroll-proportion="-6.68">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/admin/project.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="61" selection-start="3140" selection-end="3140" vertical-scroll-proportion="-8.769231">
               <folding />
             </state>
           </provider>
@@ -186,13 +138,16 @@
         <option value="$PROJECT_DIR$/populate/populate.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/admin/image.py" />
+        <option value="$PROJECT_DIR$/static/static-cat.html" />
+        <option value="$PROJECT_DIR$/static/arch.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="width" value="1438" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -333,25 +288,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="arch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="arch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,11 +327,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="reference.idesettings.debugger.python" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="preferences.sourceCode.JavaScript" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -483,7 +420,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -559,26 +496,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="0" width="1438" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2534091" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.7590909" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20130815" sideWeight="0.5314286" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14994664" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44444445" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.7590909" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.7590909" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -642,16 +579,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/admin/image.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/admin/image.py</url>
-          <line>51</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/admin/project.py</url>
           <line>24</line>
           <option name="timeStamp" value="10" />
@@ -664,90 +591,48 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/usr/Python27/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="760" column="0" selection-start="26941" selection-end="26941" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/lib/google_appengine/google/appengine/tools/devappserver2/thread_executor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/lib/google_appengine/lib/cherrypy/cherrypy/wsgiserver/wsgiserver2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1301" column="0" selection-start="47873" selection-end="47873" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/image.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="10" selection-start="261" selection-end="261" vertical-scroll-proportion="-0.65384614">
+        <state line="13" column="10" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/projects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="36" selection-start="901" selection-end="901" vertical-scroll-proportion="0.2863158">
-          <folding />
-        </state>
+        <state line="31" column="36" selection-start="901" selection-end="901" vertical-scroll-proportion="0.2863158" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="61" selection-start="3140" selection-end="3140" vertical-scroll-proportion="-8.769231">
+        <state line="78" column="61" selection-start="3140" selection-end="3140" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="513" selection-end="513" vertical-scroll-proportion="-6.68">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state line="24" column="0" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/lib/google_appengine/google/appengine/ext/ndb/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3052" column="61" selection-start="108599" selection-end="108886" vertical-scroll-proportion="0.3973384">
-          <folding>
-            <marker date="1370554654000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1370554654000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1370554654000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="3052" column="61" selection-start="108599" selection-end="108886" vertical-scroll-proportion="0.3973384" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="7" selection-start="1020" selection-end="1020" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="59" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1#61#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -761,9 +646,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="64" selection-start="1312" selection-end="1312" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -774,21 +657,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/image.py">
+    <entry file="file://$PROJECT_DIR$/populate/populate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="41" selection-start="2336" selection-end="2336" vertical-scroll-proportion="0.0">
+        <state line="18" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/populate/populate.py">
+    <entry file="file://$PROJECT_DIR$/admin/image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="-0.9364162">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state line="59" column="52" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/static-home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.30769232">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/static-cat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="3109" selection-end="3109" vertical-scroll-proportion="-31.153847">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/codeStyleSettings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/arch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="20" selection-start="2390" selection-end="2390" vertical-scroll-proportion="4.450909">
+          <folding />
         </state>
       </provider>
     </entry>

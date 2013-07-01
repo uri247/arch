@@ -4,6 +4,7 @@
 body {
     height: 100%;
     font-family: Arial;
+    color: #6d6e71;
     font-size: 13px;
     margin: 0px;
 }
@@ -12,7 +13,7 @@ body {
 .container {
     margin-right: auto;
     margin-left: auto;
-    width: 992px;
+    width: 1024px;
 }
 
 .row {
@@ -38,27 +39,39 @@ body {
 
 .head {
     margin-top: 8px;
+    position: fixed;
+    width: 1024px;
+    top: 0px;
+    opacity: 1;
 }
 
 .head-inner {
     height: 92px;
-
+    width: 100%;
     background-image: url('head-bg.png');
     background-repeat: repeat-x;
+    padding-top: 6px;
+    padding-right: 48px;
 }
 
 .logo {
-    margin-top: 6px;
 }
 
 .top-menu {
     font-size: 17px;
-    color: #6d6e71;
-    margin-top: 40px;
+    margin-top: 34px;
+    position: absolute;;
+    width: 854px;
+    right: 172px;
 }
 
 .top-menu-item, .top-menu-separator {
     float: right;
+    cursor: pointer;
+}
+
+.top-menu-item:hover {
+    color: red;
 }
 
 .top-menu-item {
@@ -132,9 +145,43 @@ body {
 
 /* ---------------------------------------- A Pane ---------------------------------------- */
 
+.body {
+    padding-top: 150px;
+}
+
 .a-pane {
     width: 200px;
     margin-right: 60px;
     font-size: 15px;
 }
 
+.nav-menu-item {
+    line-height: 28px;
+    cursor: pointer;
+}
+
+
+.nav-menu-item:hover {
+    color: red;
+}
+
+
+/* ---------------------------------------- Content Pane ---------------------------------------- */
+
+.content {
+    width: 744px;
+}
+
+.cat-img-well {
+    width: 180px;
+    height: 124px;
+    float: right;
+    margin-left: 6px;
+    margin-bottom: 6px;
+}
+
+.cat-img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
