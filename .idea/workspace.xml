@@ -6,7 +6,7 @@
     </list>
     <ignored path="arch.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372707313813" ignored="false" />
+    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372707406552" ignored="false" />
     <file path="/model.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372604386607" ignored="false" />
     <file path="/image.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372606263173" ignored="false" />
     <file path="/main.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372605345440" ignored="false" />
@@ -135,6 +135,7 @@
         <option value="$PROJECT_DIR$/admin/image.py" />
         <option value="$PROJECT_DIR$/static/static-cat.html" />
         <option value="$PROJECT_DIR$/static/arch.css" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -472,7 +473,11 @@
       <created>1372707325599</created>
       <updated>1372707325599</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="I don't know">
+      <created>1372707408054</created>
+      <updated>1372707408054</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -561,7 +566,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="static categories page" />
+    <option name="LAST_COMMIT_MESSAGE" value="I don't know" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -576,6 +581,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="static categories page" />
+    <MESSAGE value="I don't know" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
