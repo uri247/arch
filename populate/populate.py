@@ -16,13 +16,17 @@ else:
     
 image_dir= os.path.join( os.path.dirname(__file__), 'images' )
 
+
 #URL methods
 def firm_url(firmid):
     return '%s/api/firm/%s' % (base_url, firmid)
+
 def project_url(firmid,projid):
-    return '%s/api/project/%s/%s' % (base_url, firmid, projid) 
-def image_url(firmid,projid,imageid):
-    return '%s/form/image' % (base_url,)
+    return '%s/api/project/%s/%s' % (base_url, firmid, projid)
+
+def getupurl_url(firmid,projid):
+    return '%s/api/get-upload-url/%s/%s' % (base_url, firmid, projid)
+
 
 def delete_firm():
     requests.delete( firm_url(data.firmid) )
@@ -40,6 +44,8 @@ def populate_projects():
     
 def populate_images(proj):
     for img_name in proj['images']:
+        r = requests.get( getupurl_url(data.firmid, proj['id']) )
+
         imgid = img_name[:img_name.find(os.path.extsep)]
         r = requests.post( 
             image_url(data.firmid, proj['id'], imgid),
