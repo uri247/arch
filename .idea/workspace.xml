@@ -6,7 +6,7 @@
     </list>
     <ignored path="arch.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372707406552" ignored="false" />
+    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372707421733" ignored="false" />
     <file path="/model.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372604386607" ignored="false" />
     <file path="/image.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372606263173" ignored="false" />
     <file path="/main.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372605345440" ignored="false" />
@@ -477,7 +477,11 @@
       <created>1372707408054</created>
       <updated>1372707408054</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="I don't know">
+      <created>1372707424532</created>
+      <updated>1372707424532</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
