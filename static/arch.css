@@ -83,6 +83,10 @@ body {
     color: black;
 }
 
+.top-menu-item a {
+    text-decoration: none;
+}
+
 .top-menu-item-text {
     height: 35px;
 }
