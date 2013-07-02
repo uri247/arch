@@ -45,14 +45,15 @@ def populate_projects():
 def populate_images(proj):
     for img_name in proj['images']:
         r = requests.get( getupurl_url(data.firmid, proj['id']) )
+        upurl = r.json()['url']
+        name = img_name[:img_name.find('.')]
 
-        imgid = img_name[:img_name.find(os.path.extsep)]
         r = requests.post( 
-            image_url(data.firmid, proj['id'], imgid),
+            upurl,
             data = {
                 'firmid': data.firmid,
                 'projid': proj['id'],
-                'name': imgid,
+                'name': name,
             },
             files = {
                 'file': open( os.path.join(image_dir,img_name), 'rb' )
