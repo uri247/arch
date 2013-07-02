@@ -37,6 +37,7 @@ class UploadImagesPage(web.RequestHandler):
         tmpl_name = 'admin/image.html'
         html = main.jinja_env.get_template(tmpl_name).render({
             'firm': firm.to_dict(),
+            'proj': proj,
             'firmid': firmid,
             'projid': projid,
             'upload_url': upload_url,
@@ -83,9 +84,6 @@ class ImagePage(web.RequestHandler):
     def get(self, firmid, projid, imgid):
         key = model.firm_key(firmid)
         firm = key.get()
-
-        img = {}
-        tmpl_name = None;
 
         img_key = ndb.Key("Firm", firmid, "Project", projid, "Image", imgid)
         image = img_key.get()
