@@ -34,6 +34,14 @@ body {
     display: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
 
 /* ---------------------------------------- Header ---------------------------------------- */
 
@@ -55,6 +63,7 @@ body {
 }
 
 .logo {
+    border-style: none;
 }
 
 .top-menu {
@@ -81,10 +90,11 @@ body {
 
 .top-menu-item-selected {
     color: black;
+    font-weight: bold;
 }
 
-.top-menu-item a {
-    text-decoration: none;
+.top-menu-item-selected:hover {
+    color: black;
 }
 
 .top-menu-item-text {
