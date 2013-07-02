@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/arch.css" afterPath="$PROJECT_DIR$/static/arch.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="arch.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372756916740" ignored="false" />
+    <file path="/Dummy.txt" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372756956267" ignored="false" />
     <file path="/model.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372604386607" ignored="false" />
     <file path="/image.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372606263173" ignored="false" />
     <file path="/main.py" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372605345440" ignored="false" />
@@ -21,7 +22,7 @@
     <file path="/static-cat.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372756365783" ignored="false" />
     <file path="/a.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372700509317" ignored="false" />
     <file path="/a.js" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372700511128" ignored="false" />
-    <file path="/arch.css" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372756659586" ignored="false" />
+    <file path="/arch.css" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372760390115" ignored="false" />
     <file path="/static-home.html" changelist="a7ea84f1-0de6-4a45-a2c0-ee89f59b302c" time="1372708517745" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,19 +79,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arch.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="arch.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/arch.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="1" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0">
+            <state line="39" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="0.53125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="populate.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/populate/populate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="45" column="35" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -126,9 +127,9 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/admin/image.py" />
         <option value="$PROJECT_DIR$/static/static-cat.html" />
-        <option value="$PROJECT_DIR$/static/arch.css" />
         <option value="$PROJECT_DIR$/static/static-home.html" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/static/arch.css" />
       </list>
     </option>
   </component>
@@ -498,7 +499,11 @@
       <created>1372756888877</created>
       <updated>1372756888877</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="nothing">
+      <created>1372756961143</created>
+      <updated>1372756961143</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -523,10 +528,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2534091" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972796" sideWeight="0.7590909" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +592,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove 'home' link from menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -604,6 +609,7 @@
     <MESSAGE value="static categories page" />
     <MESSAGE value="I don't know" />
     <MESSAGE value="remove 'home' link from menu" />
+    <MESSAGE value="nothing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -657,7 +663,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/populate/data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="16" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" />
+        <state line="11" column="16" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -672,11 +680,6 @@
         <state line="555" column="11" selection-start="19114" selection-end="19114" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/populate/populate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="52" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
@@ -687,13 +690,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/codeStyleSettings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="324" selection-end="324" vertical-scroll-proportion="0.40108892">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/arch.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="1" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -715,6 +711,20 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/populate/populate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="35" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/arch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="0.53125">
           <folding />
         </state>
       </provider>
