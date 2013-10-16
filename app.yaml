@@ -1,4 +1,4 @@
-application: frl-arch
+application: u-arch
 version: 1
 runtime: python27
 api_version: 1
@@ -17,6 +17,8 @@ handlers:
   static_dir: libs
 - url: /populate
   static_dir: populate
+- url: /webres
+  static_dir: webres
 
 - url: /he
   static_files: static/he/index.html

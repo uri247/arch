@@ -16,6 +16,8 @@ else:
     
 image_dir= os.path.join( os.path.dirname(__file__), 'images' )
 
+proxies = None
+
 #URL methods
 def firm_url(firmid):
     return '%s/api/firm/%s' % (base_url, firmid)
@@ -23,36 +25,42 @@ def firm_url(firmid):
 def project_url(firmid,projid):
     return '%s/api/project/%s/%s' % (base_url, firmid, projid) 
 
-def image_url(firmid, projid, imageid):
-    return '%s/form/image' % (base_url,)
+def getupurl_url(firmid,projid):
+    return '%s/api/get-upload-url/%s/%s' % (base_url, firmid, projid)
+
 
 def delete_firm():
-    requests.delete( firm_url(data.firmid) )
+    requests.delete( firm_url(data.firmid), proxies = proxies )
 
 def populate_firm():
-    r = requests.post( firm_url(data.firmid), json.dumps(data.firm_data) )
+    r = requests.post( firm_url(data.firmid), json.dumps(data.firm_data), proxies = proxies )
     print 'status %d setting firm' % r.status_code
         
 def populate_projects():
     for projid in data.projects_data:
         p = data.projects_data[projid]
-        r = requests.post( project_url(data.firmid, projid), json.dumps(p['data']) )
+        r = requests.post( project_url(data.firmid, projid), json.dumps(p['data']), proxies=proxies )
         print 'status %d setting project %s' % (r.status_code, projid)
         populate_images(p)
     
 def populate_images(proj):
     for img_name in proj['images']:
-        imgid = img_name[:img_name.find(os.path.extsep)]
+        r = requests.get( getupurl_url(data.firmid, proj['id']), proxies=proxies )
+        upurl = r.json()['url']
+        name = img_name[:img_name.find('.')]
+
         r = requests.post( 
-            image_url(data.firmid, proj['id'], imgid),
-            data = {
+            upurl,
+            data={
                 'firmid': data.firmid,
                 'projid': proj['id'],
-                'name': imgid,
+                'name': name,
             },
             files = {
                 'file': open( os.path.join(image_dir,img_name), 'rb' )
-        })
+            },
+            proxies = proxies
+        )
         print 'status %d sending image %s' % (r.status_code, img_name)
         pass
     pass

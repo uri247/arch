@@ -11,7 +11,8 @@ jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        self.redirect( '/frl/h/about' )
+        #self.redirect( '/frl/h/about' )
+        self.redirect('/static/static-home.html')
 
 class MainAdminPage(webapp.RequestHandler):
     def get(self):
