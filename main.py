@@ -18,13 +18,14 @@ class MainAdminPage(webapp.RequestHandler):
         self.redirect( '/frl/admin/firm' )
                 
 
-application = webapp.WSGIApplication([
+application = webapp.WSGIApplication(
+    [
         ('/', MainPage),
         ('/admin', MainAdminPage),
-        
+
         ('/(.*)/(.*)/projects', projects.ProjectsPage ),
         ('/(.*)/(.*)/about', about.AboutPage),
-        
+
         ('/(.*)/admin/firm', admin.FirmPage),
         ('/(.*)/admin/firm_status', admin.StatusFirmPage),
         ('/(.*)/admin/project/(.*)', admin.ProjectPage),
@@ -32,12 +33,11 @@ application = webapp.WSGIApplication([
         ('/form/firm', admin.FirmForm),
         ('/form/project', admin.ProjectForm),
         ('/form/image', admin.ImageForm),
-        
+
         ('/img/(.*)/(.*)/(.*)', admin.ImageResource),
-        
+
         ('/api/firm/(.*)', admin.FirmApi),
         ('/api/project/(.*)/(.*)', admin.ProjectApi)
     ],
     debug=True
-    )
-
+)

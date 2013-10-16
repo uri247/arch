@@ -19,15 +19,17 @@ image_dir= os.path.join( os.path.dirname(__file__), 'images' )
 #URL methods
 def firm_url(firmid):
     return '%s/api/firm/%s' % (base_url, firmid)
+
 def project_url(firmid,projid):
     return '%s/api/project/%s/%s' % (base_url, firmid, projid) 
-def image_url(firmid,projid,imageid):
+
+def image_url(firmid, projid, imageid):
     return '%s/form/image' % (base_url,)
 
 def delete_firm():
     requests.delete( firm_url(data.firmid) )
 
-def popuplate_firm():
+def populate_firm():
     r = requests.post( firm_url(data.firmid), json.dumps(data.firm_data) )
     print 'status %d setting firm' % r.status_code
         
@@ -57,7 +59,7 @@ def populate_images(proj):
 
 def main():
     delete_firm()
-    popuplate_firm()
+    populate_firm()
     populate_projects()
 
 
