@@ -62,7 +62,7 @@ def populate_images(proj):
                 'name': name,
             },
             files = {
-                'file': open( os.path.join(image_dir,img_name), 'rb' )
+                'file': open( os.path.join(image_dir, proj['id'], '180x124', img_name), 'rb' )
             },
             proxies = proxies
         )
