@@ -2,14 +2,21 @@
   <dictionary name="uri">
     <words>
       <w>argv</w>
+      <w>dirname</w>
+      <w>dropbox</w>
       <w>firmid</w>
+      <w>fname</w>
       <w>getupurl</w>
       <w>imageid</w>
       <w>imgid</w>
       <w>jinja</w>
       <w>proj</w>
+      <w>projdata</w>
       <w>projid</w>
+      <w>projimgs</w>
+      <w>tmpl</w>
       <w>upurl</w>
+      <w>xlsx</w>
     </words>
   </dictionary>
 </component>

@@ -5,24 +5,24 @@ firmid = 'frl'
 
 firm_data = {
     'name_e': 'Finzy Raveh London',
-    'name_h': 'פינצי רווה לונדון',    
-    }
+    'name_h': 'פינצי רוה לונדון',
+}
 
-projects_data = {
-    'ashdar' : {
-        'id': 'ashdar',
+sample_data = {
+    'tb-ashdod' : {
+        'id': 'tb-ashdod',
         'data': {
-            'title_e': 'Ashdar 2000',
-            'title_h': 'אשדר 2000',
-            'address_e': 'Ba\'aley Hamelaha 55, Ashdod',
-            'address_h': 'בעלי המלאכה 55, אשדוד',
-            'year': 2005,
+            'title_e': 'Ashdod Master Plan',
+            'title_h': 'הרובע המיוחד אשדוד',
+            'address_e': 'South Enterance to Ashdod',
+            'address_h': 'הכניסה הדרומית לעיר אשדוד',
+            'year': 0,
+            'classification': 'commercial',
+            'plot_area': 500,
+            'built_area': 6000,
             'description_e': 'We wanted to do something special with green glass',
             'description_h': 'רצינו לעשות מבנה גדול עם זכוכיות ירוקות',
             'status': 'underway',
-            'plot_area': 500,
-            'built_area': 6000,
-            'classification': 'commercial'
         },
         'images': ['Buidings-020_LowRes.jpg', 'Buidings-022_LowRes.jpg', 'Buidings-025_LowRes.jpg', 'Buidings-032_LowRes.jpg' ]
     },

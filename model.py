@@ -17,13 +17,16 @@ class Project(ndb.Model):
     address_e = ndb.StringProperty()
     address_h = ndb.StringProperty()
     year = ndb.IntegerProperty()
-    description_e = ndb.StringProperty()
-    description_h = ndb.StringProperty()
-    status = ndb.StringProperty()
+    classification = ndb.StringProperty()
+    classification2 = ndb.StringProperty()
     plot_area = ndb.IntegerProperty()
     built_area = ndb.IntegerProperty()
-    classification = ndb.StringProperty()
-    
+    units = ndb.StringProperty()
+    status = ndb.StringProperty()
+    description_e = ndb.StringProperty()
+    description_h = ndb.StringProperty()
+    front_picture = ndb.StringProperty()
+
     @classmethod
     def query_firm(cls, firm_key):
         return cls.query( ancestor=firm_key ).order(-cls.year)

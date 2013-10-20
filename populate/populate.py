@@ -3,7 +3,8 @@ import sys
 import os
 import requests
 
-import data
+from data import firmid, firm_data, sample_data
+from xldata import read_xl
 
 #base_url is either local or remote:
 if len(sys.argv) == 1 or sys.argv[1] == 'local':
@@ -14,9 +15,13 @@ else:
     print 'sys.argv[0] [local|remote]'
     exit()
     
-image_dir= os.path.join( os.path.dirname(__file__), 'images' )
 
+#image_dir = os.path.join( os.path.dirname(__file__), 'images' )
+xl_file = r'c:\users\uri\dropbox\Frl-Arch\summery.xlsx'
+image_dir = r'C:\Users\uri\Dropbox\Frl-Arch\WebRes'
+projects_data = read_xl(xl_file)
 proxies = None
+
 
 #URL methods
 def firm_url(firmid):
@@ -30,29 +35,29 @@ def getupurl_url(firmid,projid):
 
 
 def delete_firm():
-    requests.delete( firm_url(data.firmid), proxies = proxies )
+    requests.delete( firm_url(firmid), proxies = proxies )
 
 def populate_firm():
-    r = requests.post( firm_url(data.firmid), json.dumps(data.firm_data), proxies = proxies )
+    r = requests.post( firm_url(firmid), json.dumps(firm_data), proxies = proxies )
     print 'status %d setting firm' % r.status_code
         
 def populate_projects():
-    for projid in data.projects_data:
-        p = data.projects_data[projid]
-        r = requests.post( project_url(data.firmid, projid), json.dumps(p['data']), proxies=proxies )
+    for projid in projects_data:
+        p = projects_data[projid]
+        r = requests.post( project_url(firmid, projid), json.dumps(p['data']), proxies=proxies )
         print 'status %d setting project %s' % (r.status_code, projid)
         populate_images(p)
     
 def populate_images(proj):
     for img_name in proj['images']:
-        r = requests.get( getupurl_url(data.firmid, proj['id']), proxies=proxies )
+        r = requests.get( getupurl_url(firmid, proj['id']), proxies=proxies )
         upurl = r.json()['url']
         name = img_name[:img_name.find('.')]
 
         r = requests.post( 
             upurl,
             data={
-                'firmid': data.firmid,
+                'firmid': firmid,
                 'projid': proj['id'],
                 'name': name,
             },
