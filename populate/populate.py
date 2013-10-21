@@ -16,12 +16,11 @@ else:
     exit()
     
 
-#image_dir = os.path.join( os.path.dirname(__file__), 'images' )
-xl_file = r'c:\users\uri\dropbox\Frl-Arch\summery.xlsx'
-image_dir = r'C:\Users\uri\Dropbox\Frl-Arch\WebRes'
+
+xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summery.xlsx' )
+image_dir = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'webres' )
 projects_data = read_xl(xl_file)
 proxies = None
-
 
 #URL methods
 def firm_url(firmid):
