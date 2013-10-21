@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<h2>Image Data: {{ firmid }}/{{ projid }}/{{ imgid }}</h2>
+<h2>Image Data: {{ firmid }}/{{ projid }}/{{ img.id }}</h2>
 
 <div>
     <label for="name">Name:</label>
-    <input id="name" name="name" type="text" value="{{ imgid }}">
+    <input id="name" name="name" type="text" value="{{ img.id }}">
 </div>
-<img src="/img/{{firmid}}/{{projid}}/{{img.short_name}}">
+<img src="{{img.url}}">
 
 <form action="/{{firmid}}/admin/project/{{projid}}">
     <input type="submit" value="OK">

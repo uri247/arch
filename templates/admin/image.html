@@ -17,7 +17,7 @@
 {%block content%}
     <div class="row">
       <div class="span6">
-        <form class="form" action='/form/image' method='post' enctype="multipart/form-data">
+        <form class="form" action='{{ upload_url }}' method='post' enctype="multipart/form-data">
           <input type="hidden" name="firmid" value="{{ firmid }}">
           <input type="hidden" name="projid" value="{{ projid }}">
           <label for="name">Name:</label>

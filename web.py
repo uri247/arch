@@ -6,6 +6,9 @@ class RequestHandler(webapp.RequestHandler):
         self.response.out.write( msg )
         
     def html_content(self):
+        """
+        :rtype : None
+        """
         self.response.headers['Content-Type'] = 'text/html'
         
     def json_content(self):

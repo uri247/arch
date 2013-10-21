@@ -26,7 +26,7 @@
             <input id="address_e" name="address_e" type="text" value="{{ p.address_e }}">
             <label for="year">Year</label>
             <input id="year" name="year" type="text" value="{{ p.year }}">
-            <label for="descriptoin_e">Description</label>
+            <label for="description_e">Description</label>
             <input id="description_e" name="description_e" type="text" value="{{ p.description_e }}">
             <label for="status">Status</label>
             <input id="status" name="status" type="text" value="{{ p.status }}">
@@ -75,8 +75,8 @@
             {% if loop.index0 % 5 == 0 %}<tr>{% endif %}
               <td>
                 <div style="height: 96px;">
-                  <a href="/{{firmid}}/admin/image/{{projid}}/{{img.short_name}}">
-                    <img src="/img/{{firmid}}/{{projid}}/{{img.short_name}}" class="projimg">
+                  <a href="/{{firmid}}/admin/image/{{projid}}/{{img.id}}">
+                    <img src="{{ img.url }}" class="projimg">
                   </a>
                 </div>
                 <div>

@@ -46,10 +46,6 @@ class ProjectPage(web.RequestHandler):
 
 class ProjectForm(web.RequestHandler):
     def post(self):
-        """
-
-
-        """
         firmid = self.request.get('firmid')
         projid = self.request.get('projid')
         new_proj = self.request.get('new_proj')
@@ -83,7 +79,7 @@ class ProjectApi(web.RequestHandler):
         """return a list of projects for a firm, or project detail
         """
         self.json_content()
-        if ( not projid ):
+        if not projid:
             #user wants all projects
             firm_key = ndb.Key("Firm", firmid)
             projects = model.Project.query_firm(firm_key)
@@ -101,7 +97,7 @@ class ProjectApi(web.RequestHandler):
         """
         proj_key = ndb.Key("Firm", firmid, "Project", projid)
         proj = proj_key.get()
-        if (proj):
+        if proj:
             self.error(409)
         else:
             d = json.loads(self.request.body)
@@ -111,7 +107,7 @@ class ProjectApi(web.RequestHandler):
     def put(self, firmid, projid):
         proj_key = ndb.Key("Firm", firmid, "Project", projid)
         proj = proj_key.get()
-        if (not proj):
+        if not proj:
             self.error(404)
         else:
             d = json.loads(self.request.body)

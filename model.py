@@ -1,4 +1,5 @@
 from google.appengine.ext import ndb
+from google.appengine.api.images import get_serving_url
 
 
 class Firm(ndb.Model):
@@ -36,12 +37,26 @@ class Image(ndb.Model):
     """Image
     an image. may be related to a project or to a person
     """
-    short_name = ndb.StringProperty()
-    orig_name = ndb.StringProperty()
+    name = ndb.StringProperty()
     mime_type = ndb.StringProperty()
-    data = ndb.BlobProperty()
-    
-    
+    blob_key = ndb.BlobKeyProperty()
+
+    def to_dict(self, include=None, exclude=None, size=None):
+        """calls the super method, and add a URL
+        :param include: set of property names to include, default all
+        :param exclude: set of property names to exclude, default none
+        :param size: the size of the image. default None (original size)
+        :return:
+        """
+        d = super(Image, self).to_dict(include=include, exclude=exclude)
+        d['url'] = get_serving_url(self.blob_key, size=size)
+        d['id'] = self.key.id()
+        return d
+        pass
+
 
 def firm_key(firmid):
+    """Generate a NDB key from firmid
+    :param firmid: firm id (e.g. frl)
+    """
     return ndb.Key( "Firm", firmid )
