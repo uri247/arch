@@ -19,11 +19,13 @@ body {
 .row {
 }
 
+.row:before
 .row:after {
   clear: both;
   display: block;
   content: "";
 }
+
 
 .span {
     float: right;
@@ -204,3 +206,60 @@ a:visited {
     margin-right: auto;
     margin-left: auto;
 }
+
+
+
+/* ---------------------------------------- Contact Pane ---------------------------------------- */
+
+.contact-content {
+    width: 744px;
+    margin-right: 180px;
+}
+
+.contact-ul {
+    list-style-type: none;
+    position: absolute;
+}
+
+.contact-ul li {
+    min-height: 1px;
+}
+
+.contact-icon {
+    width: 55px;
+    height: 32px;
+    background-image: url('contact-icons.png');
+}
+
+.contact-icon-0 {
+    background-position: 0 0;
+}
+
+.contact-icon-1 {
+    background-position: 0 -30px;
+}
+
+.contact-icon-2 {
+    background-position: 0 -60px;
+}
+
+.contact-icon-3 {
+    background-position: 0 -90px;
+}
+
+
+.contact-cat {
+    color: black;
+    width: 60px;
+}
+
+.contact-datum {
+}
+
+.contact-icon,
+.contact-cat,
+.contact-datum {
+    display: inline-block;
+    line-height: 32px;
+}
+
