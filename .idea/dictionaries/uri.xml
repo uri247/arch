@@ -2,6 +2,7 @@
   <dictionary name="uri">
     <words>
       <w>argv</w>
+      <w>bgimg</w>
       <w>dirname</w>
       <w>dropbox</w>
       <w>firmid</w>
@@ -16,6 +17,7 @@
       <w>projimg</w>
       <w>projimgs</w>
       <w>tmpl</w>
+      <w>topitem</w>
       <w>upurl</w>
       <w>xlsx</w>
     </words>

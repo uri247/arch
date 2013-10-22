@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block pre_container %}
+    <div class="bgimg-outer">
+      <div class="bgimg-inner bgimg-current bgimg-img1"></div>
+      <div class="bgimg-inner bgimg-next bgimg-img2"></div>
+    </div>
+{% endblock %}
+
+
+{% block logic %}
+    <script type="text/javascript">
+      $(function () {
+        // fade in the header after some delay
+        $('.head').delay(1500).fadeIn('slow');
+
+        // rotate background
+        window.setTimeout(rotateBackground, 5000);
+      });
+
+      var bgRotationList = ['bgimg-img1', 'bgimg-img2', 'bgimg-img3', 'bgimg-img4', 'bgimg-img5'];
+      var bgRotationCurrentClass = 0;
+
+      function rotateBackground() {
+        $('.bgimg-next').fadeIn(1200, function() {
+          $('.bgimg-current').remove();
+          $('.bgimg-next').removeClass('bgimg-next').addClass('bgimg-current');
+
+          ++bgRotationCurrentClass;
+          var next_class = bgRotationList[bgRotationCurrentClass % bgRotationList.length];
+          $next = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(next_class);
+          $('.bgimg-outer').append($next);
+          window.setTimeout(rotateBackground, 5000);
+        });
+      }
+
+    </script>
+{% endblock %}
