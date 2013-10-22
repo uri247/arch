@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ firm.name }}</title>
+  <link href="/static/a2.css" rel="stylesheet" media="screen" />
+  <link href="/static/c2.css" rel="stylesheet" media="screen" />
+
+</head>
+
+
+<body dir="rtl">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- navigation pane -->
+      <div class="aside">
+
+        <div class="accordion">
+          <ul class="nav nav-list">
+            {% for top_item in ctx_menu['items'] %}
+            <li class="nav-hdr-img">
+              <img src="/static/nav-hdr.png" /></li>
+            <li class="nav-hdr accordion-toggle dropdown-toggle" data-toggle="collapse" data-target="#topitem{{ loop.index }}">
+              {{ top_item.title }}
+            </li>
+            <li>
+              <ul id="topitem{{ loop.index }}" class="nav nav-list sub-nav collapse {% if loop.first %}in{% endif %}">
+                {% for item in top_item['items'] %}
+                  <li {% if item.active %}class="active"{% endif %}><a href="#">{{ item.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="main-menu-well">
+          <div class="main-menu-item"><a href="about">עלינו</a></div>
+          <div class="main-menu-item"><a href="projects">פרויקטים</a></div>
+          <div class="main-menu-item"><a href="#">פרסומים</a></div>
+          <div class="main-menu-item"><a href="#">צור קשר</a></div>
+          <div class="main-menu-item lang-link"><a href="#">English</a></div>
+        </div>
+      </div>
+
+      <!-- content pane -->
+      <div class="bside">
+        <div class="logo-well">
+          <img src="/static/logo.png" />
+        </div>
+        <div class="top-line"></div>
+
+        {% block content_area %}
+        {% endblock %}
+
+      </div>
+    </div>
+
+    <div class="bottom-shadow">
+      <img id="bottom-frame" src="/static/bottom-frame.png" />
+    </div>
+    <div id="indicators" class="indicators-well">
+    </div>
+  </div>
+
+
+  <div class="code">
+    <script type="text/javascript" src="/libs/jquery/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
+    {% block data %}
+    {% endblock %}
+    {% block script %}
+    {% endblock %}
+  </div>
+</body>
+</html>

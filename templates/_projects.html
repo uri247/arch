@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content_area %}
+        <div style="position: relative">
+          <div class="span3 transbox">
+            <div id="transbox-title" class="transbox-head"></div>
+            <p id="transbox-description" class="transbox-text"></p>
+          </div>
+          <div id="kar-well"></div>
+        </div>
+{% endblock %}
+
+{% block data %}
+    <script type="text/javascript">
+      var projects = {{ prjs }};
+    </script>
+{% endblock %}
+
+
+{% block script %}
+    <script type="text/javascript">
+      $('ul.nav li a').click(function onPorj(e) {
+        $('ul.nav li a').parent().removeClass('active');
+        $(this).parent().addClass('active');
+        prj = projects[$('.aside .sub-nav a').index(e.currentTarget)];
+        build_carousel(prj);
+      });
+
+      function build_carousel(prj) {
+        $('.carousel').carousel('pause');
+
+        // prepare the carousel well
+        var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+        for (var i = 0; i < prj.images.length; ++i) {
+          innerHTML += '<div class="item"><img src="/img/{{ firmid }}/' + prj.id + '/' + prj.images[i].short_name + '"/></div>';
+        }
+        
+        innerHTML += '</div>';
+        innerHTML += '</div>';
+        $('#kar-well').html(innerHTML);
+
+        // prepare the indicators well
+        innerHTML = '';
+        for (var i = 0; i < prj.images.length; ++i) {
+          innerHTML += '<div data-to="' + i.toString() + '"><span>' + (i + 1).toString() + '</a></div>';
+        }
+        $('#indicators').html(innerHTML);
+
+        $('#karusela .item:first').addClass('active');
+        $('#indicators div:first').addClass('active');
+        $('#transbox-title').html(prj.title);
+        $('#transbox-description').html(prj.description);
+
+        $('#indicators div').click(function (q) {
+          q.preventDefault();
+          clicked = $(this).data('to');
+          $('#karusela').carousel(clicked);
+        });
+
+        $('#karusela').carousel({ interval: 7000 });
+
+        $('.carousel').on('slide', function onSlide(evt) {
+          $('#indicators div').removeClass('active');
+        });
+
+        $('.carousel').on('slid', function onSlid(evt) {
+          var $k = $(evt.currentTarget);
+          var $active = $k.find('.active');
+          var $items = $active.parent().children();
+          var index = $items.index($active);
+
+          var $indicators = $('#indicators div');
+          var ind_index = index;
+          $($indicators[ind_index]).addClass('active');
+        });
+
+      }
+
+      $(function () {
+        prj = projects[0];
+        build_carousel(prj);
+      });
+    </script>
+{% endblock %}
