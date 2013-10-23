@@ -3,6 +3,7 @@ import os
 from google.appengine.ext import webapp
 import admin
 import home
+import projects
 import testpage
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
@@ -25,7 +26,7 @@ application = webapp.WSGIApplication(
         ('/admin', MainAdminPage),
 
         ('/(.*)/(.*)/home', home.HomePage ),
-        ('/(.*)/(.*)/projects', testpage.TestPage ),
+        ('/(.*)/(.*)/projects', projects.ProjectsPage ),
         ('/(.*)/(.*)/test', testpage.TestPage ),
 
 

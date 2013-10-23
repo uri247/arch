@@ -20,6 +20,7 @@ class HomePage(web.RequestHandler):
             'firm': localize(firm.to_dict(), lang),
             'top_level_menu_items': top_level_menu_items,
             'curr_menu_item': None,
+            'head_hidden': True,
         })
         self.html_content()
         self.w( html )

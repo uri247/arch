@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block pre_container %}
+
+    <div class="body row">
+      <div class="a-pane span">
+        <div class="nav-menu-item">כל הפרוייקטים</div>
+        <div class="nav-menu-item">מגורים</div>
+        <div class="nav-menu-item">בינוי ערים</div>
+      </div>
+
+      <div class="content span">
+        {% for project in projects %}
+          <div class="cat-img-well"><img class="cat-img" src="/webres/ashdar2000/180x124/Ashdar2000_1_180x124.jpg"/></div>
+        {% endfor %}
+      </div>
+
+    </div>
+{% endblock %}
+
+
+{% block logic %}
+    <script type="text/javascript">
+        $(function () {
+        });
+    </script>
+  </div>
+{% endblock %}
+
+

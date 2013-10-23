@@ -8,7 +8,7 @@ class FirmPage(web.RequestHandler):
     def get(self, firmid):
         key = model.firm_key( firmid )
         firm = key.get()
-        if( not firm ):
+        if not firm:
             firm = model.Firm(key=key)
             firm.put()
         projects = model.Project.query_firm(key).fetch()
