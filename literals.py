@@ -23,6 +23,16 @@ about_menu = {
     ]
 }
 
+
+top_level_menu_items = [
+    ('about', u'אודות המשרד'),
+    ('projects', u'פרויקטים'),
+    ('about', u'לקוחות'),
+    ('contact', u'צור קשר'),
+    ('go-en', u'English')
+]
+
+
 def get_prop(dic,lang,prop):
     """returns a single property, localized
     """

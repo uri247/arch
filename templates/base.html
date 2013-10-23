@@ -20,15 +20,17 @@
           <img class="span logo" src="/static/logo.png" />
         </a>
         <div class="span top-menu">
-          <div class="top-menu-item"><a href="about"><div class="top-menu-item-text">אודות המשרד</div></a></div>
-          <div class="top-menu-separator"></div>
-          <div class="top-menu-item"><a href="cat"><div class="top-menu-item-text">פרויקטים</div></a></div>
-          <div class="top-menu-separator"></div>
-          <div class="top-menu-item"><a href="clients"><div class="top-menu-item-text">לקוחות</div></a></div>
-          <div class="top-menu-separator"></div>
-          <div class="top-menu-item"><a href="contact"><div class="top-menu-item-text">צור קשר</div></a></div>
-          <div class="top-menu-separator"></div>
-          <div class="top-menu-item"><a href="home"><div class="top-menu-item-text">English</div></a></div>
+          {% for item in top_level_menu_items %}
+            {% if curr_menu_item != item[0] %}
+              <div class="top-menu-item"><a href="{{ item[0] }}"><div class="top-menu-item-text">{{ item[1] }}</div></a></div>
+            {% else %}
+              <div class="top-menu-item top-menu-item-selected">
+                <div class="top-menu-item-text">{{ item[1] }}</div>
+                <div class="top-menu-marker"><img src="/static/top-menu-marker.png" /></div>
+              </div>
+            {% endif %}
+            {% if not loop.last %}<div class="top-menu-separator"></div>{% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>

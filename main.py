@@ -2,9 +2,8 @@ import jinja2
 import os
 from google.appengine.ext import webapp
 import admin
-import _about
-import _projects
 import home
+import testpage
 
 static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
 jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
@@ -25,10 +24,9 @@ application = webapp.WSGIApplication(
         ('/', MainPage),
         ('/admin', MainAdminPage),
 
-        ('/(.*)/(.*)/projects', _projects.ProjectsPage ),
-        ('/(.*)/(.*)/about', _about.AboutPage),
-
         ('/(.*)/(.*)/home', home.HomePage ),
+        ('/(.*)/(.*)/projects', testpage.TestPage ),
+        ('/(.*)/(.*)/test', testpage.TestPage ),
 
 
         ('/(.*)/admin/firm', admin.FirmPage),
