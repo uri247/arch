@@ -43,6 +43,10 @@ def read_xl(fname):
 
         proj['images'] = get_images(folder, projid)
 
+        if projdata['front_picture'] == '':
+            if len(proj['images']) > 0:
+                projdata['front_picture'] = proj['images'][0]
+
         projects[proj['id']] = proj
     return projects
 

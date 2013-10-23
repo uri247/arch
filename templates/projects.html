@@ -10,8 +10,8 @@
       </div>
 
       <div class="content span">
-        {% for project in projects %}
-          <div class="cat-img-well"><img class="cat-img" src="/webres/ashdar2000/180x124/Ashdar2000_1_180x124.jpg"/></div>
+        {% for proj in projects %}
+          <div class="cat-img-well"><img class="cat-img" src="{{  proj.front_picture_url }}"/></div>
         {% endfor %}
       </div>
 

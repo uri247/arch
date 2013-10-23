@@ -14,7 +14,8 @@ class ProjectsPage(web.RequestHandler):
             self.error(500)
             return
 
-        projects = model.Project.query_firm(firm_key).fetch()
+        _projects = model.Project.query_firm(firm_key).fetch()
+        projects = [p.to_dict() for p in _projects]
 
         tmpl = main.jinja_env.get_template( 'projects.html' )
         html = tmpl.render({

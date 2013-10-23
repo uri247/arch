@@ -31,7 +31,17 @@ class Project(ndb.Model):
     @classmethod
     def query_firm(cls, firm_key):
         return cls.query( ancestor=firm_key ).order(-cls.year)
-            
+
+    def to_dict(self, include=None, exclude=None):
+        d = super(Project, self).to_dict(include=include, exclude=exclude)
+        d['id'] = self.key.id()
+        if self.front_picture and self.front_picture != '':
+            d['front_picture_url'] = get_serving_url(ndb.Key('Firm', self.key.parent().id(), 'Project', self.key.id(), 'Image', self.front_picture).get().blob_key)
+        else:
+            d['front_picture_url'] = 'error'
+        return d
+        pass
+
 
 class Image(ndb.Model):
     """Image
