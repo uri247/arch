@@ -41,29 +41,6 @@
       </div>
 
       <div class="content span">
-        <div class="cat-img-well"><img class="cat-img" src="../webres/ashdar2000/180x124/Ashdar2000_1_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Ashdod_Miya/180x124/abu-ashdod-c01_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Ashdod_Miya/180x124/abu-ashdod-c02_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Eilat_MallHayam/180x124/IMG_0091_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/hadera-klalit/180x124/IMG_1972_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/hadera-klalit/180x124/IMG_1982_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera-Lev-Mall/180x124/IMG_2009_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_Brandis/180x124/IMG_2039_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_Gas/180x124/1-side_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_HighSchool1/180x124/IMG_1986_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_HighSchool2/180x124/027_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_KfarHayam/180x124/IMG_1916_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Hadera_MallShaarey/180x124/IMG_2047_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Herzelia_7Star/180x124/7stars_1310_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Herzelia_Sokolov/180x124/15F-Sokolov_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Nathania_LevGanim/180x124/Levganim1_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/Olga/180x124/Olga1_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/PetahTikva_Gas/180x124/Picture-065_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/RishonLezion_Maccabi/180x124/IMG_2285_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/TB-Ashdod/180x124/TB_Ashdod_Special_Quarter_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/TB-Hadera1212/180x124/Hadera1212_Model_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/TB-PetahTikva1001/180x124/PT1011_Binui_180x124.jpg"/></div>
-        <div class="cat-img-well"><img class="cat-img" src="../webres/ZichronYaacov_Hamazok/180x124/ZM7D0008_180x124.jpg"/></div>
       </div>
 
     </div>
@@ -75,9 +52,16 @@
     <script type="text/javascript" src="../libs/jquery/jquery-1.10.0.js"></script>
     <script type="text/javascript" src="../libs/bootstrap-2.3.2/js/bootstrap.js"></script>
 
+    <script type="text/javascript" src="projlist.js"></script>
+
     <script type="text/javascript">
 
       $(function () {
+        for (var index in projects ) {
+          var proj = projects[index];
+          var $projElem = $('<div class="cat-img-well"><a href="' + proj.id + '"><img class="cat-img" src="' + proj.front_picture_url + '"></a></div>');
+          $('.content').append($projElem);
+        }
       });
 
     </script>

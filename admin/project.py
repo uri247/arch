@@ -82,9 +82,9 @@ class ProjectApi(web.RequestHandler):
         if not projid:
             #user wants all projects
             firm_key = ndb.Key("Firm", firmid)
-            projects = model.Project.query_firm(firm_key)
-            projids = [p.key.id() for p in projects]
-            self.w(json.dumps(projids))
+            _projects = model.Project.query_firm(firm_key)
+            projects = [p.to_dict() for p in _projects]
+            self.w(json.dumps(projects))
         else:
             #we return a specific project
             proj_key = ndb.Key("Firm", firmid, "Project", projid)

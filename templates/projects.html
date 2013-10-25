@@ -10,9 +10,6 @@
       </div>
 
       <div class="content span">
-        {% for proj in projects %}
-          <div class="cat-img-well"><img class="cat-img" src="{{  proj.front_picture_url }}"/></div>
-        {% endfor %}
       </div>
 
     </div>
@@ -21,10 +18,23 @@
 
 {% block logic %}
     <script type="text/javascript">
-        $(function () {
-        });
+
+      $(function(){
+        $.getJSON( '/api/project/{{ firmid }}/',
+            function onProjectsJson(projects) {
+              for (var index in projects ) {
+                var proj = projects[index];
+                var $projElem = $(
+                    '<div class="cat-img-well"><a href="' + proj.id + '">' +
+                      '<img class="cat-img" src="' + proj.front_picture_url + '">' +
+                    '</a></div>\n');
+                $('.content').append($projElem);
+              }
+            }
+        )
+      });
+
     </script>
-  </div>
 {% endblock %}
 
 
