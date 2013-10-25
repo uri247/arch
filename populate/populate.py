@@ -3,7 +3,7 @@ import sys
 import os
 import requests
 
-from data import firmid, firm_data, sample_data
+from data import firmid, firm_data
 from xldata import read_xl
 
 #base_url is either local or remote:
@@ -17,7 +17,7 @@ else:
     
 
 
-xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summery.xlsx' )
+xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summary.xlsx' )
 image_dir = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'webres' )
 projects_data = read_xl(xl_file)
 proxies = None
@@ -52,6 +52,7 @@ def populate_images(proj):
         r = requests.get( getupurl_url(firmid, proj['id']), proxies=proxies )
         upurl = r.json()['url']
         name = img_name[:img_name.find('.')]
+        is_front_picture = 'yes' if proj['data']['front_picture_id'] == img_name else 'no'
 
         r = requests.post( 
             upurl,
@@ -59,6 +60,7 @@ def populate_images(proj):
                 'firmid': firmid,
                 'projid': proj['id'],
                 'name': name,
+                'is_front_picture': is_front_picture,
             },
             files = {
                 'file': open( os.path.join(image_dir, proj['id'], '180x124', img_name), 'rb' )

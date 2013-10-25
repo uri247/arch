@@ -26,7 +26,8 @@ class Project(ndb.Model):
     status = ndb.StringProperty()
     description_e = ndb.StringProperty()
     description_h = ndb.StringProperty()
-    front_picture = ndb.StringProperty()
+    front_picture_id = ndb.StringProperty()
+    front_picture_url = ndb.StringProperty()
 
     @classmethod
     def query_firm(cls, firm_key):
@@ -35,10 +36,6 @@ class Project(ndb.Model):
     def to_dict(self, include=None, exclude=None):
         d = super(Project, self).to_dict(include=include, exclude=exclude)
         d['id'] = self.key.id()
-        if self.front_picture and self.front_picture != '':
-            d['front_picture_url'] = get_serving_url(ndb.Key('Firm', self.key.parent().id(), 'Project', self.key.id(), 'Image', self.front_picture).get().blob_key)
-        else:
-            d['front_picture_url'] = 'error'
         return d
         pass
 
@@ -50,6 +47,7 @@ class Image(ndb.Model):
     name = ndb.StringProperty()
     mime_type = ndb.StringProperty()
     blob_key = ndb.BlobKeyProperty()
+    is_front = ndb.BooleanProperty()
 
     def to_dict(self, include=None, exclude=None, size=None):
         """calls the super method, and add a URL

@@ -8,14 +8,14 @@ fields = [
     ('title_e', unicode, ''), ('title_h', unicode, ''), ('address_e', unicode, ''), ('address_h', unicode, ''),
     ('year', int, 1900), ('classification', unicode, ''), ('classification2', unicode, ''),
     ('plot_area', int, 0), ('built_area', int, 0), ('units', unicode, ''), ('status', unicode, ''),
-    ('description_e', unicode, ''), ('description_h', unicode, ''), ('front_picture', unicode, '')
+    ('description_e', unicode, ''), ('description_h', unicode, ''), ('front_picture_id', unicode, '')
 ]
 
 
 def assert_sheet(sh):
     assert sh.cell(0,0).value == 'ID'
     for ndx, fld in enumerate(fields):
-        assert sh.cell(0, ndx + 1).value == fld[0]
+        assert sh.cell(0, ndx + 2).value == fld[0]
 
 def get_images(folder, projid):
     pattern = os.path.join(folder,projid,'180x124','*.jpg')
@@ -32,20 +32,24 @@ def read_xl(fname):
         proj = {}
 
         projid = sh.cell(r,0).value
+        ready = sh.cell(r, 1).value
+        if ready != 'yes':
+            continue
+
         proj['id'] = projid
 
         projdata = {}
         for ndx, fld in enumerate(fields):
-            v = sh.cell(r, ndx + 1).value
+            v = sh.cell(r, ndx + 2).value
             vv = fld[1](v) if v else fld[2]
             projdata[fld[0]] = vv
         proj['data'] = projdata
 
         proj['images'] = get_images(folder, projid)
 
-        if projdata['front_picture'] == '':
+        if projdata['front_picture_id'] == '':
             if len(proj['images']) > 0:
-                projdata['front_picture'] = proj['images'][0]
+                projdata['front_picture_id'] = proj['images'][0]
 
         projects[proj['id']] = proj
     return projects
