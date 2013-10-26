@@ -32,6 +32,24 @@ top_level_menu_items = [
     ('go-en', u'English')
 ]
 
+classifications = {
+    'all': ('All Projects', u'כל הפרויקרטים'),
+    'UrbanPlan': ('Urban Plan', u'בינוי ערים'),
+    'Rec': ('Recreation and Sport', u'ספורט'),
+    'Residential' : ('Residential', u'מגורים'),
+    'Office': ('Office', u'משרדים'),
+    'Need': ('Special Care', u'בתי אבות'),
+    'Medical': ('Medical', u'בתי חולים'),
+    'Mall': ('Mall', u'קניונים'),
+    'Gas': ('Gas Stations', u'תחנות דלק'),
+    'Education': ('Education', u'חינוך'),
+    'Housing': ('Housing', u'בניה רוויה'),
+    'Retail': ('Retail', u'מסחרי'),
+    'Commercial': ('Commercial', u'עסקים'),
+}
+
+classifications_order = [ 'all', 'UrbanPlan', 'Rec', 'Residential', 'Office', 'Need', 'Medical', 'Mall',
+                          'Gas', 'Education', 'Housing', 'Retail', 'Commercial', ]
 
 def get_prop(dic,lang,prop):
     """returns a single property, localized
@@ -45,19 +63,6 @@ def get_attr(inst,lang,attr):
     """return a single attribute, localized
     """
     return getattr(inst, attr + '_' + lang)
-
-
-def lookup_classification(classification,lang):
-    lookup = {
-        'commercial': { 'e': 'commercial', 'h': u'מסחרי' },
-        'residential': { 'e': 'residential', 'h': u'מגורים' },
-        'cityplan': { 'e': 'city plan', 'h': u'תב"ע' },
-    }
-    try:
-        return lookup[classification][lang]
-    except KeyError:
-        logging.warn('Classification %s not found. Using as new class' % classification)
-        return classification
 
 
 def localize(ob,lang):

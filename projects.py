@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 import model
 import main
 import web
-from literals import localize, top_level_menu_items
+from literals import localize, top_level_menu_items, classifications, classifications_order
 
 class ProjectsPage(web.RequestHandler):
     def get(self, firmid, lang):
@@ -25,6 +25,8 @@ class ProjectsPage(web.RequestHandler):
             'curr_menu_item': 'projects',
             'head_hidden': False,
             'projects': projects,
+            'classifications': classifications,
+            'classifications_order': classifications_order,
         })
         self.html_content()
         self.w( html )
