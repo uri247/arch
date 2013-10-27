@@ -65,7 +65,12 @@
         }
 
         function update_filter(_filter) {
+            // remove class from previos selection
+            $('.nav-menu-item-selected').removeClass('nav-menu-item-selected');
+
+            // set class to current selection
             filter = _filter;
+            $('.nav-menu-item[data-cls=' + filter + ']').addClass('nav-menu-item-selected');
             $('.content').empty();
             for( index in classifications[filter].p ) {
                 var proj = classifications[filter].p[index];

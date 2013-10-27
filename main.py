@@ -3,6 +3,8 @@ import os
 from google.appengine.ext import webapp
 import admin
 import home
+import about
+import contact
 import projects
 import testpage
 
@@ -25,8 +27,10 @@ application = webapp.WSGIApplication(
         ('/', MainPage),
         ('/admin', MainAdminPage),
 
-        ('/(.*)/(.*)/home', home.HomePage ),
-        ('/(.*)/(.*)/projects', projects.ProjectsPage ),
+        ('/(.*)/(h|e)/home', home.HomePage ),
+        ('/(.*)/(h|e)/about', about.AboutPage),
+        ('/(.*)/(h|e)/projects', projects.ProjectsPage),
+        ('/(.*)/(h|e)/contact', contact.ContactPage),
         ('/(.*)/(.*)/test', testpage.TestPage ),
 
 

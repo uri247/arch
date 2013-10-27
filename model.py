@@ -1,6 +1,8 @@
 from google.appengine.ext import ndb
 from google.appengine.api.images import get_serving_url
 
+def loc(obj, attr, lang):
+    return getattr(obj, attr + '_' + lang)
 
 class Firm(ndb.Model):
     name_e = ndb.StringProperty()
@@ -8,6 +10,12 @@ class Firm(ndb.Model):
     about_e = ndb.StringProperty()
     about_h = ndb.StringProperty()
 
+    def to_dict(self, lang, include=None, exclude=None, size=None):
+        d = super(Firm, self).to_dict(include=include, exclude=exclude)
+        d['name'] = loc(self, 'name', lang)
+        d['about'] = loc(self, 'about', lang)
+        return d
+        pass
 
 class Project(ndb.Model):
     """Project

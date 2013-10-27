@@ -22,16 +22,16 @@
       var bgRotationCurrentClass = 0;
 
       function rotateBackground() {
-        $('.bgimg-next').fadeIn(1200, function() {
-          $('.bgimg-current').remove();
-          $('.bgimg-next').removeClass('bgimg-next').addClass('bgimg-current');
+          $('.bgimg-next').fadeIn(1200, function() {
+              $('.bgimg-current').remove();
+              $('.bgimg-next').removeClass('bgimg-next').addClass('bgimg-current');
 
-          ++bgRotationCurrentClass;
-          var next_class = bgRotationList[bgRotationCurrentClass % bgRotationList.length];
-          $next = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(next_class);
-          $('.bgimg-outer').append($next);
-          window.setTimeout(rotateBackground, 5000);
-        });
+              ++bgRotationCurrentClass;
+              var next_class = bgRotationList[bgRotationCurrentClass % bgRotationList.length];
+              var $next = $('<div>').addClass('bgimg-inner').addClass('bgimg-next').addClass(next_class);
+              $('.bgimg-outer').append($next);
+              window.setTimeout(rotateBackground, 5000);
+          });
       }
 
     </script>

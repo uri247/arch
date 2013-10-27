@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 import model
 import main
 import web
-from literals import localize, top_level_menu_items
+from literals import top_level_menu_items
 
 class HomePage(web.RequestHandler):
     def get(self, firmid, lang):
@@ -17,7 +17,7 @@ class HomePage(web.RequestHandler):
         tmpl = main.jinja_env.get_template( 'home.html' )
         html = tmpl.render({
             'firmid': firmid,
-            'firm': localize(firm.to_dict(), lang),
+            'firm': firm.to_dict(lang),
             'top_level_menu_items': top_level_menu_items,
             'curr_menu_item': None,
             'head_hidden': True,
