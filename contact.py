@@ -2,9 +2,9 @@ from google.appengine.ext import ndb
 import model
 import main
 import web
-from literals import top_level_menu_items, classifications, classifications_order
+from literals import top_level_menu_items
 
-class ProjectsPage(web.RequestHandler):
+class ContactPage(web.RequestHandler):
     def get(self, firmid, lang):
         self.html_content()
 
@@ -14,19 +14,13 @@ class ProjectsPage(web.RequestHandler):
             self.error(500)
             return
 
-        _projects = model.Project.query_firm(firm_key).fetch()
-        projects = [p.to_dict() for p in _projects]
-
-        tmpl = main.jinja_env.get_template( 'projects.html' )
+        tmpl = main.jinja_env.get_template( 'contact.html' )
         html = tmpl.render({
             'firmid': firmid,
             'firm': firm.to_dict(lang),
             'top_level_menu_items': top_level_menu_items,
-            'curr_menu_item': 'projects',
+            'curr_menu_item': 'contact',
             'head_hidden': False,
-            'projects': projects,
-            'classifications': classifications,
-            'classifications_order': classifications_order,
         })
         self.html_content()
         self.w( html )

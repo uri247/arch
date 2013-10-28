@@ -2,7 +2,6 @@ from google.appengine.ext import ndb
 import model
 import main
 import web
-from literals import localize
 
 class TestPage(web.RequestHandler):
     def get(self, firmid, lang):

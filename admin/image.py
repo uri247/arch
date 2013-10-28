@@ -19,6 +19,7 @@ def create_upload_url(firmid, projid):
 
 
 class GetUploadUrlApi(web.RequestHandler):
+
     def get(self, firmid, projid):
         upload_url = create_upload_url(firmid, projid)
         self.json_content()
@@ -53,15 +54,25 @@ class ImageForm(blobstore_handlers.BlobstoreUploadHandler):
         """Post method is the only method"""
         firmid = self.request.get('firmid')
         projid = self.request.get('projid')
+        is_front_picture = self.request.get('is_front_picture') == 'yes'
+
         proj_key = ndb.Key('Firm', firmid, 'Project', projid)
+        proj = proj_key.get()
 
         files = self.get_uploads('file')
+        assert len(files) == 1
+
         for blob_info in files:
             image = model.Image(parent=proj_key, id=blob_info.filename)
             image.name = self.request.get('name')
+            image.is_front = is_front_picture
             image.mime_type = blob_info.content_type
             image.blob_key = blob_info.key()
             image.put()
+            if is_front_picture:
+                proj.front_picture_id = blob_info.filename
+                proj.front_picture_url = get_serving_url(image.blob_key)
+                proj.put()
             pass
 
         self.response.headers['Content-Type'] = 'text/html'

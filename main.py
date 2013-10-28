@@ -3,30 +3,38 @@ import os
 from google.appengine.ext import webapp
 import admin
 import home
+import about
+import contact
 import projects
 import testpage
 
-static_dir =  os.path.join( os.path.dirname(__file__), 'templates' )
+static_dir = os.path.join( os.path.dirname(__file__), 'templates' )
 jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 
 
 class MainPage(webapp.RequestHandler):
     def get(self):
-        #self.redirect( '/frl/h/about' )
-        self.redirect('/static/static-home.html')
+        self.redirect( '/frl/h/home' )
+        #self.redirect('/static/static-home.html')
 
 class MainAdminPage(webapp.RequestHandler):
     def get(self):
         self.redirect( '/frl/admin/firm' )
-                
+
+class GoLang(webapp.RequestHandler):
+    def get(self, firm, lang, tolang):
+        self.redirect( '/frl/h/home')
 
 application = webapp.WSGIApplication(
     [
         ('/', MainPage),
         ('/admin', MainAdminPage),
 
-        ('/(.*)/(.*)/home', home.HomePage ),
-        ('/(.*)/(.*)/projects', projects.ProjectsPage ),
+        ('/(.*)/(h|e)/home', home.HomePage ),
+        ('/(.*)/(h|e)/about', about.AboutPage),
+        ('/(.*)/(h|e)/projects', projects.ProjectsPage),
+        ('/(.*)/(h|e)/contact', contact.ContactPage),
+        ('/(.*)/(h|e)/go-(he|en)', GoLang),
         ('/(.*)/(.*)/test', testpage.TestPage ),
 
 

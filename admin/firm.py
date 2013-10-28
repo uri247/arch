@@ -75,7 +75,7 @@ class FirmApi(web.RequestHandler):
             
     def put(self, firmid):
         firm = model.Firm.get_by_id(firmid)
-        if( not firm ):
+        if not firm:
             self.error(404)
         else:
             d = json.loads( self.request.body )

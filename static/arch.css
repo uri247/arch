@@ -181,6 +181,10 @@ a:visited {
     cursor: pointer;
 }
 
+.nav-menu-item-selected {
+    font-weight: bold;
+    color: black;
+}
 
 .nav-menu-item:hover {
     color: red;
@@ -263,3 +267,21 @@ a:visited {
     line-height: 32px;
 }
 
+
+/* ---------------------------------------- About Page ---------------------------------------- */
+.about-well {
+    width: 968px;
+    background-color: #f2f2f2;
+    margin-right: 60px;
+    height: 514px;
+}
+
+.about-text-well {
+    padding-right: 30px;
+    padding-top: 20px;
+    width: 548px;
+}
+
+.about-img-well {
+
+}

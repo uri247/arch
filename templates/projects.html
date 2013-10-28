@@ -1,30 +1,91 @@
 {% extends 'base.html' %}
 
 {% block pre_container %}
+{% endblock %}
 
+{% block body %}
     <div class="body row">
       <div class="a-pane span">
-        <div class="nav-menu-item">כל הפרוייקטים</div>
-        <div class="nav-menu-item">מגורים</div>
-        <div class="nav-menu-item">בינוי ערים</div>
       </div>
 
       <div class="content span">
-        {% for proj in projects %}
-          <div class="cat-img-well"><img class="cat-img" src="{{  proj.front_picture_url }}"/></div>
-        {% endfor %}
       </div>
-
     </div>
 {% endblock %}
 
+{% block data %}
+    <script type="text/javascript">
+        var classifications = { {% for cls in classifications %}
+          {{ cls }}: { en: '{{ classifications[cls][0] }}', he: '{{ classifications[cls][1] }}', p: [], },
+        {% endfor %} };
+        var classifications_order = [ {% for cls in classifications_order %}'{{ cls }}', {% endfor %} ];
+    </script>
+{% endblock %}
 
 {% block logic %}
     <script type="text/javascript">
-        $(function () {
+
+        var firmid = location.pathname.match(/\/(.*?)\//)[1];
+        var projects;
+        var filter;
+
+        $(function(){
+            $.getJSON( '/api/project/' + firmid + '/',
+                function onProjectsJson(_projects) {
+                    projects = _projects;
+                    update_projects();
+                    update_filter('all');
+                }
+            );
         });
+
+        function classify(proj, cls ) {
+            if( cls != "" ) {
+                classifications[cls].p.push(proj);
+            }
+        }
+
+        function update_projects() {
+            /* Build the classifications global. This is a map that group all projects to
+            the appropriate class (Office, Residential, etc.).
+            */
+            for (var index in projects ) {
+                var proj = projects[index];
+                classify(proj, proj.classification);
+                classify(proj, proj.classification2);
+                classify(proj, 'all');
+            }
+            for( var index in classifications_order ) {
+                var clsi = classifications_order[index];
+                var cls = classifications[ clsi ];
+                var $elem = $('<div class="nav-menu-item" data-cls="' + clsi + '">' + cls.he + '</div>');
+                $elem.click(onFilterClick);
+                $('.a-pane').append($elem)
+            }
+        }
+
+        function update_filter(_filter) {
+            // remove class from previos selection
+            $('.nav-menu-item-selected').removeClass('nav-menu-item-selected');
+
+            // set class to current selection
+            filter = _filter;
+            $('.nav-menu-item[data-cls=' + filter + ']').addClass('nav-menu-item-selected');
+            $('.content').empty();
+            for( index in classifications[filter].p ) {
+                var proj = classifications[filter].p[index];
+                var $projElem = $('<div class="cat-img-well">' +
+                    '<a href="' + proj.id + '">' +
+                    '<img class="cat-img" src="' + proj.front_picture_url + '">' +
+                    '</a></div>\n');
+                $('.content').append($projElem);
+            }
+        }
+
+        function onFilterClick() {
+            update_filter( $(this).data('cls') );
+        };
+
+
     </script>
-  </div>
 {% endblock %}
-
-
