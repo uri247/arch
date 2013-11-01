@@ -209,6 +209,7 @@ a:visited {
     display: block;
     margin-right: auto;
     margin-left: auto;
+    border-width: 0;
 }
 
 
