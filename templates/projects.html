@@ -63,27 +63,34 @@
         }
 
         function update_filter(_filter) {
-            // remove class from previos selection
+            // remove class from previous selection
             $('.nav-menu-item-selected').removeClass('nav-menu-item-selected');
 
             // set class to current selection
             filter = _filter;
             $('.nav-menu-item[data-cls=' + filter + ']').addClass('nav-menu-item-selected');
             $('.content').empty();
-            for( index in classifications[filter].p ) {
-                var proj = classifications[filter].p[index];
+
+            // go through all projects in this specific class
+            classifications[filter].p.forEach( function(proj) {
                 var $projElem = $('<div class="cat-img-well">' +
-                    '<a href="' + proj.id + '">' +
+                    '<a data-projid="' + proj.id + '" href="#proj=' + proj.id + '">' +
                     '<img class="cat-img" src="' + proj.front_picture_url + '">' +
-                    '</a></div>\n');
+                    '</a>' +
+                    '</div>\n');
                 $('.content').append($projElem);
-            }
+            });
+            $('.cat-img-well a').click( onProjectClick );
         }
 
         function onFilterClick() {
             update_filter( $(this).data('cls') );
         };
 
+        function onProjectClick() {
+            alert(this);
+            //return false;
+        }
 
     </script>
 {% endblock %}

@@ -19,7 +19,7 @@ body {
 .row {
 }
 
-.row:before
+.row:before,
 .row:after {
     display: table;
     line-height: 0;
