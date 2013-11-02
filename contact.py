@@ -17,6 +17,7 @@ class ContactPage(web.RequestHandler):
         tmpl = main.jinja_env.get_template( 'contact.html' )
         html = tmpl.render({
             'firmid': firmid,
+            'lang': lang,
             'firm': firm.to_dict(lang),
             'top_level_menu_items': top_level_menu_items,
             'curr_menu_item': 'contact',

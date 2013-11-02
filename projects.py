@@ -19,6 +19,7 @@ class ProjectsPage(web.RequestHandler):
 
         tmpl = main.jinja_env.get_template( 'projects.html' )
         html = tmpl.render({
+            'lang': lang,
             'firmid': firmid,
             'firm': firm.to_dict(lang),
             'top_level_menu_items': top_level_menu_items,
