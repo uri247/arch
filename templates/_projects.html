@@ -22,7 +22,7 @@
       $('ul.nav li a').click(function onPorj(e) {
         $('ul.nav li a').parent().removeClass('active');
         $(this).parent().addClass('active');
-        prj = projects[$('.aside .sub-nav a').index(e.currentTarget)];
+        var prj = projects[$('.aside .sub-nav a').index(e.currentTarget)];
         build_carousel(prj);
       });
 
