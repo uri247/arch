@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="utf-8" />
+  <title>פינצי רוה לונדון</title>
+  <link href="/static/arch.css" rel="stylesheet" media="screen" />
+  <link href="/static/c2.css" rel="stylesheet" media="screen" />
+</head>
+
+<body dir="rtl">
+
+
+  <div class="container">
+    <div class="head">
+      <div class="row head-inner">
+        <a href="/frl/h/home">
+          <img class="span logo" src="/static/logo.png">
+        </a>
+        <div class="span top-menu">
+          
+            
+              <div class="top-menu-item"><a href="about"><div class="top-menu-item-text">אודות המשרד</div></a></div>
+            
+            <div class="top-menu-separator"></div>
+          
+            
+              <div class="top-menu-item top-menu-item-selected">
+                <div class="top-menu-item-text">פרויקטים</div>
+                <div class="top-menu-marker"><img src="/static/top-menu-marker.png" /></div>
+              </div>
+            
+            <div class="top-menu-separator"></div>
+          
+            
+              <div class="top-menu-item"><a href="contact"><div class="top-menu-item-text">צור קשר</div></a></div>
+            
+            <div class="top-menu-separator"></div>
+          
+            
+              <div class="top-menu-item"><a href="go-en"><div class="top-menu-item-text">English</div></a></div>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="body row">
+      <div class="a-pane span">
+      </div>
+
+      <div class="content span">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="code">
+    <script type="text/javascript" src="/libs/jquery/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap-2.3.2/js/bootstrap.js"></script>
+    
+    <script type="text/javascript">
+        var classifications = { 
+          all: { en: 'All Projects', he: 'כל הפרויקרטים', p: [], },
+        
+          Housing: { en: 'Housing', he: 'בניה רוויה', p: [], },
+        
+          Residential: { en: 'Residential', he: 'מגורים', p: [], },
+        
+          Medical: { en: 'Medical', he: 'בתי חולים', p: [], },
+        
+          Education: { en: 'Education', he: 'חינוך', p: [], },
+        
+          Gas: { en: 'Gas Stations', he: 'תחנות דלק', p: [], },
+        
+          Mall: { en: 'Mall', he: 'קניונים', p: [], },
+        
+          Commercial: { en: 'Commercial', he: 'עסקים', p: [], },
+        
+          UrbanPlan: { en: 'Urban Plan', he: 'בינוי ערים', p: [], },
+        
+          Rec: { en: 'Recreation and Sport', he: 'ספורט', p: [], },
+        
+          Office: { en: 'Office', he: 'משרדים', p: [], },
+        
+          Retail: { en: 'Retail', he: 'מסחרי', p: [], },
+        
+          Need: { en: 'Special Care', he: 'בתי אבות', p: [], },
+         };
+        var classifications_order = [ 'all', 'UrbanPlan', 'Rec', 'Residential', 'Office', 'Need', 'Medical', 'Mall', 'Gas', 'Education', 'Housing', 'Retail', 'Commercial',  ];
+    </script>
+
+    
+    <script type="text/javascript">
+
+        var firmid = location.pathname.match(/\/(.*?)\//)[1];
+        var projects;
+        var filter;
+
+        $(function(){
+            $.getJSON( '/api/project/' + firmid + '/',
+                function onProjectsJson(_projects) {
+                    projects = _projects;
+                    update_projects();
+                    update_filter('all');
+                }
+            );
+        });
+
+        function classify(proj, cls ) {
+            if( cls != "" ) {
+                classifications[cls].p.push(proj);
+            }
+        }
+
+        function update_projects() {
+            /* Build the classifications global. This is a map that group all projects to
+            the appropriate class (Office, Residential, etc.).
+            */
+            for (var index in projects ) {
+                var proj = projects[index];
+                classify(proj, proj.classification);
+                classify(proj, proj.classification2);
+                classify(proj, 'all');
+            }
+            for( var index in classifications_order ) {
+                var clsi = classifications_order[index];
+                var cls = classifications[ clsi ];
+                var $elem = $('<div class="nav-menu-item" data-cls="' + clsi + '">' + cls.he + '</div>');
+                $elem.click(onFilterClick);
+                $('.a-pane').append($elem)
+            }
+        }
+
+        function update_filter(_filter) {
+            // remove class from previos selection
+            $('.nav-menu-item-selected').removeClass('nav-menu-item-selected');
+
+            // set class to current selection
+            filter = _filter;
+            $('.nav-menu-item[data-cls=' + filter + ']').addClass('nav-menu-item-selected');
+            $('.content').empty();
+            for( index in classifications[filter].p ) {
+                var proj = classifications[filter].p[index];
+                var $projElem = $('<div class="cat-img-well">' +
+                    '<a href="' + proj.id + '">' +
+                    '<img class="cat-img" src="' + proj.front_picture_url + '">' +
+                    '</a></div>\n');
+                $('.content').append($projElem);
+            }
+        }
+
+        function onFilterClick() {
+            update_filter( $(this).data('cls') );
+        };
+
+
+    </script>
+
+  </div>
+
+</body>
+</html>
+

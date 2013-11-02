@@ -16,7 +16,7 @@
 {% block data %}
     <script type="text/javascript">
         var classifications = { {% for cls in classifications %}
-          {{ cls }}: { en: '{{ classifications[cls][0] }}', he: '{{ classifications[cls][1] }}', p: [], },
+          {{ cls }}: { en: '{{ classifications[cls][0] }}', he: '{{ classifications[cls][1] }}', p: [] },
         {% endfor %} };
         var classifications_order = [ {% for cls in classifications_order %}'{{ cls }}', {% endfor %} ];
     </script>
@@ -49,19 +49,17 @@
             /* Build the classifications global. This is a map that group all projects to
             the appropriate class (Office, Residential, etc.).
             */
-            for (var index in projects ) {
-                var proj = projects[index];
-                classify(proj, proj.classification);
-                classify(proj, proj.classification2);
-                classify(proj, 'all');
-            }
-            for( var index in classifications_order ) {
-                var clsi = classifications_order[index];
-                var cls = classifications[ clsi ];
-                var $elem = $('<div class="nav-menu-item" data-cls="' + clsi + '">' + cls.he + '</div>');
+            projects.forEach(function (proj) {
+              classify(proj, proj.classification);
+              classify(proj, proj.classification2);
+              classify(proj, 'all');
+            });
+            classifications_order.forEach(function (cls_ndx) {
+                var cls = classifications[ cls_ndx ];
+                var $elem = $('<div class="nav-menu-item" data-cls="' + cls_ndx + '">' + cls.he + '</div>');
                 $elem.click(onFilterClick);
                 $('.a-pane').append($elem)
-            }
+            });
         }
 
         function update_filter(_filter) {
