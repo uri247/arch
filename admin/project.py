@@ -90,6 +90,9 @@ class ProjectApi(web.RequestHandler):
             proj_key = ndb.Key("Firm", firmid, "Project", projid)
             proj = proj_key.get()
             d = proj.to_dict()
+            #for a single project we also return list of images
+            images_query = model.Image.query(ancestor=proj_key)
+            d['images'] = [i.to_dict(exclude=['blob_key']) for i in images_query]
             self.w(json.dumps(d))
 
     def post(self, firmid, projid):
