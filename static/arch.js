@@ -80,6 +80,6 @@ function page_projects()
     function update_single(proj) {
         window.location.hash = 'proj=' + proj.id;
         $('.single-well').append( $('<div>' + proj.id + '</div>') );
-        $('.single-well').append( $('<img src="' + proj.images[0].url + '">') );
+        $('.single-well').append( $('<img src="' + proj.images[0].large_url + '">') );
     }
 }

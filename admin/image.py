@@ -54,26 +54,28 @@ class ImageForm(blobstore_handlers.BlobstoreUploadHandler):
         """Post method is the only method"""
         firmid = self.request.get('firmid')
         projid = self.request.get('projid')
+        name = self.request.get('name')
         is_front_picture = self.request.get('is_front_picture') == 'yes'
 
         proj_key = ndb.Key('Firm', firmid, 'Project', projid)
         proj = proj_key.get()
 
-        files = self.get_uploads('file')
-        assert len(files) == 1
+        small_bi = self.get_uploads('small_img')[0]
+        large_bi = self.get_uploads('large_img')[0]
 
-        for blob_info in files:
-            image = model.Image(parent=proj_key, id=blob_info.filename)
-            image.name = self.request.get('name')
-            image.is_front = is_front_picture
-            image.mime_type = blob_info.content_type
-            image.blob_key = blob_info.key()
-            image.put()
-            if is_front_picture:
-                proj.front_picture_id = blob_info.filename
-                proj.front_picture_url = get_serving_url(image.blob_key)
-                proj.put()
-            pass
+        image = model.Image(parent=proj_key, id=name)
+        image.name = name
+        image.is_front = is_front_picture
+        image.small_mime_type = small_bi.content_type
+        image.small_blob_key = small_bi.key()
+        image.large_mime_type = large_bi.content_type
+        image.large_blob_key = large_bi.key()
+        image.put()
+        if is_front_picture:
+            proj.front_picture_id = image.name
+            proj.front_picture_url = get_serving_url(image.small_blob_key)
+            proj.put()
+        pass
 
         self.response.headers['Content-Type'] = 'text/html'
         html = main.jinja_env.get_template('admin/image_status.html').render({
@@ -85,10 +87,11 @@ class ImageForm(blobstore_handlers.BlobstoreUploadHandler):
 
 
 class ImageResource(web.RequestHandler):
-    def get(self, firmid, projid, imgid):
+    def get(self, firmid, projid, imgid, size):
         img_key = ndb.Key("Firm", firmid, "Project", projid, "Image", imgid)
         img = img_key.get()
-        url = get_serving_url(img.blob_key)
+        blob_key = img.large_blob_key if size == 'large' else img.small_blob_key
+        url = get_serving_url(blob_key)
         self.redirect(url)
 
 

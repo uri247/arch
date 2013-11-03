@@ -4,7 +4,7 @@ import os
 import requests
 
 from data import firmid, firm_data
-from xldata import read_xl
+from xldata import read_xl, small_folder, large_folder, small_suffix, large_suffix, xl_file, image_dir
 
 #base_url is either local or remote:
 if len(sys.argv) == 1 or sys.argv[1] == 'local':
@@ -16,9 +16,6 @@ else:
     exit()
     
 
-
-xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summary.xlsx' )
-image_dir = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'webres' )
 projects_data = read_xl(xl_file)
 proxies = None
 
@@ -51,19 +48,30 @@ def populate_images(proj):
     for img_name in proj['images']:
         r = requests.get( getupurl_url(firmid, proj['id']), proxies=proxies )
         upurl = r.json()['url']
-        name = img_name[:img_name.find('.')]
+        small_img_name = os.path.join( image_dir, proj['id'], small_folder, img_name + small_suffix + '.jpg' )
+        large_img_name = os.path.join( image_dir, proj['id'], large_folder, img_name + large_suffix + '.jpg' )
         is_front_picture = 'yes' if proj['data']['front_picture_id'] == img_name else 'no'
+
+        small_img, large_img = None, None
+        try:
+            small_img = open( small_img_name, 'rb')
+            large_img = open( large_img_name, 'rb')
+        except IOError as e:
+            print 'error opening %s' % (e.filename,)
+            print e.message
+            continue
 
         r = requests.post( 
             upurl,
             data={
                 'firmid': firmid,
                 'projid': proj['id'],
-                'name': name,
+                'name': img_name,
                 'is_front_picture': is_front_picture,
             },
             files = {
-                'file': open( os.path.join(image_dir, proj['id'], '180x124', img_name), 'rb' )
+                'small_img': open( small_img_name, 'rb' ),
+                'large_img': open( large_img_name, 'rb' )
             },
             proxies = proxies
         )

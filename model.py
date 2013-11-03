@@ -34,6 +34,7 @@ class Project(ndb.Model):
     status = ndb.StringProperty()
     description_e = ndb.StringProperty()
     description_h = ndb.StringProperty()
+    client_id = ndb.StringProperty()
     front_picture_id = ndb.StringProperty()
     front_picture_url = ndb.StringProperty()
 
@@ -53,11 +54,13 @@ class Image(ndb.Model):
     an image. may be related to a project or to a person
     """
     name = ndb.StringProperty()
-    mime_type = ndb.StringProperty()
-    blob_key = ndb.BlobKeyProperty()
+    small_mime_type = ndb.StringProperty()
+    small_blob_key = ndb.BlobKeyProperty()
+    large_mime_type = ndb.StringProperty()
+    large_blob_key = ndb.BlobKeyProperty()
     is_front = ndb.BooleanProperty()
 
-    def to_dict(self, include=None, exclude=None, size=None):
+    def to_dict(self, include=None, exclude=None):
         """calls the super method, and add a URL
         :param include: set of property names to include, default all
         :param exclude: set of property names to exclude, default none
@@ -65,8 +68,9 @@ class Image(ndb.Model):
         :return:
         """
         d = super(Image, self).to_dict(include=include, exclude=exclude)
-        d['url'] = get_serving_url(self.blob_key, size=size)
         d['id'] = self.key.id()
+        d['small_url'] = get_serving_url(self.small_blob_key)
+        d['large_url'] = get_serving_url(self.large_blob_key)
         return d
         pass
 
