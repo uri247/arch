@@ -35,6 +35,9 @@ body {
     float: right;
 }
 
+.ospan {
+    float: left;
+}
 
 .hidden {
     display: none;
@@ -232,6 +235,27 @@ a:visited {
     margin-top: -30px;
     padding-right: 20px;
     padding-bottom: 6px;
+}
+
+.arrow-left {
+    background-image: url(arrow-left.png);
+    width: 11px;
+    height: 11px;
+    margin-right: 8px;
+}
+
+.arrow-right {
+    background-image: url(arrow-right.png);
+    width: 11px;
+    height: 11px;
+    margin-right: 8px;
+}
+
+.arrow-up {
+    background-image: url(arrow-up.png);
+    width: 13px;
+    height: 15px;
+    margin-right: 8px;
 }
 
 .single-title {
