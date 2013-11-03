@@ -169,10 +169,6 @@ a:visited {
     background-image: url('home-bg5.jpg');
 }
 
-.single-img {
-    width: 738px;
-    height: 514px;
-}
 
 
 /* ---------------------------------------- A Pane ---------------------------------------- */
@@ -228,6 +224,53 @@ a:visited {
 }
 
 .single-well {
+    display: none;
+    color: black;
+}
+
+.title-line {
+    margin-top: -30px;
+    padding-right: 20px;
+    padding-bottom: 6px;
+}
+
+.single-title {
+    font-size: 20px;
+}
+
+.single-img {
+    position: relative;
+    width: 738px;
+    height: 514px;
+}
+
+.transbox {
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 15px;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    opacity: 0.78;
+    z-index: 2;
+}
+
+.transbox-item {
+    margin-top: 10px;
+}
+
+.transbox-name {
+    color: #6d6e71;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.transbox-value {
+    color: #6d6e71;
+    font-size: 13px;
 }
 
 

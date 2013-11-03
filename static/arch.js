@@ -67,6 +67,7 @@ function page_projects()
     function onProjectClick() {
         $('.plural-well').hide();
         $('.single-img').css('background-image', 'none');
+        $('.transbox-value').empty();
         $('.single-well').show();
         var projid = $(this).data('projid');
         $.getJSON(
@@ -79,13 +80,22 @@ function page_projects()
         return false;
     }
 
+    function add_to_transbox(name, value) {
+        $('.transbox').append( '<div><span class="transbox-name">' + name +
+            '</span><span class="transbox-value">' + value + '</span></div>' );
+    }
+
     function update_single(proj) {
         $('.single-img').css( 'background-image', 'url(' + proj.images[0].large_url + ')' );
-
-        /*
-        window.location.hash = 'proj=' + proj.id;
-        $('.single-well').append( $('<div>' + proj.id + '</div>') );
-        $('.single-well').append( $('<img src="' + proj.images[0].large_url + '">') );
-        */
+        $('.single-title').text( proj.title_h );
+        $('#address').text( proj.address_h );
+        $('#classification').text( proj.classification);
+        $('#plot_area').text( proj.plot_area );
+        $('#built_area').text( proj.built_area );
+        $('#units').text( proj.units );
+        $('#year').text( proj.year );
+        $('status').text( proj.status );
+        $('client').text( proj.client_id );
+        $('description').text( proj.description_h );
     }
 }
