@@ -4,7 +4,6 @@ import model
 import main
 import web
 
-
 class ProjectPage(web.RequestHandler):
     def get(self, firmid, projid):
         """

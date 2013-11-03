@@ -3,7 +3,7 @@ function page_projects()
 {
     var firmid = location.pathname.match(/\/(.*?)\//)[1];
     var projects;
-    var filter;
+    var current_classification = 'all';
 
     this.main = function main() {
         $.getJSON( '/api/project/' + firmid + '/',
@@ -32,23 +32,19 @@ function page_projects()
         });
         classifications_order.forEach(function (cls_ndx) {
             var cls = classifications[ cls_ndx ];
-            var $elem = $('<div class="nav-menu-item" data-cls="' + cls_ndx + '">' + cls.he + '</div>');
+            var $elem = $('<div class="nav-menu-item" data-classification="' + cls_ndx + '">' + cls.he + '</div>');
             $elem.click(onFilterClick);
             $('.a-pane').append($elem)
         });
     }
 
-    function update_filter(_filter) {
-        // remove class from previous selection
+    function update_filter() {
+        // change style for the classification a pane.
         $('.nav-menu-item-selected').removeClass('nav-menu-item-selected');
-
-        // set class to current selection
-        filter = _filter;
-        $('.nav-menu-item[data-cls=' + filter + ']').addClass('nav-menu-item-selected');
-        $('.plural-well').empty();
+        $('.nav-menu-item[data-cls=' + current_classification + ']').addClass('nav-menu-item-selected');
 
         // go through all projects in this specific class
-        classifications[filter].p.forEach( function(proj) {
+        classifications[current_classification].p.forEach( function(proj) {
             var $projElem = $('<div class="cat-img-well">' +
                 '<a data-projid="' + proj.id + '" href="#proj=' + proj.id + '">' +
                 '<img class="cat-img" src="' + proj.front_picture_url + '">' +
@@ -60,19 +56,30 @@ function page_projects()
     }
 
     function onFilterClick() {
+        current_classification = $(this).data('classification');
+        window.location.hash = 'class=' + current_classification;
         $('.single-well').hide();
-        $('.plural-well').show();
-        update_filter( $(this).data('cls') );
+        $('.plural-well').empty().show();
+        update_filter( );
     };
 
     function onProjectClick() {
         $('.plural-well').hide();
-        $('.single-well').show();
-        update_single($(this).data('projid'));
-        //return false;
+        $('.single-well').empty().show();
+        var projid = $(this).data('projid');
+        $.getJSON(
+            '/api/project/' + firmid + '/' + projid,
+            function (proj) {
+                update_single(proj);
+            }
+        );
+
+        return false;
     }
 
-    function update_single(projid) {
-        $('.single-well').append( $('<div>' + projid + '</div>') );
+    function update_single(proj) {
+        window.location.hash = 'proj=' + proj.id;
+        $('.single-well').append( $('<div>' + proj.id + '</div>') );
+        $('.single-well').append( $('<img src="' + proj.images[0].url + '">') );
     }
 }

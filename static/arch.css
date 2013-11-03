@@ -242,7 +242,7 @@ a:visited {
 
 .contact-icon {
     width: 55px;
-    height: 32px;
+    height: 31px;
     background-image: url('contact-icons.png');
 }
 
@@ -251,15 +251,15 @@ a:visited {
 }
 
 .contact-icon-1 {
-    background-position: 0 -30px;
+    background-position: 0 -31px;
 }
 
 .contact-icon-2 {
-    background-position: 0 -60px;
+    background-position: 0 -62px;
 }
 
 .contact-icon-3 {
-    background-position: 0 -90px;
+    background-position: 0 -93px;
 }
 
 
