@@ -7,10 +7,11 @@ function page_projects()
 
     this.main = function main() {
         $.getJSON( '/api/project/' + firmid + '/',
-            function onProjectsJson(_projects) {
-                projects = _projects;
+            function onProjectsJson(projs) {
+                projects = projs;
+                current_classification = 'all';
                 update_projects();
-                update_filter('all');
+                update_filter();
             }
         );
     }
@@ -65,7 +66,8 @@ function page_projects()
 
     function onProjectClick() {
         $('.plural-well').hide();
-        $('.single-well').empty().show();
+        $('.single-img').css('background-image', 'none');
+        $('.single-well').show();
         var projid = $(this).data('projid');
         $.getJSON(
             '/api/project/' + firmid + '/' + projid,
@@ -78,8 +80,12 @@ function page_projects()
     }
 
     function update_single(proj) {
+        $('.single-img').css( 'background-image', 'url(' + proj.images[0].large_url + ')' );
+
+        /*
         window.location.hash = 'proj=' + proj.id;
         $('.single-well').append( $('<div>' + proj.id + '</div>') );
         $('.single-well').append( $('<img src="' + proj.images[0].large_url + '">') );
+        */
     }
 }

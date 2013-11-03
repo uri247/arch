@@ -152,12 +152,15 @@ a:visited {
 .bgimg-img1 {
     background-image: url('home-bg1.jpg');
 }
+
 .bgimg-img2 {
     background-image: url('home-bg2.jpg');
 }
+
 .bgimg-img3 {
     background-image: url('home-bg3.jpg');
 }
+
 .bgimg-img4 {
     background-image: url('home-bg4.jpg');
 }
@@ -166,6 +169,10 @@ a:visited {
     background-image: url('home-bg5.jpg');
 }
 
+.single-img {
+    width: 738px;
+    height: 514px;
+}
 
 
 /* ---------------------------------------- A Pane ---------------------------------------- */
