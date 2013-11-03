@@ -73,7 +73,7 @@ class ImageForm(blobstore_handlers.BlobstoreUploadHandler):
         image.put()
         if is_front_picture:
             proj.front_picture_id = image.name
-            proj.front_picture_url = get_serving_url(image.small_blob_key)
+            proj.front_picture_url = image.to_dict()['small_url']
             proj.put()
         pass
 
