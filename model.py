@@ -69,8 +69,8 @@ class Image(ndb.Model):
         """
         d = super(Image, self).to_dict(include=include, exclude=exclude)
         d['id'] = self.key.id()
-        d['small_url'] = get_serving_url(self.small_blob_key)
-        d['large_url'] = get_serving_url(self.large_blob_key)
+        d['small_url'] = get_serving_url(self.small_blob_key, 180)
+        d['large_url'] = get_serving_url(self.large_blob_key, 738)
         return d
         pass
 
