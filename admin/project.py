@@ -91,7 +91,8 @@ class ProjectApi(web.RequestHandler):
             d = proj.to_dict()
             #for a single project we also return list of images
             images_query = model.Image.query(ancestor=proj_key)
-            d['images'] = [i.to_dict(exclude=['small_blob_key', 'large_blob_key']) for i in images_query]
+            #d['images'] = [i.to_dict(exclude=['small_blob_key', 'large_blob_key']) for i in images_query]
+	    d['images'] = images_query.map(lambda img: img.to_dict(exclude=['small_blob_key', 'large_blob_key']))
             self.w(json.dumps(d))
 
     def post(self, firmid, projid):
