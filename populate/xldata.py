@@ -4,7 +4,7 @@ import glob
 import xlrd
 import re
 
-fields = [
+project_fields = [
     ('title_e', unicode, ''), ('title_h', unicode, ''), ('address_e', unicode, ''), ('address_h', unicode, ''),
     ('year', int, 1900), ('classification', unicode, ''), ('classification2', unicode, ''),
     ('plot_area', int, 0), ('built_area', int, 0), ('units', unicode, ''), ('status', unicode, ''),
@@ -12,61 +12,85 @@ fields = [
     ('front_picture_id', unicode, '')
 ]
 
-rx = None
-small_folder = '180x124'
-large_folder = '738x514'
-small_suffix = '_180x124'
-large_suffix = '_738x514'
-xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summary.xlsx' )
-image_dir = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'webres' )
+client_fields = [ ('name_e', unicode, ''), ('name_h', unicode, '')]
+
+classification_fields = [ ('name_e', unicode, ''), ('name_h', unicode, '')]
 
 
-def assert_sheet(sh):
-    assert sh.cell(0, 0).value == 'ID'
-    for ndx, fld in enumerate(fields):
-        assert sh.cell(0, ndx + 2).value == fld[0]
+class XlData(object):
 
-def get_images(folder, projid):
-    pattern = os.path.join(folder, projid, small_folder, '*.jpg')
-    images = [rx.match(os.path.basename(p)).group(1) for p in glob.glob(pattern)]
-    return images
+    def __init__(self, xl_filename, small_folder, large_folder, small_suffix, large_suffix):
+        self.projects = None
+        self.classifications = None
+        self.clients = None
 
-def read_xl(fname):
-    global rx
+        self._xl_filename = xl_filename
+        self._small_folder = small_folder
+        self._large_folder = large_folder
+        self._small_suffix = small_suffix
+        self._large_suffix = large_suffix
 
-    rx = re.compile('(.*)' + small_suffix + '.jpg')
-    folder = os.path.join(os.path.dirname(fname), 'WebRes')
+        self._rx = re.compile('(.*)' + self._small_suffix + '.jpg')
+        self._folder = os.path.join(os.path.dirname(self._xl_filename), 'WebRes')
+        self._book = xlrd.open_workbook(self._xl_filename)
 
-    book = xlrd.open_workbook(fname)
-    sh = book.sheet_by_index(0)
-    assert_sheet(sh)
-    projects = {}
+    def assert_sheets(self):
+        for sheet_name, fields in [('Project', project_fields),
+                                   ('Client', client_fields),
+                                   ('Classification', classification_fields)]:
+            sheet = self._book.sheet_by_name(sheet_name)
+            assert sheet.cell(0, 0).value == 'ID'
+            assert sheet.cell(0, 1).value == 'ready'
+            for ndx, fld in enumerate(fields):
+                assert sheet.cell(0, ndx + 2).value == fld[0]
 
-    for r in xrange(1, sh.nrows):
-        proj = {}
+    def read_data_from_sheet(self, sheet_name, fields, fn = None ):
+        sheet = self._book.sheet_by_name(sheet_name)
+        data = dict()
+        for row in xrange(1, sheet.nrows):
+            if sheet.cell(row, 1).value == 'yes':
+                datum = dict()
+                datum['id'] = sheet.cell(row, 0).value
+                for index, field in enumerate( fields ):
+                    value = sheet.cell( row, index + 2 ).value
+                    if value:
+                        datum[field[0]] = field[1](value)
+                    else:
+                        datum[field[0]] = field[2]
+                if fn:
+                    datum = fn( datum )
+                data[datum['id']] = datum
 
-        projid = sh.cell(r,0).value
-        ready = sh.cell(r, 1).value
-        if ready != 'yes':
-            continue
+        return data
 
-        proj['id'] = projid
+    def get_images_for_project(self, projid):
+        pattern = os.path.join( self._folder, projid, self._small_folder, '*.jpg')
+        images = [self._rx.match(os.path.basename(p)).group(1) for p in glob.glob(pattern)]
+        return images
 
-        projdata = {}
-        for ndx, fld in enumerate(fields):
-            v = sh.cell(r, ndx + 2).value
-            vv = fld[1](v) if v else fld[2]
-            projdata[fld[0]] = vv
-        proj['data'] = projdata
-
-        proj['images'] = get_images(folder, projid)
-
-        if projdata['front_picture_id'] == '':
+    def project_callback(self, proj_data):
+        proj = dict()
+        proj['id'] = proj_data['id']
+        proj['data'] = proj_data
+        proj['images'] = self.get_images_for_project(proj_data['id'])
+        if proj_data['front_picture_id'] == '':
             if len(proj['images']) > 0:
-                projdata['front_picture_id'] = proj['images'][0]
+                proj_data['front_picture_id'] = proj['images'][0]
+        return proj
 
-        projects[proj['id']] = proj
-    return projects
+    def read(self):
+        self.assert_sheets()
+        self.clients = self.read_data_from_sheet( 'Client', client_fields )
+        self.classifications = self.read_data_from_sheet( 'Classification', classification_fields )
+        self.projects = self.read_data_from_sheet( 'Project', project_fields, self.project_callback )
+        return self
+
+
 
 if __name__ == '__main__':
-    read_xl()
+    xldata = XlData( os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summary.xlsx' ),
+                     '180x124', '738x514',
+                     '_180x124', '_738x514' )
+    xldata.read()
+    print xldata
+    pass
