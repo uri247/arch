@@ -24,10 +24,22 @@ class Classification(ndb.Model):
     name_e = ndb.StringProperty()
     name_h = ndb.StringProperty()
 
-    def to_dict(self, lang, include=None, exclude=None):
-        d = super(Classification, self).to_dict(include=include, explode=exclude)
+    def to_dict(self, lang=None, include=None, exclude=None):
+        d = super(Classification, self).to_dict(include=include, exclude=exclude)
         d['id'] = self.key.id()
-        d['name'] = loc(self, 'name', lang)
+        if lang:
+            d['name'] = loc(self, 'name', lang)
+
+
+class Client(ndb.Model):
+    name_e = ndb.StringProperty()
+    name_h = ndb.StringProperty()
+
+    def to_dict(self, lang=None, include=None, exclude=None):
+        d = super(Client, self).to_dict(include=include, exclude=exclude)
+        d['id'] = self.key.id()
+        if lang:
+            d['name'] = loc(self, 'name', lang)
 
 
 class Project(ndb.Model):

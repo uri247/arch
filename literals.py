@@ -32,6 +32,8 @@ top_level_menu_items = [
     ('go-en', u'English')
 ]
 
+clsf_all_projects = ('All Projects', u'כל הפרויקרטים')
+
 classifications = {
     'all': ('All Projects', u'כל הפרויקרטים'),
     'UrbanPlan': ('Urban Plan', u'בינוי ערים'),

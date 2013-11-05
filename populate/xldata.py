@@ -3,7 +3,7 @@ import os
 import glob
 import xlrd
 import re
-
+import data
 
 class Field:
     def __init__(self, name, tp=unicode, default=None):
@@ -94,6 +94,7 @@ class XlData(object):
         self.clients = self.read_data_from_sheet( 'Client', client_fields )
         self.classifications = self.read_data_from_sheet( 'Classification', classification_fields )
         self.projects = self.read_data_from_sheet( 'Project', project_fields, self.project_callback )
+        self.firm = data.hardcoded_firm_data()
         return self
 
 

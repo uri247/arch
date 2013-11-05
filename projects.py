@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 import model
 import main
 import web
-from literals import top_level_menu_items, classifications, classifications_order
+from literals import top_level_menu_items, clsf_all_projects
 
 class ProjectsPage(web.RequestHandler):
     def get(self, firmid, lang):
@@ -14,8 +14,13 @@ class ProjectsPage(web.RequestHandler):
             self.error(500)
             return
 
-        _projects = model.Project.query_firm(firm_key).fetch()
-        projects = [p.to_dict() for p in _projects]
+        projects = model.Project.query_firm(firm_key).map( lambda proj: proj.to_dict() )
+
+        classifications = { 'all': clsf_all_projects }
+        classifications_order = [ 'all' ]
+        for clsf in model.Classification.query(ancestor=firm_key):
+            classifications[ clsf.key.id() ] = ( clsf.name_e, clsf.name_h )
+            classifications_order.append( clsf.key.id() )
 
         tmpl = main.jinja_env.get_template( 'projects.html' )
         html = tmpl.render({

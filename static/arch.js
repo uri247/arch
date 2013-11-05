@@ -68,7 +68,7 @@ function page_projects()
         $('.plural-well').hide();
         $('.single-img').css('background-image', 'none');
         $('.transbox-value').empty();
-        $('.single-single-title').empty();
+        $('.single-title').empty();
         $('.single-well').show();
         var projid = $(this).data('projid');
         $.getJSON(

@@ -50,6 +50,7 @@ application = webapp.WSGIApplication(
         ('/img/(.*)/(.*)/(.*)', admin.ImageResource),
 
         ('/api/firm/(.*)', admin.FirmApi),
+        ('/api/classification/(.*)/(.*)', admin.ClassificationApi ),
         ('/api/project/(.*)/(.*)', admin.ProjectApi),
         ('/api/get-upload-url/(.*)/(.*)', admin.GetUploadUrlApi),
     ],
