@@ -66,8 +66,7 @@ a:visited {
 .head-inner {
     height: 92px;
     width: 100%;
-    background-image: url('head-bg.png');
-    background-repeat: repeat-x;
+    background: url('head-bg.png') repeat-x;
     padding-top: 6px;
     padding-right: 48px;
 }
@@ -238,23 +237,23 @@ a:visited {
 }
 
 .arrow-left {
-    background-image: url(arrow-left.png);
+    background: url(arrows.png) 0 0;
     width: 11px;
     height: 11px;
     margin-right: 8px;
 }
 
 .arrow-right {
-    background-image: url(arrow-right.png);
+    background: url(arrows.png) -11px 0;
     width: 11px;
     height: 11px;
     margin-right: 8px;
 }
 
 .arrow-up {
-    background-image: url(arrow-up.png);
-    width: 13px;
-    height: 15px;
+    background: url(arrows.png) -22px 0;
+    width: 11px;
+    height: 11px;
     margin-right: 8px;
 }
 

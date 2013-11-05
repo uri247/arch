@@ -17,7 +17,7 @@ function page_projects()
     }
 
     function classify(proj, cls ) {
-        if( cls != "" ) {
+        if( cls && cls != "" ) {
             classifications[cls].p.push(proj);
         }
     }
