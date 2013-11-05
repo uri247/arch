@@ -14,11 +14,11 @@ class FirmPage(web.RequestHandler):
         projects = model.Project.query_firm(key).fetch()
         
         tmpl = main.jinja_env.get_template( 'admin/firm.html' )
-        html = tmpl.render( { 
+        html = tmpl.render({
             'firmid': firmid,
             'firm': firm.to_dict(),
             'projects': projects                 
-            } )
+        })
         
         self.html_content()
         self.w( html )
@@ -29,8 +29,8 @@ class FirmForm(web.RequestHandler):
     def post(self):
         firmid = self.request.get('firmid')
         firm = model.firm_key( firmid ).get()
-        if( firm ):
-            #update the firm     
+        if firm:
+            #update the firm
             firm.name_e = self.request.get('name_e')
             firm.name_h = self.request.get('name_h')
             firm.about_e = self.request.get('about_e')
@@ -55,7 +55,7 @@ class FirmApi(web.RequestHandler):
         """returns a firm with firmid"""
         key = model.firm_key( firmid )
         firm = key.get()
-        if( not firm ):
+        if not firm:
             self.error(404)
         else:
             js = json.dumps( firm.to_dict() )        
@@ -65,7 +65,7 @@ class FirmApi(web.RequestHandler):
     def post(self, firmid):
         """create a new firm"""
         firm = model.Firm.get_by_id(firmid)
-        if( firm ):
+        if firm:
             #firm already exists. returns conflict
             self.error(409)
         else:
@@ -84,9 +84,8 @@ class FirmApi(web.RequestHandler):
 
     def delete(self, firmid):
         firm = model.Firm.get_by_id(firmid)
-        if( not firm ):
+        if not firm:
             self.error(404)
         else:
+            firm.delete_all_children()
             firm.key.delete()
-
-

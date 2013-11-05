@@ -10,12 +10,25 @@ class Firm(ndb.Model):
     about_e = ndb.StringProperty()
     about_h = ndb.StringProperty()
 
-    def to_dict(self, lang, include=None, exclude=None, size=None):
+    def to_dict(self, lang='h', include=None, exclude=None):
         d = super(Firm, self).to_dict(include=include, exclude=exclude)
         d['name'] = loc(self, 'name', lang)
         d['about'] = loc(self, 'about', lang)
         return d
         pass
+
+    def delete_all_children(self):
+        ndb.delete_multi(ndb.Query(ancestor=self.key).iter(keys_only = True))
+
+class Classification(ndb.Model):
+    name_e = ndb.StringProperty()
+    name_h = ndb.StringProperty()
+
+    def to_dict(self, lang, include=None, exclude=None):
+        d = super(Classification, self).to_dict(include=include, explode=exclude)
+        d['id'] = self.key.id()
+        d['name'] = loc(self, 'name', lang)
+
 
 class Project(ndb.Model):
     """Project

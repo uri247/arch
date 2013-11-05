@@ -1,52 +1,61 @@
 import json
 import sys
 import os
+from unittest.test.test_result import __init__
 import requests
 
 from data import firmid, firm_data
-from xldata import read_xl, small_folder, large_folder, small_suffix, large_suffix, xl_file, image_dir
+from xldata import XlData
 
-#base_url is either local or remote:
-if len(sys.argv) == 1 or sys.argv[1] == 'local':
-    base_url = 'http://localhost:8080'
-elif sys.argv[1] == 'remote':
-    base_url = 'http://www.frl-arch.com'
-else:
-    print 'sys.argv[0] [local|remote]'
-    exit()
-    
 
-projects_data = read_xl(xl_file)
+small_folder = '180x124'
+large_folder = '738x514'
+small_suffix = '_180x124'
+large_suffix = '_738x514'
+xl_file = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'summary.xlsx' )
+image_dir = os.path.join( os.path.expanduser('~'), 'dropbox', 'frl-arch', 'webres' )
+
 proxies = None
+xldata = None
+urls = None
 
-#URL methods
-def firm_url(firmid):
-    return '%s/api/firm/%s' % (base_url, firmid)
+class Urls(object):
+    def __init__(self):
+        if len(sys.argv) == 1 or sys.argv[1] == 'local':
+            self.base_url = 'http://localhost:8080'
+        elif sys.argv[1] == 'remote':
+            self.base_url = 'http://www.frl-arch.com'
+        else:
+            print 'sys.argv[0] [local|remote]'
+            exit()
 
-def project_url(firmid,projid):
-    return '%s/api/project/%s/%s' % (base_url, firmid, projid) 
+    def firm_url(self, firmid):
+        return '%s/api/firm/%s' % (self.base_url, firmid)
 
-def getupurl_url(firmid,projid):
-    return '%s/api/get-upload-url/%s/%s' % (base_url, firmid, projid)
+    def project_url(self, firmid, projid):
+        return '%s/api/project/%s/%s' % (self.base_url, firmid, projid)
+
+    def getupurl_url(self, firmid, projid):
+        return '%s/api/get-upload-url/%s/%s' % (self.base_url, firmid, projid)
 
 
 def delete_firm():
-    requests.delete( firm_url(firmid), proxies = proxies )
+    requests.delete( urls.firm_url(firmid), proxies = proxies )
 
 def populate_firm():
-    r = requests.post( firm_url(firmid), json.dumps(firm_data), proxies = proxies )
+    r = requests.post( urls.firm_url(firmid), json.dumps(firm_data), proxies = proxies )
     print 'status %d setting firm' % r.status_code
         
 def populate_projects():
-    for projid in projects_data:
-        p = projects_data[projid]
-        r = requests.post( project_url(firmid, projid), json.dumps(p['data']), proxies=proxies )
+    for projid, proj in xldata.projects.iteritems():
+        r = requests.post( urls.project_url(firmid, projid), json.dumps(proj['data']), proxies=proxies )
         print 'status %d setting project %s' % (r.status_code, projid)
-        populate_images(p)
+        if r.status_code == 200:
+            populate_images(proj)
     
 def populate_images(proj):
     for img_name in proj['images']:
-        r = requests.get( getupurl_url(firmid, proj['id']), proxies=proxies )
+        r = requests.get( urls.getupurl_url(firmid, proj['id']), proxies=proxies )
         upurl = r.json()['url']
         small_img_name = os.path.join( image_dir, proj['id'], small_folder, img_name + small_suffix + '.jpg' )
         large_img_name = os.path.join( image_dir, proj['id'], large_folder, img_name + large_suffix + '.jpg' )
@@ -80,6 +89,12 @@ def populate_images(proj):
     pass
 
 def main():
+    global xldata, urls
+
+    xldata = XlData(xl_file, small_folder, large_folder, small_suffix, large_suffix)
+    xldata.read()
+    urls = Urls()
+
     delete_firm()
     populate_firm()
     populate_projects()

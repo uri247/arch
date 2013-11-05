@@ -4,17 +4,32 @@ import glob
 import xlrd
 import re
 
+
+class Field:
+    def __init__(self, name, tp=unicode, default=None):
+        self.name = name
+        self.tp = tp
+        if default is not None:
+            self.default = default
+        elif tp == unicode:
+            self.default = ''
+        elif tp == int:
+            self.default = 0
+        else:
+            raise Exception
+
+        self.default = default
+
+
 project_fields = [
-    ('title_e', unicode, ''), ('title_h', unicode, ''), ('address_e', unicode, ''), ('address_h', unicode, ''),
-    ('year', int, 1900), ('classification', unicode, ''), ('classification2', unicode, ''),
-    ('plot_area', int, 0), ('built_area', int, 0), ('units', unicode, ''), ('status', unicode, ''),
-    ('description_e', unicode, ''), ('description_h', unicode, ''), ('client_id', unicode, ''),
-    ('front_picture_id', unicode, '')
+    Field('title_e'), Field('title_h'), Field('address_e'), Field('address_h'),
+    Field('year', int, 1900), Field('classification'), Field('classification2'),
+    Field('plot_area', int), Field('built_area', int), Field('units'), Field('status'),
+    Field('description_e'), Field('description_h'), Field('client_id'),
+    Field('front_picture_id', unicode, '')
 ]
-
-client_fields = [ ('name_e', unicode, ''), ('name_h', unicode, '')]
-
-classification_fields = [ ('name_e', unicode, ''), ('name_h', unicode, '')]
+client_fields = [ Field('name_e'), Field('name_h')]
+classification_fields = [ Field('name_e'), Field('name_h')]
 
 
 class XlData(object):
@@ -41,41 +56,37 @@ class XlData(object):
             sheet = self._book.sheet_by_name(sheet_name)
             assert sheet.cell(0, 0).value == 'ID'
             assert sheet.cell(0, 1).value == 'ready'
-            for ndx, fld in enumerate(fields):
-                assert sheet.cell(0, ndx + 2).value == fld[0]
+            for ndx, field in enumerate(fields):
+                assert sheet.cell(0, ndx + 2).value == field.name
 
     def read_data_from_sheet(self, sheet_name, fields, fn = None ):
         sheet = self._book.sheet_by_name(sheet_name)
-        data = dict()
+        items = dict()
         for row in xrange(1, sheet.nrows):
             if sheet.cell(row, 1).value == 'yes':
-                datum = dict()
-                datum['id'] = sheet.cell(row, 0).value
+                item = {
+                    'id': sheet.cell(row, 0).value,
+                    'data': dict()
+                }
                 for index, field in enumerate( fields ):
-                    value = sheet.cell( row, index + 2 ).value
-                    if value:
-                        datum[field[0]] = field[1](value)
-                    else:
-                        datum[field[0]] = field[2]
+                    raw_value = sheet.cell( row, index + 2 ).value
+                    item['data'][field.name] = field.tp(raw_value) if raw_value else field.default
                 if fn:
-                    datum = fn( datum )
-                data[datum['id']] = datum
+                    fn( item )
+                items[item['id']] = item
 
-        return data
+        return items
 
     def get_images_for_project(self, projid):
         pattern = os.path.join( self._folder, projid, self._small_folder, '*.jpg')
         images = [self._rx.match(os.path.basename(p)).group(1) for p in glob.glob(pattern)]
         return images
 
-    def project_callback(self, proj_data):
-        proj = dict()
-        proj['id'] = proj_data['id']
-        proj['data'] = proj_data
-        proj['images'] = self.get_images_for_project(proj_data['id'])
-        if proj_data['front_picture_id'] == '':
+    def project_callback(self, proj):
+        proj['images'] = self.get_images_for_project(proj['id'])
+        if proj['data']['front_picture_id'] == '':
             if len(proj['images']) > 0:
-                proj_data['front_picture_id'] = proj['images'][0]
+                proj['data']['front_picture_id'] = proj['images'][0]
         return proj
 
     def read(self):
