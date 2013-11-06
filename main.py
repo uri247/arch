@@ -53,6 +53,7 @@ application = webapp.WSGIApplication(
         ('/api/classification/(.*)/(.*)', admin.ClassificationApi ),
         ('/api/project/(.*)/(.*)', admin.ProjectApi),
         ('/api/get-upload-url/(.*)/(.*)', admin.GetUploadUrlApi),
+        ('/api/process/(.*)/(.*)', admin.ProcessApi),
     ],
     debug=True
 )
