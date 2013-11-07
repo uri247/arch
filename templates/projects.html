@@ -44,10 +44,8 @@
 
 {% block data %}
     <script type="text/javascript">
-        var classifications = { {% for cls in classifications %}
-          {{ cls }}: { en: '{{ classifications[cls][0] }}', he: '{{ classifications[cls][1] }}', p: [] },
-        {% endfor %} };
-        var classifications_order = [ {% for cls in classifications_order %}'{{ cls }}', {% endfor %} ];
+        var classifications = {{ classifications }};
+        var classifications_order = {{ classifications_order }};
     </script>
 {% endblock %}
 

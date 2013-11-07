@@ -1,3 +1,4 @@
+import json
 from google.appengine.ext import ndb
 import model
 import main
@@ -19,8 +20,9 @@ class ProjectsPage(web.RequestHandler):
         classifications = { 'all': clsf_all_projects }
         classifications_order = [ 'all' ]
         for clsf in model.Classification.query(ancestor=firm_key):
-            classifications[ clsf.key.id() ] = ( clsf.name_e, clsf.name_h )
+            classifications[ clsf.key.id() ] = { 'en': clsf.name_e, 'he': clsf.name_h, 'p': [] }
             classifications_order.append( clsf.key.id() )
+
 
         tmpl = main.jinja_env.get_template( 'projects.html' )
         html = tmpl.render({
@@ -31,8 +33,8 @@ class ProjectsPage(web.RequestHandler):
             'curr_menu_item': 'projects',
             'head_hidden': False,
             'projects': projects,
-            'classifications': classifications,
-            'classifications_order': classifications_order,
+            'classifications': json.dumps(classifications),
+            'classifications_order': json.dumps(classifications_order),
         })
         self.html_content()
         self.w( html )

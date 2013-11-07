@@ -32,27 +32,7 @@ top_level_menu_items = [
     ('go-en', u'English')
 ]
 
-clsf_all_projects = ('All Projects', u'כל הפרויקרטים')
-
-classifications = {
-    'all': ('All Projects', u'כל הפרויקרטים'),
-    'UrbanPlan': ('Urban Plan', u'בינוי ערים'),
-    'Rec': ('Recreation and Sport', u'ספורט'),
-    'Residential': ('Residential', u'מגורים'),
-    'Office': ('Office', u'משרדים'),
-    'Need': ('Special Care', u'בתי אבות'),
-    'Medical': ('Medical', u'בתי חולים'),
-    'Mall': ('Mall', u'קניונים'),
-    'Gas': ('Gas Stations', u'תחנות דלק'),
-    'Education': ('Education', u'חינוך'),
-    'Housing': ('Housing', u'בניה רוויה'),
-    'Retail': ('Retail', u'מסחרי'),
-    'Commercial': ('Commercial', u'עסקים'),
-}
-
-classifications_order = [ 'all', 'UrbanPlan', 'Rec', 'Residential', 'Office', 'Need', 'Medical', 'Mall',
-                          'Gas', 'Education', 'Housing', 'Retail', 'Commercial', ]
-
+clsf_all_projects = { 'en': u'All Projects', 'he': u'כל הפרויקרטים', 'p': [] }
 
 
 def get_prop(dic,lang,prop):
