@@ -296,6 +296,18 @@ a:visited {
     font-size: 13px;
 }
 
+.single-bottom-frame-well {
+    position: relative;
+    font-size: 0;
+    z-index: 4;
+}
+
+.single-bottom-frame-img {
+    position: absolute;
+    top: -6px;
+    right: -32px;
+}
+
 
 /* ---------------------------------------- Contact Pane ---------------------------------------- */
 
