@@ -14,7 +14,7 @@ function page_projects()
                 update_filter();
             }
         );
-    }
+    };
 
     function classify(proj, cls ) {
         if( cls && cls != "" ) {
@@ -62,7 +62,7 @@ function page_projects()
         $('.single-well').hide();
         $('.plural-well').empty().show();
         update_filter( );
-    };
+    }
 
     function onProjectClick() {
         $('.plural-well').hide();
@@ -79,11 +79,6 @@ function page_projects()
         );
 
         return false;
-    }
-
-    function add_to_transbox(name, value) {
-        $('.transbox').append( '<div><span class="transbox-name">' + name +
-            '</span><span class="transbox-value">' + value + '</span></div>' );
     }
 
     function update_single(proj) {
