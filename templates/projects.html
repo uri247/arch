@@ -9,8 +9,12 @@
       </div>
 
       <div class="content span">
+
+        <!-- Multiple projects view -->
         <div class="plural-well">
         </div>
+
+        <!-- Single projects view -->
         <div class="single-well">
           <div class="title-line row">
               <div class="single-title span"></div>
@@ -18,6 +22,7 @@
               <div class="arrow-right ospan"></div>
               <div class="arrow-up ospan"></div>
           </div>
+
           <div class="single-img">
             <div class="transbox">
               <div class="transbox-item"><span class="transbox-name">כתובת: </span><span class="transbox-value" id="address"></span></div>
@@ -30,14 +35,15 @@
               <div class="transbox-item"><span class="transbox-name">לקוח: </span><span class="transbox-value" id="client"></span></div>
               <div class="transbox-item"><span class="transbox-name">תאור: </span><span class="transbox-value" id="description"></span></div>
             </div>
-
+            <div id="kar-well"></div>
           </div>
-
           <div class="single-bottom-frame-well">
             <img src="/static/shadow-short.png" class="single-bottom-frame-img">
           </div>
-
+          <div id="indicators" class="indicators-well">
         </div>
+
+
       </div>
     </div>
 {% endblock %}
@@ -50,7 +56,7 @@
 {% endblock %}
 
 {% block logic %}
-
+    <script type="text/javascript" src="/libs/bootstrap-2.3.2-rtl/js/bootstrap.js"></script>
     <script type="text/javascript">
 
     $( function() {

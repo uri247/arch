@@ -67,9 +67,13 @@ class Project(ndb.Model):
     def query_firm(cls, firm_key):
         return cls.query( ancestor=firm_key ).order(-cls.year)
 
-    def to_dict(self, include=None, exclude=None):
+    def to_dict(self, lang=None, include=None, exclude=None):
         d = super(Project, self).to_dict(include=include, exclude=exclude)
         d['id'] = self.key.id()
+        if lang:
+            d['address'] = loc(self, 'address', lang)
+            d['description'] = loc(self, 'description', lang)
+            d['title'] = loc(self, 'title', lang)
         return d
         pass
 

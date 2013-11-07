@@ -308,6 +308,29 @@ a:visited {
     right: -32px;
 }
 
+.indicators-well {
+    direction: ltr;
+    float: left;
+}
+
+.indicators-well div {
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    width: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 4px;
+    background-color: #58585a;
+    color: white;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.indicators-well div.active {
+    background-color: #fecc00;
+    color: #58585a;
+}
 
 /* ---------------------------------------- Contact Pane ---------------------------------------- */
 

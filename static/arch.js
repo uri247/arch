@@ -1,7 +1,9 @@
 
 function page_projects()
 {
-    var firmid = location.pathname.match(/\/(.*?)\//)[1];
+    rx = location.pathname.match(/\/(.*?)\//);
+    var firmid = rx[1];
+    var lang = rx[2]
     var projects;
     var current_classification = 'all';
 
@@ -66,7 +68,6 @@ function page_projects()
 
     function onProjectClick() {
         $('.plural-well').hide();
-        $('.single-img').css('background-image', 'none');
         $('.transbox-value').empty();
         $('.single-title').empty();
         $('.single-well').show();
@@ -82,7 +83,7 @@ function page_projects()
     }
 
     function update_single(proj) {
-        $('.single-img').css( 'background-image', 'url(' + proj.images[0].large_url + ')' );
+        //$('.single-img').css( 'background-image', 'url(' + proj.images[0].large_url + ')' );
         $('.single-title').text( proj.title_h );
         $('#address').text( proj.address_h );
         $('#classification').text( proj.classification);
@@ -93,5 +94,57 @@ function page_projects()
         $('status').text( proj.status );
         $('client').text( proj.client_id );
         $('description').text( proj.description_h );
+        build_carousel( proj )
     }
+
+
+    function build_carousel(proj) {
+
+        //$('.carousel').carousel('pause');
+
+        // prepare the carousel well
+        var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
+        for (var i = 0; i < proj.images.length; ++i) {
+            innerHTML += '<div class="item"><img src="' + proj.images[i].large_url + '" /></div>';
+        }
+        innerHTML += '</div>';
+        innerHTML += '</div>';
+        $('#kar-well').html(innerHTML);
+
+        // prepare the indicators well
+        innerHTML = '';
+        for (var i = 0; i < proj.images.length; ++i) {
+            innerHTML += '<div data-to="' + i.toString() + '"><span>' + (i + 1).toString() + '</a></div>';
+        }
+        $('#indicators').html(innerHTML);
+
+        $('#karusela.item:first').addClass('active');
+        $('#indicators div:first').addClass('active');
+
+        $('#indicators div').click(function (q) {
+          q.preventDefault();
+          var clicked = $(this).data('to');
+          $('#karusela').carousel(clicked);
+        });
+
+        $('#karusela').carousel({ interval: 5000 });
+
+        $('.carousel').on('slide', function onSlide(evt) {
+          $('#indicators div').removeClass('active');
+        });
+
+        $('.carousel').on('slid', function onSlid(evt) {
+            var $k = $(evt.currentTarget);
+            var $active = $k.find('.active');
+            var $items = $active.parent().children();
+            var index = $items.index($active);
+
+            var $indicators = $('#indicators div');
+            var ind_index = index;
+            $($indicators[ind_index]).addClass('active');
+        });
+
+      }
+
+
 }

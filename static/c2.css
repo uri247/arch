@@ -28,7 +28,6 @@
     position: relative;
     display: none;
     transition: 0.6s ease-in-out left;
-    height: 460px;
 }
 
 .carousel-inner > .active,
