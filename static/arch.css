@@ -204,7 +204,7 @@ a:visited {
 
 .content {
     margin-top: 10px;
-    width: 744px;
+    width: 738px;
 }
 
 .cat-img-well {
@@ -215,6 +215,9 @@ a:visited {
     margin-bottom: 6px;
 }
 
+.cat-img-well-eol {
+    margin-left: 0px;
+}
 .cat-img {
     display: block;
     margin-right: auto;

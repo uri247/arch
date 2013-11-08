@@ -55,6 +55,7 @@ function page_projects()
                 '</div>\n');
             $('.plural-well').append($projElem);
         });
+        $('.cat-img-well').filter(':nth-child(4n)').addClass('cat-img-well-eol');
         $('.cat-img-well a').click( onProjectClick );
     }
 
@@ -100,7 +101,7 @@ function page_projects()
 
     function build_carousel(proj) {
 
-        //$('.carousel').carousel('pause');
+        $('.carousel').carousel('pause');
 
         // prepare the carousel well
         var innerHTML = '<div id="karusela" class="carousel slide"><div class="carousel-inner">';
@@ -118,7 +119,7 @@ function page_projects()
         }
         $('#indicators').html(innerHTML);
 
-        $('#karusela.item:first').addClass('active');
+        $('#karusela .item:first').addClass('active');
         $('#indicators div:first').addClass('active');
 
         $('#indicators div').click(function (q) {
