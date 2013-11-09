@@ -81,6 +81,7 @@ function page_projects()
         $('.plural-well').hide();
         $('.transbox-value').empty();
         $('.single-title').empty();
+        $('#kar-well').empty();
         $('.single-well').show();
         $.getJSON(
             '/api/project/' + firmid + '/' + projid,
