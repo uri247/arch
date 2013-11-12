@@ -1,7 +1,7 @@
 import json
 from google.appengine.ext import ndb
 import model
-import main
+import globals
 import web
 
 class ProjectPage(web.RequestHandler):

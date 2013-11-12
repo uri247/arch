@@ -1,5 +1,5 @@
 import model
-import main
+import globals
 import web
 import json
 

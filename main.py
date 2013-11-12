@@ -1,5 +1,3 @@
-import jinja2
-import os
 from google.appengine.ext import webapp
 import admin
 import home
@@ -7,9 +5,6 @@ import about
 import contact
 import projects
 import testpage
-
-static_dir = os.path.join( os.path.dirname(__file__), 'templates' )
-jinja_env = jinja2.Environment( loader=jinja2.FileSystemLoader( static_dir ) )
 
 
 class MainPage(webapp.RequestHandler):
