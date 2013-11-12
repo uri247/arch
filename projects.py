@@ -1,7 +1,7 @@
 import json
 from google.appengine.ext import ndb
+from globals import jinja_env
 import model
-import main
 import web
 from literals import top_level_menu_items, clsf_all_projects
 
@@ -24,7 +24,7 @@ class ProjectsPage(web.RequestHandler):
             classifications_order.append( clsf.key.id() )
 
 
-        tmpl = main.jinja_env.get_template( 'projects.html' )
+        tmpl = jinja_env.get_template( 'projects.html' )
         html = tmpl.render({
             'lang': lang,
             'firmid': firmid,

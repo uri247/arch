@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
+from globals import jinja_env
 import model
-import main
 import web
 from literals import top_level_menu_items
 
@@ -14,7 +14,7 @@ class HomePage(web.RequestHandler):
             self.error(500)
             return
 
-        tmpl = main.jinja_env.get_template( 'home.html' )
+        tmpl = jinja_env.get_template( 'home.html' )
         html = tmpl.render({
             'firmid': firmid,
             'lang': lang,

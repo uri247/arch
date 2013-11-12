@@ -6,7 +6,6 @@ import contact
 import projects
 import testpage
 
-
 class MainPage(webapp.RequestHandler):
     def get(self):
         self.redirect( '/frl/h/home' )

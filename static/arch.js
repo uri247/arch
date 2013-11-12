@@ -3,9 +3,14 @@ function page_projects()
 {
     var firmid;
     var lang;
-    var projects;
     var current_classification;
     var current_project;
+    var projects_details;
+
+
+    function projectsDetails( payload ) {
+        projects_details = payload;
+    }
 
     this.main = function main() {
         // global variables from URL
@@ -13,15 +18,20 @@ function page_projects()
         firmid = rx[1];
         lang = rx[2];
 
-        // get list of projects.
-        $.getJSON( '/api/project/' + firmid + '/',
-            function onProjectsJson(projs) {
-                projects = projs;
+
+        var $script= $('<script>');
+        $.ajax({
+            url: '/api/process/' + firmid + '/get_hier',
+            dataType: 'jsonp',
+            cache: true,
+            success: function(payload) {
+                projects_details = payload;
                 current_classification = 'all';
                 update_projects();
                 update_filter();
             }
-        );
+        });
+
     };
 
     function classify(proj, cls ) {
@@ -34,11 +44,12 @@ function page_projects()
         /* Build the classifications global. This is a map that group all projects to
         the appropriate class (Office, Residential, etc.).
         */
-        projects.forEach(function (proj) {
-          classify(proj, proj.classification);
-          classify(proj, proj.classification2);
-          classify(proj, 'all');
-        });
+        for( var projid in projects_details ) {
+            var proj = projects_details[projid];
+            classify(proj, proj.classification);
+            classify(proj, proj.classification2);
+            classify(proj, 'all');
+        }
         classifications_order.forEach(function (cls_ndx) {
             var cls = classifications[ cls_ndx ];
             var $elem = $('<div class="nav-menu-item" data-classification="' + cls_ndx + '">' + cls.he + '</div>');
@@ -83,12 +94,7 @@ function page_projects()
         $('.single-title').empty();
         $('#kar-well').empty();
         $('.single-well').show();
-        $.getJSON(
-            '/api/project/' + firmid + '/' + projid,
-            function (proj) {
-                update_single(proj);
-            }
-        );
+        update_single( projects_details[projid]);
 
         return false;
     }

@@ -73,12 +73,14 @@ class ProcessApi(web.RequestHandler):
             self.w( json.dumps("ok") )
 
         if process == 'get_hier':
+            self.w(self.request.get('callback') + '(')
             fname = '/gs/frl-arch/' + firmid + '/json/proj-detailed.json'
             with files.open(fname, 'r') as f:
                 data = f.read(60 * 1000)
                 while data:
                     self.w( data )
                     data = f.read(60 * 1000)
+            self.w(');')
 
         elif process == 'mail':
             mail.send_mail( sender = 'Uri London <uri@finrav.co.il>',
