@@ -40,6 +40,8 @@ class Urls(object):
     def getupurl_url(self, firmid, projid):
         return '%s/api/get-upload-url/%s/%s' % (self.base_url, firmid, projid)
 
+    def process_hier_url(self, firmid):
+        return '%s/api/process/%s/%s' % (self.base_url, firmid)
 
 def delete_firm():
     requests.delete( urls.firm_url(xldata.firm['id']), proxies = proxies )
@@ -95,6 +97,11 @@ def populate_images(proj):
         pass
     pass
 
+
+def post_populate_process():
+    firmid = xldata.firm['id']
+    requests.delete( urls.process_hier_url(firmid), proxies = proxies )
+
 def main():
     global xldata, urls
 
@@ -106,6 +113,7 @@ def main():
     populate_firm()
     populate_classifications()
     populate_projects()
+    post_populate_process()
 
 
 if __name__ == '__main__':
