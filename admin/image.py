@@ -1,4 +1,5 @@
 import json
+import globals
 
 from google.appengine.ext import blobstore
 from google.appengine.ext import ndb
@@ -36,7 +37,7 @@ class UploadImagesPage(web.RequestHandler):
         self.html_content()
         upload_url = create_upload_url(firmid, projid)
         tmpl_name = 'admin/image.html'
-        html = main.jinja_env.get_template(tmpl_name).render({
+        html = globals.jinja_env.get_template(tmpl_name).render({
             'firm': firm.to_dict(),
             'proj': proj,
             'firmid': firmid,
@@ -77,7 +78,7 @@ class ImageForm(blobstore_handlers.BlobstoreUploadHandler):
         pass
 
         self.response.headers['Content-Type'] = 'text/html'
-        html = main.jinja_env.get_template('admin/image_status.html').render({
+        html = globals.jinja_env.get_template('admin/image_status.html').render({
             'firmid': firmid,
             'projid': projid,
             'imgid': 'short_name',
@@ -105,7 +106,7 @@ class ImagePage(web.RequestHandler):
         tmpl_name = 'admin/image_data.html'
 
         self.html_content()
-        self.w(main.jinja_env.get_template(tmpl_name).render({
+        self.w(globals.jinja_env.get_template(tmpl_name).render({
             'firm': firm.to_dict(),
             'firmid': firmid,
             'projid': projid,
